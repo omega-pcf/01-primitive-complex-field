@@ -1,0 +1,79 @@
+\section{Introducción}
+
+\subsection{La Conjetura de Hilbert-Pólya y el Isomorfismo de Montgomery-Dyson-Odlyzko}
+
+Las conjeturas atribuidas a Hilbert y Pólya\sidenote{\cite{Polya1926}} postularon a principios del siglo XX que la Hipótesis de Riemann podría abordarse mediante traducción entre dominios, utilizando los autovalores de un operador hermítico para atacar un problema de teoría de números. Esta conjetura permaneció como especulación teórica hasta que Montgomery identificó que las correlaciones de pares entre ceros consecutivos seguían una distribución específica\sidenote{\cite{Montgomery1973}}. Dyson reconoció esta función como idéntica a la del Gaussian Unitary Ensemble (GUE) de matrices hermíticas aleatorias\sidenote{\cite{Dyson1962}}, estableciendo una conexión inesperada entre teoría analítica de números y física estadística. Odlyzko verificó computacionalmente esta correspondencia mediante el cálculo de más de $10^{13}$ ceros con precisión sin precedentes\sidenote{\cite{Odlyzko1987}}, mientras que trabajos posteriores extendieron estas verificaciones y exploraron sus implicaciones teóricas\sidenote{\cite{Odlyzko1989}}.
+
+El isomorfismo estadístico establece que las funciones de correlación de pares de ceros sucesivos $\{t_n\}$ en la línea crítica $\text{Re}(s) = 1/2$ satisfacen:
+\[
+R_2(s) = 1 - \left[\frac{\sin({\pi s})}{{\pi s}}\right]^2 % chktex 3
+\]
+idéntica a la distribución de eigenvalores en GUE\@. Sin embargo, este resultado, aunque proporciona información estadística sobre el conjunto de ceros, no establece correspondencias determinísticas para ceros individuales.
+
+\subsection{Obstáculos Históricos y Limitaciones Estructurales}\label{sec:obstaculos}
+
+Pese a la validación empírica del isomorfismo Montgomery-Dyson-Odlyzko, consideramos que la construcción explícita del operador Hilbert-Pólya ha enfrentado dos obstáculos fundamentales que han persistido a través de décadas de intentos\@.
+
+\textbf{Obstáculo I: Autorreferencia}% chktex 13
+
+Diversos intentos exhiben una estructura circular característica. Se parte del conocimiento del espectro deseado:
+\[
+\text{spec}(H) = \{t_n : \zeta(1/2+it_n)=0\}
+\]
+se utiliza esta información para construir el operador $H$, luego se diagonaliza $H$ para obtener sus eigenvalores, y finalmente se verifica que estos eigenvalores coinciden con $\text{spec}(H)$ original. Este ciclo presupone conocimiento \textit{a priori} de aquello que pretende descubrir.
+
+La geometría no conmutativa de Connes\sidenote{\cite{Connes2000}} requiere información \textit{a priori} sobre los ceros para definir el espacio de fases donde el operador actuaría. El operador $H = xp$ de Berry-Keating\sidenote{\cite{BerryKeating1999}} necesita regularización espectro-dependiente. Las simetrías PT de Bender-Brody-Müller\sidenote{\cite{BenderBrodyMuller2002}} requieren ajustar parámetros mediante conocimiento previo del espectro buscado. Los trabajos recientes de Yakaboylu\sidenote{\cite{Yakaboylu2022,Yakaboylu2024}} continúan limitados por condiciones de confinamiento o de frontera que presuponen información sobre los ceros\@.
+
+\textbf{Obstáculo II: Degradación Asintótica}% chktex 13
+
+Aun cuando se evite la autorreferencia directa, otros operadores propuestos exhiben limitaciones predictivas sistemáticas. Los métodos basados en aproximaciones locales predicen con precisión decreciente conforme la altura $t$ aumenta, teniendo como efecto que lo que funciona para los primeros ceros, falla para $n > 10^6$. Las periodicidades artificiales emergen en construcciones que no capturan la estructura cuasi-periódica genuina de $\zeta(s)$. Esta degradación asintótica sugiere que las aproximaciones no acceden a la geometría fundamental subyacente.
+
+Entre las aproximaciones más significativas que implican períodos se encuentran las de Vinogradov\sidenote{\cite{Vinogradov1958}} en 1958 que, paralela y simultáneamente que Korobov\sidenote{\cite{Korobov1958}} (bajo ideas previas de Vinogradov), estableció regiones libres de ceros que restringen dónde pueden estar los ceros no triviales:
+\[
+\zeta(\sigma + it) \neq 0 \quad \text{para} \quad \sigma \geq 1 - \frac{C}{(\log{|t|})^{2/3}(\log\log{|t|})^{1/3}} % chktex 3
+\]
+
+Esta restricción implica que cualquier operador propuesto debe predecir ceros sólo en la región permitida. Los métodos que predicen con precisión decreciente para $t$, violan implícitamente estas cotas\@.
+
+\subsection{Traducción entre Dominios: Perspectiva Histórica}% chktex 13
+
+Pese a los obstáculos del programa Hilbert-Pólya, la traducción entre dominios ha persistido como aproximación fértil. Manin\sidenote{\cite{Manin2013}}, en su artículo \textit{Numbers as Functions}, compila las principales líneas convergentes, revelando una arquitectura común: estructuras locales (p-ádico, $\mathbb{F}_1$, ciclos) que ascienden a propiedades globales mediante invariantes preservadas:
+
+Buium\sidenote{\cite{Buium1995}} construyó ecuaciones diferenciales p-ádicas mediante el cociente de Fermat $\delta_p(a) = (a^p - a)/p$, extendiendo la analogía clásica entre números y funciones a espacios jet aritméticos. Los representantes de Teichmüller (raíces $p$-ésimas de unidad) juegan el rol de constantes que, en ausencia de uniformización, complican la teoría más allá del caso clásico.
+
+Borger\sidenote{\cite{Borger2009}} estableció que las lambda-estructuras---codificando sistemas coherentes de levantamientos de Frobenius---son datos de descenso sobre el campo con un elemento $\mathbb{F}_1$. Tanto la construcción p-ádica de Buium como el enfoque de Borger enfrentan un obstáculo estructural común: la asimetría del primo arquimediano impide traducción completa entre la geometría finita y la infinita.
+
+Kontsevich-Zagier\sidenote{\cite{Kontsevich2001}} definieron el anillo de períodos $P \subset \mathbb{C}$ como valores de integrales $\int_\gamma \omega$ con datos algebraicos sobre $\mathbb{Q}$, estableciendo cómo estructuras topológicas (ciclos geométricos) se traducen a objetos analíticos (integrales) que a su vez satisfacen ecuaciones algebraicas (ecuaciones de Picard-Fuchs). Esta traducción tripartita permite que propiedades geométricas se expresen analíticamente y luego se codifiquen algebraicamente. Aunque incluye $\pi$, $\log(2)$ y valores zeta múltiples, permanece abierto---contra intuición inicial---si $1/\pi$, $e$ o la constante de Euler $\gamma$ son períodos, ni siquiera períodos exponenciales.
+
+Complementando la compilación de Manin, la correspondencia estadística establecida por Montgomery y Dyson---espaciamientos entre ceros de $\zeta(s)$ siguen distribución GUE de matrices aleatorias---y verificada computacionalmente por Odlyzko hasta $10^{13}$ ceros (véase §\ref{sec:obstaculos}), establece una traducción entre teoría de números y física cuántica mediante operadores hermíticos. El obstáculo central permanecía irresoluto: ningún operador hermítico explícito había sido construido, dejando la conjetura de Hilbert-Pólya como principio heurístico más que construcción matemática.
+
+\subsection{Simetrías y Dualidades como Diccionarios Universales}\label{subsec:simetrias-dualidades}
+
+El análisis de estas aproximaciones revela, más allá de un tipo de matemática específica, simetrías y dualidades como fundamento común. Este principio ha demostrado éxito en múltiples contextos matemáticos y físicos, más allá de la Hipótesis de Riemann.
+
+Múltiples construcciones matemáticas y físicas ejemplifican este principio. La transformada de Fourier establece correspondencia entre espacio de posición y espacio de momento, preservando la norma $L^2(\mathbb{R})$: $\|f\|_2 = \|\hat{f}\|_2$. La dualidad AdS/CFT\sidenote{\cite{Maldacena1998}} constituye una equivalencia completa entre teoría de gravedad en $d+1$ dimensiones y teoría de campos conforme en $d$ dimensiones, preservando funciones de partición $Z_{\text{CFT}}[J] = Z_{\text{gravity}}[\varphi_0=J]$. Esta dualidad fuerte-débil permite traducir problemas intratables en un dominio a problemas tratables en el otro.
+
+En el contexto del \textit{bootstrap} modular escalar, Benjamin y Chang\sidenote{\cite{Benjamin2022}} demostraron que ecuaciones de cruce en CFT 2D contienen información sobre todos los ceros de $\zeta(s)$, reformulando la Hipótesis de Riemann como afirmación sobre densidad de operadores. Desde una perspectiva unificadora, Baez y Stay\sidenote{\cite{Baez2009}} mostraron que física cuántica, topología, lógica y computación comparten estructura de categorías monoidales simétricas cerradas, permitiendo traducción entre dominios mediante funtores naturales.
+
+\textbf{Evitando Auto-Referencia}
+
+Yanofsky\sidenote{\cite{Yanofsky2003}}, siguiendo a Lawvere\sidenote{\cite{Lawvere1969}}, formalizó que paradojas auto-referenciales emergen de argumentos diagonales donde sistemas intentan describir sus propias propiedades. Las traducciones exitosas evitan esto mediante distribución de información entre múltiples dominios con invariantes preservados. La estructura circular $D_1 \to D_2 \to D_1$ genera auto-referencia, mientras que coherencia multi-dominio $D_1 \leftrightarrow D_2 \leftrightarrow D_3 \leftrightarrow D_4$ establece determinación mutua sin ciclos directos. En síntesis, §\ref{subsec:simetrias-dualidades} establece que traducciones exitosas entre dominios evitan autorreferencia mediante distribución de información entre múltiples dominios con invariantes preservados.
+
+\subsection{Fundamento y Alcance del Presente Trabajo}
+
+En lugar de construir un operador especificando el espectro de ceros de zeta---ciclo $H \mapsto \text{spec}(H) \mapsto H$---reinterpretamos el plano complejo como espacio modular $M_{\text{PCF}} = \mathbb{C}/\Lambda_{\text{PCF}} \cong T^2$ con lattice $\Lambda_{\text{PCF}}$ determinado por periodicidades geométricas. Esta reinterpretación reduce información infinita a datos finitos aglutinados mediante coherencia estructural\sidenote{La identificación $z \sim z + \lambda$ para $\lambda \in \Lambda_{\text{PCF}}$ forma clases $[z] \in \mathbb{C}/\Lambda_{\text{PCF}}$. La coherencia estructural preserva invariantes (módulo $|z|$, fase $\arg(z)$, estructura algebraica) que reconstruyen propiedades globales desde datos locales finitos, siguiendo el principio donde representaciones equivalentes privilegian aspectos particulares (\cite{Manin2013})---principio formalizado en §\ref{prop:equivalencia-definiciones}.\label{note:aglutinacion-modular}}, evitando el problema de auto-referencia descrito en §\ref{sec:obstaculos} donde $H$ requiere conocer $\text{spec}(H)$ \textit{a priori}.
+
+Integramos los axiomas de $\mathbb{C}$ con principios de autoconsistencia---formalizados en \textit{bootstrap} conforme por Guillarmou \textit{et al.}\sidenote{\cite{Guillarmou2020}} y en \textit{bootstrap} modular por Benjamin-Chang (véase §\ref{subsec:simetrias-dualidades})---mediante coherencia multi-dominio $D_1 \leftrightarrow D_2 \leftrightarrow D_3 \leftrightarrow D_4$ donde la información se distribuye entre múltiples dominios que se determinan mutuamente sin autoobservación directa. Siguiendo el análisis de Yanofsky sobre ciclos prohibidos (véase §\ref{subsec:simetrias-dualidades}), el operador emerge de propiedades geométricas determinadas por la estructura de $\mathbb{C}$ mismo mediante kernel modular $K(z,w)$, no de especificación de un Hamiltoniano microscópico. La emergencia hermítica en espacios adjuntos es consecuencia de esta construcción fundamental, no su punto de partida.
+
+\subsection{Verificación Computacional}
+
+Esta construcción exhibe dos observables clave. Una correspondencia aritmética mediante isomorfismo logarítmico vincula $\sigma \to p_\sigma \to M_p = 2^{p_\sigma}-1$, verificada en 51 primos de Mersenne desde $M_2 = 3$ hasta $M_{82589933}$ con 24.9 millones de dígitos. Por otra parte, se proporciona predicción analítica de ceros de $\zeta(s)$ y análogamente de otras L-funciones. La verificación alcanza precisión de máquina (véase \ref{def:precision-computacional}) para $n \sim 10^{10}$ (altura $t \sim 10^{23}$).
+
+El operador no requiere conocer estos ceros para su construcción y su espectro exhibe correlación con ellos \textit{a posteriori}.
+
+\subsection{Estructura del Presente Trabajo}
+
+Este documento desarrolla la construcción completa del operador $\omegapcf$ y verifica sus propiedades estructurales y numéricas. \autoref{sec:plano-complejo-modulos}\ introduce el plano complejo como espacio de módulos, incluyendo espacios paramétricos adjuntos (\autoref{subsec:espacios-adjuntos}\ ). \autoref{sec:operador-PCF}\ desarrolla el operador $\omegapcf$ mediante construcción axiomática (\autoref{subsec:axiomas}\ ), construcción desde el módulo con ecuaciones de acoplamiento (\autoref{subsec:construccion-modulo}\ ), y geometría asociada incluyendo estructura 3D (\autoref{subsec:geometria-3d}\ ), torre de escalas (\autoref{subsec:spacetime-torre}\ ), espacio-tiempo pentadimensional (\autoref{subsec:spacetime-pentadimensional}\ ) y funcionalización en espacio de Hilbert (\autoref{subsec:funcionalizacion}\ ). La necesidad del toro complejo y estructura tensorial se justifica en \autoref{subsec:toro-lattice}.
+
+Las secciones subsecuentes establecen propiedades espectrales y geométricas. \autoref{convergencia}\ analiza convergencia espectral en espacio de Hilbert. \autoref{invariancia}\ demuestra invariancia modular exacta y su relación con el principio de certidumbre. \autoref{hausdorff}\ estudia la dimensión de Hausdorff de la estructura fractal. \autoref{triple}\ establece coherencia triple en espacios inequivalentes. \autoref{mersenne}\ expone correspondencias aritméticas: números de Mersenne, espiral áurea y estructura logarítmica. Apéndice~\ref{app:ttt}\ contiene la tabla completa de verificaciones computacionales.
+

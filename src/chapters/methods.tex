@@ -1,0 +1,2299 @@
+% chktex-file 9 17
+\section{El Plano Complejo como Espacio de Módulos}\label{sec:plano-complejo-modulos}
+
+\subsection{El Módulo: Magnitud Primitiva}
+
+El plano complejo $\mathbb{C}$ ocupa una posición singular en matemáticas: une simultáneamente aritmética (cuerpo algebraico), geometría (espacio euclidiano $\mathbb{R}^2$), analítica (dominio de funciones holomorfas), y topología (variedad compleja). Esta multiplicidad de interpretaciones no es un accidente histórico. Gauss\sidenote{\cite{Gauss1831}} la reconoció pero no la formalizó completamente hasta 1831; Riemann la explotó para crear geometría compleja (véase más abajo); Weierstrass\sidenote{\cite{Weierstrass1876}} la sistematizó mediante teoría de funciones y series de potencias. La unificación es posible porque $\mathbb{C}$ posee una magnitud primitiva, el módulo $|z| := \sqrt{x^2+y^2}$, que determina simultáneamente distancia geométrica, norma algebraica, valor absoluto analítico, y métrica topológica.
+
+Riemann introdujo ''\textit{Modul}'' en 1857 en \textit{Theorie der Abel'schen Functionen}\sidenote{\cite{Riemann1857}} (Teoría de las funciones abelianas) para designar parámetros caracterizadores de clases de equivalencia de objetos geométricos. Define el espacio de módulos (\textit{Modulraum}) como el espacio cociente que parametriza todas las clases de equivalencia de superficies de Riemann compactas de un género fijado $g$, donde dos superficies son equivalentes si existe entre ellas un isomorfismo conforme (biholomorfismo).
+
+\begin{definition}[Módulo geométrico]\label{def:modulo}
+Para $z = x + iy \in \mathbb{C}$ con $x, y \in \mathbb{R}$:
+\[
+|z| := \sqrt{x^2 + y^2}
+\]
+Geométricamente, dado $z = x + iy$, el módulo $|z|$ es la longitud de la diagonal del paralelogramo formado por los segmentos $(|x|, 0)$ y $(0, |y|)$, obtenida mediante el teorema de Pitágoras.
+\end{definition}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{src/images/image9.png}
+\captionsetup{justification=centering}
+\caption{Representación geométrica del módulo $|z| = \sqrt{x^2 + y^2}$ como hipotenusa de un triángulo rectángulo.}
+\label{fig:modulus_geometric} % chktex 24
+\end{figure}
+
+\begin{proposition}[Invariancia rotacional]\label{prop:invariancia-rotacional}
+$|e^{i\theta} z| = |z|$ para todo $\theta \in \mathbb{R}$.
+\end{proposition}
+
+\subsection{Rotación como Generador del Plano}
+
+La unidad imaginaria $i$ es un operador geométrico rotacional que extiende $\mathbb{R}$ a $\mathbb{C}$ mediante:
+\[
+\mathbb{R} \xrightarrow{\times i} i\mathbb{R} \quad \text{(rotación 90°)}
+\]
+
+\textbf{Periodicidad.} $i^1 = i$, $i^2 = -1$, $i^3 = -i$, $i^4 = 1$ genera:
+\[
+\mathbb{C} = \mathbb{R} \oplus i\mathbb{R} = \{x + iy : x,y \in \mathbb{R}\}
+\]
+con base $\{1, i\}$ y relación $i^2 = -1$.
+
+\begin{proposition}[Dualidad geométrica-algebraica]\label{prop:dualidad-geometrica-algebraica}
+El módulo satisface: $|z|^2 = z \cdot \bar{z} = x^2 + y^2$.
+\end{proposition}
+\par
+Los números imaginarios emergen de $\mathbb{R}$ gracias a $i$. En términos de estructura de espacio vectorial, $\mathbb{C}$ como extensión de $\mathbb{R}$ tiene dimensión 2 sobre $\mathbb{R}$ (con base $\{1, i\}$), mientras que $\mathbb{R}$ como espacio vectorial sobre sí mismo tiene dimensión 1. Geométricamente, esto corresponde a la transición de línea (``1D'') a plano (``2D'').
+
+\pagebreak
+\subsection{Módulo Algebraico y Estructura de Cuerpo}
+
+El término ``modulus'' (latín, ``medida pequeña'' o ``unidad estándar'') designa el módulo de un número complejo $|z|$, que tiene raíces geométricas: representa la distancia al origen. Dicha concepción geométrica fue formalizada por Argand\sidenote{\cite{Argand1806}} y Gauss\sidenote{\cite{Gauss1831}}, estableciendo $\mathbb{C}$ como plano con estructura métrica. La formulación algebraica moderna $|z|^2 = z \cdot \bar{z}$ mediante el producto hermítico emergió posteriormente, unificando las perspectivas geométrica y algebraica bajo dicha noción de medida. La dualidad geométrico-algebraica en $\mathbb{C}$ influyó el desarrollo conceptual del álgebra abstracta del siglo XIX.
+
+La raíz etimológica de ``medida'' conecta desarrollos históricos aparentemente distintos. Riemann (véase arriba) usaba ``moduli'' para parámetros clasificadores de objetos geométricos (superficies de Riemann), mientras que Dedekind\sidenote{\cite{Dedekind1871}} desarrollaba ``módulos'' como estructuras algebraicas sobre anillos. Ambos conceptos comparten dicha base semántica, manifestándose de forma prototípica\sidenote{Del griego \textit{protos} (primero) + \textit{typos} (modelo), conectando con ``primitiva'' (\textit{primitivus}, latín: primero/original) en el título.} en el módulo $|z|$ de números complejos. La formalización moderna del módulo algebraico como conjunto con estructura de grupo abeliano y acción escalar de un anillo fue desarrollada posteriormente, particularmente por Noether\sidenote{\cite{Noether1921}}, unificando estos conceptos dentro del álgebra abstracta.
+
+\begin{definition}[Módulo algebraico]\label{def:modulo-algebraico}
+El módulo se caracteriza algebraicamente mediante el producto hermítico en $\mathbb{C}$. Para $z = x + iy \in \mathbb{C}$ con $x, y \in \mathbb{R}$, el producto hermítico $z \cdot \bar{z}$ define el cuadrado del módulo:
+\[
+|z|^2 = z \cdot \bar{z} = (x+iy)(x-iy) = x^2 + y^2
+\]
+donde $\bar{z} = x - iy$ denota la conjugación compleja. Esta caracterización algebraica establece el módulo como la raíz cuadrada del producto de un número complejo por su conjugado, revelando la estructura multiplicativa del plano complejo donde la conjugación actúa como involución que preserva la estructura de cuerpo mientras determina la norma.
+\end{definition}
+
+\begin{proposition}[Equivalencia y privilegio de perspectiva]\label{prop:equivalencia-definiciones}
+\sidenote{El término ``privilegio'' denota que cada caracterización hace más accesibles ciertas propiedades, no superioridad absoluta. La equivalencia matemática garantiza intercambiabilidad, mientras que la accesibilidad---facilidad con que ciertas propiedades son derivables directamente---varía según la representación. Esta dualidad refleja que $\mathbb{C}$ admite múltiples representaciones (euclidiana, algebraica, polar), principio que conecta perspectiva renacentista con espacios modulares modernos; se discute en detalle en §\ref{discussion} y en \ref{thm:tres-representaciones-C}.}
+El módulo admite dos caracterizaciones equivalentes y complementarias:
+\[
+|z| = \sqrt{x^2 + y^2} = \sqrt{z \cdot \bar{z}}, \quad \forall z = x + iy \in \mathbb{C}.
+\]
+La primera caracteriza la distancia euclidiana; la segunda, el producto hermítico.
+
+Las propiedades del módulo---multiplicatividad $|z_1z_2| = |z_1||z_2|$, desigualdad triangular $|z_1 + z_2| \leq |z_1| + |z_2|$, e invariancia rotacional $|e^{i\theta}z| = |z|$---tienen accesibilidad diferencial según la representación.
+\end{proposition}
+
+Esta accesibilidad diferencial se ilustra mediante ejemplos concretos. La multiplicatividad\sidenote{La multiplicación compleja $(a+bi)(c+di) = (ac-bd) + (ad+bc)i$ sintetiza esta multiplicidad: emerge de $i^2 = -1$ y realiza simultáneamente operaciones en cuatro dominios estructurales (aritmética, geometría, análisis, topología), distinguiendo $\mathbb{C}$ como síntesis única donde cada operación admite interpretaciones equivalentes en los cuatro dominios.} es derivable directamente desde la perspectiva algebraica mediante
+\[
+|z_1z_2|^2 = (z_1z_2)(\overline{z_1z_2}) = z_1\bar{z}_1 \cdot z_2\bar{z}_2 = |z_1|^2|z_2|^2.
+\]
+
+Análogamente, la invariancia rotacional (\ref{prop:invariancia-rotacional}) es manifiesta en la representación geométrica como preservación de distancia bajo rotación.
+
+\subsection{Lattices: Estructura Discreta}
+
+Hasta ahora hemos considerado el módulo $|z|$ como función continua sobre $\mathbb{C}$. Sin embargo, el plano complejo también admite estructuras discretas fundamentales mediante \textit{lattices}---subgrupos discretos que generan periodicidades. Los lattices conectan la métrica continua del módulo con la topología discreta del toro, estableciendo el puente entre geometría local (módulo como distancia) y topología global (espacio cociente como toro).
+
+\begin{definition}[Lattice: periodicidad bidimensional]\label{def:lattice}
+Un lattice $\Lambda \subset \mathbb{C}$ es un subgrupo discreto:
+\[
+\Lambda = \mathbb{Z}\omega_1 \oplus \mathbb{Z}\omega_2 = \{n_1\omega_1 + n_2\omega_2 : n_1, n_2 \in \mathbb{Z}\}
+\]
+donde $\omega_1, \omega_2 \in \mathbb{C}$ son linealmente independientes sobre $\mathbb{R}$ (es decir, $\omega_2/\omega_1 \notin \mathbb{R}$). La discreción implica que cada punto de $\Lambda$ está aislado (existe un entorno que no contiene otros puntos del lattice) y que el espacio cociente $\mathbb{C}/\Lambda$ es compacto, generando estructura toroidal $T^2 \cong S^1 \times S^1$.
+\end{definition}
+
+Ejemplos canónicos ilustran la estructura latticial: el \textit{lattice cuadrado} $\Lambda_\square = \mathbb{Z}[i]$ y el \textit{lattice hexagonal} $\Lambda_\triangle = \mathbb{Z}[\omega]$ (donde $\omega = e^{2\pi i/3}$), revelando cómo la estructura continua $\mathbb{C}$ admite subestructuras periódicas discretas mientras preserva simetrías rotacionales.
+
+\begin{observation}[Lattices de Gauss y Eisenstein]\label{obs:lattice-cuadrado}
+La diferencia geométrica entre ambos lattices canónicos: mientras el lattice de Gauss $\mathbb{Z}[i]$ rota en 4 pasos de 90° ($i^4 = 1$) con generadores $\{1, i\}$ separados 90°, el lattice de Eisenstein $\mathbb{Z}[\omega]$ rota en 6 pasos de 60° ($\omega^6 = 1$), aunque el ángulo entre sus generadores es 120° ($\omega^3 = 1$). Esta distinción entre simetría rotacional discreta y ángulo generador refleja cómo diferentes estructuras algebraicas ($i^2 = -1$ vs $\omega^3 = 1$) generan geometrías distintas en el mismo plano complejo.
+\end{observation}
+
+\begin{definition}[Toro complejo]\label{def:toro}
+Para un lattice $\Lambda \subset \mathbb{C}$, el toro complejo es el espacio cociente:
+\[
+T_\Lambda := \mathbb{C}/\Lambda \cong S^1 \times S^1
+\]
+donde la identificación $z \sim z + \lambda$ para todo $\lambda \in \Lambda$ colapsa las dos direcciones periódicas del lattice en dos círculos independientes. El invariante modular $\tau = \omega_2/\omega_1 \in \mathbb{H}$ (semiplano superior $\mathbb{H} = \{z \in \mathbb{C} : \text{Im}(z) > 0\}$) clasifica la forma del toro: diferentes valores de $\tau$ corresponden a toros no isomorfos, aunque todos tienen topología $T^2$.
+\end{definition}
+
+\subsection{Espacio de Módulos}\label{subsec:espacio-modulos}
+
+Un espacio de módulos parametriza clases de equivalencia de objetos geométricos: diferentes lattices que difieren solo por transformaciones modulares se identifican como el mismo punto. El espacio de módulos de lattices clasifica toros complejos según su forma, donde el invariante modular $\tau$ determina la geometría del toro $T_\tau = \mathbb{C}/\Lambda$.
+
+\begin{definition}[Espacio de módulos de lattices]\label{def:espacio-modulos-lattices}
+El espacio de módulos de lattices es:
+\[
+\mathcal{M}_{\text{lat}} = \mathbb{H}/\text{PSL}(2,\mathbb{Z})
+\]
+donde $\text{PSL}(2,\mathbb{Z})$ (el grupo modular) es el grupo de matrices $2 \times 2$ con coeficientes enteros y determinante $1$, módulo el signo ($\pm 1$). Este grupo actúa sobre $\mathbb{H}$ mediante transformaciones de Möbius:
+\[
+\text{para cada matriz } \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \text{PSL}(2,\mathbb{Z}), \quad \text{la transformación corresponde a } \tau \mapsto \frac{a\tau+b}{c\tau+d}.
+\]
+\end{definition}
+\begin{proposition}[Herencia estructural]\label{prop:herencia-estructural}
+El espacio $\mathcal{M}_{\text{lat}}$ hereda cuatro estructuras de $\mathbb{C}$:
+
+% chktex-file 44
+\begin{table}[bt]
+    \centering
+    \caption{Herencia estructural del espacio $\mathcal{M}_{\text{lat}}$ desde $\mathbb{C}$}
+    \label{tab:herencia-estructural}
+    \begin{tabular}{lll}
+    \toprule
+    Dominio & Estructura & Operación clave \\
+    \midrule
+    Aritmético & Lattice $\Lambda$ es $\mathbb{Z}$-módulo libre rango 2 & Suma de puntos \\
+    Geométrico & Coordenadas polares $\mathbb{C} \cong \mathbb{R}_+ \times S^1$ & Rotación + escalamiento \\
+    Analítico & Funciones holomorfas $f: \mathbb{C} \to \mathbb{C}$ & Diferenciación compleja \\
+    Topológico & Toro $T_\tau = \mathbb{C}/\Lambda \cong S^1 \times S^1$ & Identificación modular \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+% chktex-file 0
+
+Esta herencia simultánea en cuatro dominios caracteriza al plano complejo; su unicidad se establece formalmente en el Teorema~\ref{thm:caracterizacion-unica-C}.
+\end{proposition}
+
+La idea fundamental de parametrizar familias de objetos geométricos mediante relaciones de equivalencia---donde objetos distintos que comparten propiedades estructurales se organizan en clases paramétricas---tiene antecedentes conceptuales que preceden la formalización moderna. Estos precedentes históricos abarcan desde la clasificación de cónicas por Apolonio (\textasciitilde{}200 a.C.), pasando por la caracterización foco-directriz con parámetros de excentricidad de Pappus (\textasciitilde{}320 d.C.), hasta las transformaciones proyectivas de perspectiva de Alberti\sidenote{\cite{Alberti1435}}, la sistematización de proyecciones ortogonales de Monge\sidenote{\cite{Monge1799}} y la formalización de la proyección isométrica de Farish\sidenote{\cite{Farish1822}}. Una genealogía detallada de estos precedentes históricos se discute en §\ref{discussion}. Todos estos desarrollos---clasificaciones por transformaciones geométricas o proyecciones---anticipan la base conceptual de los espacios de módulos modernos.
+
+\subsection{Axiomas del Plano Complejo}\label{subsec:axiomas-plano-complejo}
+
+Formalizamos los axiomas que definen $\mathbb{C}$.
+
+\subsubsection{Axiomas Algebraicos}
+
+\begin{axiom}[Axioma C1: Grupo aditivo]\label{ax:C1}
+$(\mathbb{C}, +)$ es grupo abeliano: para todo $z_1, z_2, z_3 \in \mathbb{C}$,
+\begin{itemize}
+\item Asociatividad: $(z_1 + z_2) + z_3 = z_1 + (z_2 + z_3)$
+\item Conmutatividad: $z_1 + z_2 = z_2 + z_1$
+\item Neutro: existe $0 \in \mathbb{C}$ tal que $z + 0 = z$ para todo $z \in \mathbb{C}$
+\item Inverso: para todo $z \in \mathbb{C}$ existe $-z \in \mathbb{C}$ tal que $z + (-z) = 0$
+\end{itemize}
+La operación suma se define como $(a+bi)+(c+di) = (a+c) + (b+d)i$ para $a,b,c,d \in \mathbb{R}$.
+\end{axiom}
+
+\begin{axiom}[Axioma C2: Grupo multiplicativo]\label{ax:C2}
+$(\mathbb{C}^*, \cdot)$ es grupo abeliano, donde $\mathbb{C}^* = \mathbb{C} \setminus \{0\}$: para todo $z_1, z_2, z_3 \in \mathbb{C}^*$,
+\begin{itemize}
+\item Asociatividad: $(z_1 \cdot z_2) \cdot z_3 = z_1 \cdot (z_2 \cdot z_3)$
+\item Conmutatividad: $z_1 \cdot z_2 = z_2 \cdot z_1$
+\item Neutro: existe $1 \in \mathbb{C}^*$ tal que $z \cdot 1 = z$ para todo $z \in \mathbb{C}^*$
+\item Inverso: para todo $z \in \mathbb{C}^*$ existe $z^{-1} \in \mathbb{C}^*$ tal que $z \cdot z^{-1} = 1$
+\end{itemize}
+La operación producto se define como $(a+bi)(c+di) = (ac-bd) + (ad+bc)i$ para $a,b,c,d \in \mathbb{R}$.
+\end{axiom}
+
+\begin{axiom}[Axioma C3: Distributividad]\label{ax:C3}
+Para todo $z_1, z_2, z_3 \in \mathbb{C}$:
+\[
+z_1(z_2 + z_3) = z_1z_2 + z_1z_3
+\]
+\end{axiom}
+
+\begin{axiom}[Axioma C4: Generación]\label{ax:C4}
+El plano complejo se genera desde $\mathbb{R}$ mediante:
+\[
+\mathbb{C} = \mathbb{R}[i] = \{a + bi : a,b \in \mathbb{R}\}
+\]
+donde $i^2 = -1$.
+\end{axiom}
+
+\subsubsection{Axiomas Geométricos}
+
+\begin{axiom}[Axioma C5: Métrica inducida por el módulo]\label{ax:C5}
+Para $z = x + iy \in \mathbb{C}$ con $x, y \in \mathbb{R}$, el módulo geométrico se define como:
+\[
+|z| := \sqrt{x^2 + y^2}
+\]
+Esta definición induce la métrica $d(z,w) = |z-w|$ para $z, w \in \mathbb{C}$.
+\end{axiom}
+
+\begin{axiom}[Axioma C6: Completitud métrica]\label{ax:C6}
+$(\mathbb{C}, d)$ es un espacio métrico completo: toda sucesión de Cauchy en $\mathbb{C}$ converge.
+\end{axiom}
+
+\subsubsection{Axioma Topológico}
+
+\begin{axiom}[Axioma C7: Cierre algebraico]\label{ax:C7}
+Todo polinomio $p(z) = a_nz^n + a_{n-1}z^{n-1} + \cdots + a_1z + a_0$ con coeficientes $a_i \in \mathbb{C}$ y $n \geq 1$ tiene al menos una raíz en $\mathbb{C}$.
+\end{axiom}
+
+\begin{theorem}[Caracterización única de $\mathbb{C}$]\label{thm:caracterizacion-unica-C}
+El plano complejo $\mathbb{C}$ es el único cuerpo algebraicamente cerrado que satisface los axiomas C1-C7 simultáneamente, salvo isomorfismo.
+\end{theorem}
+
+\subsection[Espacios Adjuntos: Re-parametrizaciones de C]{Espacios Adjuntos: Re-parametrizaciones de $\mathbb{C}$}\label{subsec:espacios-adjuntos}
+
+El plano complejo $\mathbb{C}$ admite múltiples re-parametrizaciones que preservan su estructura pero modifican la interpretación física.\@ Esta riqueza de representaciones es clave para la universalidad del operador $\omegapcf$.
+
+\subsubsection{Equivalencia Métrica}
+
+\begin{definition}[Equivalencia métrica por escalamiento]\label{def:equivalencia-metrica}
+Espacios métricos $(X_1, d_1)$, $(X_2, d_2)$ son equivalentes si existe homeomorfismo $\varphi: X_1 \to X_2$ tal que:
+\[
+d_2(\varphi(x), \varphi(y)) = \lambda \cdot d_1(x,y), \quad \lambda > 0
+\]
+El homeomorfismo $\varphi$ preserva la estructura topológica y las propiedades métricas esenciales (completitud, compacidad relativa, convergencia de sucesiones). Esta equivalencia permite diferentes representaciones del mismo espacio subyacente.
+\end{definition}
+
+\begin{theorem}[Tres representaciones de $\mathbb{C}$]\label{thm:tres-representaciones-C}
+El plano complejo $\mathbb{C}$ admite tres representaciones equivalentes, cada una enfatizando aspectos estructuralmente distintos y privilegiando propiedades específicas:
+\begin{enumerate}
+\item La representación euclidiana identifica $\mathbb{C}$ con $(\mathbb{R}^2, d_{\text{eucl}})$ donde la métrica es la distancia $d(z_1,z_2) = |z_1-z_2|$, haciendo transparente la estructura métrica y las propiedades geométricas.
+\item La representación algebraica se escribe como $\mathbb{C} = \{z = x+iy : x,y \in \mathbb{R}\}$ con operaciones $(+,\cdot)$, enfatizando la estructura de cuerpo y las propiedades algebraicas.
+\item La representación polar descompone $\mathbb{C} \cong \mathbb{R}_+ \times S^1$ con $z = re^{i\theta}$, separando magnitud $r$ y fase $\theta$, revelando simetrías rotacionales y propiedades multiplicativas.
+\end{enumerate}
+Esta multiplicidad de representaciones ilustra el principio de equivalencia métrica (Definición~\ref{def:equivalencia-metrica}), donde cada representación privilegia ciertas propiedades mientras preserva la estructura esencial del plano complejo.
+\end{theorem}
+
+\subsubsection{Espacio Adjunto I: Espacio-tiempo de Minkowski}
+
+\begin{construction}[Rotación de Wick]\label{const:rotacion-wick}
+La transformación $t \to it$ convierte la métrica euclidiana en pseudo-Riemanniana:
+\[
+ds^2_{\mathbb{C}} = dx^2 + dy^2 \quad \xrightarrow{\Phi_M} \quad ds^2_{\mathcal{M}} = -c^2dt^2 + dx^2
+\]
+\end{construction}
+
+El eje real $\mathbb{R}$ corresponde a la coordenada espacial $x$; el eje imaginario $i\mathbb{R}$ se identifica con tiempo imaginario $it$; y el módulo euclidiano $|z|^2 = x^2 + y^2$ se transforma en el intervalo espaciotemporal $-c^2t^2 + x^2$.
+
+\begin{proposition}[Preservación de estructura por Wick]\label{prop:preservacion-wick}
+El mapa $\Phi_M: \mathbb{C} \to \mathcal{M}^{1+1}$ definido en la Construcción~\ref{const:rotacion-wick} preserva tres aspectos estructurales esenciales:
+\begin{enumerate}
+\item \textbf{Estructura algebraica}: establece isomorfismo entre el grupo de Lorentz y las transformaciones conformes de $\mathbb{C}$.
+\item \textbf{Causalidad}: induce correspondencia entre los conos de luz en $\mathcal{M}^{1+1}$ y los sectores hiperbólicos en $\mathbb{C}$.
+\item \textbf{Simetrías}: realiza dualidad donde las rotaciones espaciales corresponden a rotaciones $e^{i\theta}$ en $\mathbb{C}$, mientras que los boosts de Lorentz corresponden a escalamiento real en $\mathbb{C}$.
+\end{enumerate}
+La transformación de Lorentz estándar $x' = \gamma(x - vt)$, $t' = \gamma(t - vx/c^2)$ corresponde, bajo esta perspectiva, a rotación hiperbólica en $\mathbb{C}$ con parámetros $\gamma = \cosh \varphi$ y $v/c = \tanh \varphi$, donde $\varphi$ es el ángulo hiperbólico. Esta correspondencia ilustra cómo la equivalencia métrica (Definición~\ref{def:equivalencia-metrica}) se extiende a espacios pseudo-Riemannianos mediante la rotación de Wick.
+\end{proposition}
+\subsubsection{Espacio Adjunto II: Espacio de Hilbert}
+
+\begin{construction}[Incrustación mediante distribuciones delta]\label{const:funcionalizacion}
+El mapa:
+\[
+F: \mathbb{C} \to L^2(\mathbb{C}), \quad z \mapsto \delta_z
+\]
+incrusta cada punto del plano complejo como una distribución delta de Dirac en $L^2(\mathbb{C})$. Esta construcción establece el espacio adjunto genérico; la construcción específica mediante kernel integral se desarrolla en \ref{subsec:funcionalizacion}.
+
+\par
+El espacio de Hilbert asociado es:
+\[
+\mathcal{H}_{\mathbb{C}} = L^2(\mathbb{C}) = \left\{f: \mathbb{C} \to \mathbb{C} : \int_{\mathbb{C}} |f(z)|^2 \, d^2z < \infty\right\}
+\]
+con producto interno:
+\[
+\langle f, g \rangle = \int_{\mathbb{C}} \overline{f(z)} g(z) \, d^2z
+\]
+\end{construction}
+
+\begin{proposition}[Preservación de estructura por funcionalización]\label{prop:preservacion-funcionalizacion}
+La funcionalización $F: \mathbb{C} \to L^2(\mathbb{C})$ preserva:
+\begin{enumerate}
+\item Estructura lineal: la suma de puntos en $\mathbb{C}$ corresponde a la suma de funciones en $L^2(\mathbb{C})$.
+\item Métrica: un isomorfismo entre la distancia $|z_1-z_2|$ en $\mathbb{C}$ y la norma $\|f-g\|_{L^2}$ en el espacio de Hilbert.
+\item Simetrías rotacionales: las rotaciones $e^{i\theta}$ en $\mathbb{C}$ corresponden a operadores unitarios $U_\theta$ en $\mathcal{H}_{\mathbb{C}}$.
+\end{enumerate}
+
+\par
+Los \textit{estados coherentes} en mecánica cuántica se definen como:
+\[
+|\alpha\rangle = e^{-|\alpha|^2/2} \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}} |n\rangle
+\]
+donde $\alpha \in \mathbb{C}$ parametriza los estados cuánticos del oscilador armónico.\@
+\end{proposition}
+
+\subsubsection{Espacio Adjunto III: Esfera de Riemann}
+
+\begin{construction}[Curvatura]\label{const:curvatura}
+El plano complejo $\mathbb{C}$ se compactifica formando la esfera de Riemann:
+\[
+\hat{\mathbb{C}} = \mathbb{C} \cup \{\infty\} \cong S^2
+\]
+mediante la proyección estereográfica:
+\[
+\pi: S^2 \setminus \{N\} \to \mathbb{C}, \quad (x,y,z) \mapsto \frac{x+iy}{1-z}
+\]
+
+\par
+La métrica de Fubini-Study inducida en $\hat{\mathbb{C}}$ es:
+\[
+ds^2 = \frac{4|dz|^2}{{(1+|z|^2)}^2}
+\]
+\end{construction}
+
+\begin{proposition}[Esfera de Riemann como espacio de móduli]\label{prop:esfera-riemann-moduli}
+La esfera de Riemann $\hat{\mathbb{C}}$ es el espacio de móduli de las curvas elípticas con j-invariante:
+\[
+j(\tau) = 1728 \frac{g_2^3(\tau)}{g_2^3(\tau) - 27g_3^2(\tau)}
+\]
+\end{proposition}
+
+\subsubsection{Espacio Adjunto IV: Espacio de Teichmüller}
+
+\begin{construction}[Espacio de Teichmüller del toro]\label{const:teichmuller}
+El espacio de Teichmüller del toro es:
+\[
+\begin{split}
+\mathcal{T}(T^2) = \{(X, f) : &\ X \text{ es una superficie de Riemann, } \\
+&\ f: T^2 \to X \text{ es un difeomorfismo}\}/\sim
+\end{split}
+\]
+donde $\sim$ denota la relación de equivalencia que identifica pares $(X, f)$ y $(X', f')$ cuando existe un isomorfismo conforme entre $X$ y $X'$.
+
+\par
+Para el toro, $\mathcal{T}(T^2) \cong \mathbb{H}$ (semiplano superior) mediante la identificación
+\[
+\tau \mapsto T_\tau = \mathbb{C}/(\mathbb{Z} \oplus \mathbb{Z}\tau)
+\]
+\end{construction}
+
+\begin{proposition}[Conexión con §\ref{subsec:espacio-modulos}]\label{prop:conexion-moduli-teichmuller}
+El espacio de módulos es:
+\[
+\mathcal{M}(T^2) = \mathcal{T}(T^2)/\text{MCG}(T^2) = \mathbb{H}/\text{SL}(2,\mathbb{Z})
+\]
+donde MCG denota el grupo de clases de aplicaciones (\textit{mapping class group}).
+\end{proposition}
+
+\subsubsection{Coherencia Categórica}
+
+Los espacios adjuntos definidos anteriormente (Minkowski, Hilbert, Riemann, Teichmüller) no son representaciones independientes, sino que están relacionados mediante functores que preservan la estructura fundamental de $\mathbb{C}$. Esta coherencia categórica garantiza que las propiedades del plano complejo se transfieren consistentemente a través de todas las re-parametrizaciones.
+
+\begin{theorem}[Conmutatividad de functores]\label{thm:conmutatividad-functores}
+Los mapas entre espacios adjuntos conmutan. Específicamente, el functor de funcionalización $F: \mathbb{C} \to L^2(\mathbb{C})$ (definido en \cref{const:funcionalizacion}) y el mapa de rotación de Wick $\Phi_M: \mathbb{C} \to \mathcal{S}^{1+1}$ (definido en \cref{const:rotacion-wick}) satisfacen:
+
+\begin{center}
+\begin{tabular}{ccc}
+$\mathbb{C}$ & $\xrightarrow{F}$ & $L^2(\mathbb{C})$ \\
+$\downarrow \Phi_M$ & & $\downarrow \Phi_{M*}$ \\
+$\mathcal{S}^{1+1}$ & $\xrightarrow{F'}$ & $L^2(\mathcal{S}^{1+1})$
+\end{tabular}
+\end{center}
+
+donde $\Phi_{M*}$ es el pushforward de $\Phi_M$ al espacio de funciones, y $F'$ es la funcionalización en el espacio de Minkowski. La conmutatividad se expresa como $F \circ \Phi_M = \Phi_{M*} \circ F$.
+
+\par
+Esta conmutatividad implica que aplicar primero la rotación de Wick y luego la funcionalización produce el mismo resultado que aplicar primero la funcionalización y luego el pushforward de la rotación de Wick. Esta propiedad garantiza que la estructura del plano complejo se preserva coherentemente al traducir entre representaciones geométricas y funcionales.
+\end{theorem}
+
+\begin{corollary}[Coherencia de cuatro estructuras]\label{cor:coherencia-cuatro-estructuras}
+Las cuatro estructuras fundamentales de $\mathbb{C}$ (aritmética, geométrica, analítica, topológica) se preservan simultáneamente en todos los espacios adjuntos. La conmutatividad de functores asegura que las propiedades algebraicas, métricas, analíticas y topológicas del plano complejo se transfieren de manera consistente, sin contradicciones, a través de las transformaciones que definen los espacios adjuntos.
+\end{corollary}
+
+\subsubsection{Resumen de correspondencias entre dominios}
+
+La universalidad del plano complejo se manifiesta en que cada operación algebraica admite interpretaciones equivalentes en los cuatro dominios estructurales. La siguiente tabla resume estas correspondencias, mostrando cómo las operaciones fundamentales de $\mathbb{C}$ se realizan de manera coherente en cada dominio:
+
+% chktex-file 44
+\begin{table}[bt]
+    \centering
+    \caption{Correspondencias entre dominios estructurales del plano complejo}
+    \label{tab:correspondencias-dominios}
+    \begin{tabular}{lllll}
+    \toprule
+    Operación & Aritmético & Geométrico & Analítico & Topológico \\
+    \midrule
+    Suma & $z_1 + z_2$ & Traslación & $f+g$ holomorfa & Grupo abeliano \\
+    Producto & $z_1 \cdot z_2$ & Rotar + escalar & $f \cdot g$ holomorfa & Acción $\mathbb{C}^*$ \\
+    Módulo & Norma $\|\cdot\|$ & Distancia radial & $\|f\|_\infty$ & Métrica \\
+    Conjugación & $\bar{z}$ & Reflexión eje real & Involución & Automorfismo \\
+    Exponencial & $e^z$ & Espiral logarítmica & Mapa conforme & Covering \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+% chktex-file 0
+
+Esta correspondencia unificada no es meramente notacional: cada operación preserva propiedades estructurales que se manifiestan de manera equivalente en los cuatro dominios. Por ejemplo, la multiplicación compleja realiza simultáneamente una operación algebraica (producto de números), una transformación geométrica (rotación y escalamiento), una operación analítica (producto de funciones holomorfas), y una acción topológica (acción del grupo multiplicativo $\mathbb{C}^*$).
+
+\begin{proposition}[Herencia del operador $\omegapcf$]\label{prop:herencia-PCF}
+El operador $\omegapcf$ hereda la estructura cuádruple de $\mathbb{C}$ en los cuatro dominios simultáneamente. Esta herencia se manifiesta de manera específica en cada dominio:
+
+\par
+\textbf{Aritmético}: El operador posee un lattice $\Lambda_{\text{PCF}} = \mathbb{Z}M_{\text{PCF}} \oplus \mathbb{Z}(M_{\text{PCF}} \cdot i)$ con generador $M_{\text{PCF}} = \pi/\varepsilon_0$ que establece la periodicidad discreta fundamental del sistema.
+
+\par
+\textbf{Geométrico}: El operador mantiene módulo constante $|\Omega(z,\sigma)| = 1/2$ para todo $z \in \mathbb{C}$ y $\sigma \in \mathbb{R}$, propiedad que lo distingue de construcciones que no preservan esta invariancia geométrica.
+
+\par
+\textbf{Analítico}: El operador actúa como operador hermítico en $L^2(\mathbb{C})$ con propiedades espectrales bien definidas, conectando la estructura algebraica con el análisis funcional.
+
+\par
+\textbf{Topológico}: El operador induce una acción sobre el toro $T^2 = \mathbb{C}/\Lambda_{\text{PCF}}$ que preserva la periodicidad y la estructura topológica del espacio de módulos.
+
+\par
+Esta cuádruple herencia simultánea es lo que permite al operador evitar paradojas de auto-referencia: en lugar de depender de especificar su espectro \textit{a priori}, el operador emerge de la estructura distribuida heredada de $\mathbb{C}$, donde cada dominio proporciona restricciones que se satisfacen coherentemente.
+\end{proposition}
+
+\subsubsection{Cierre de Fundamentos}
+
+Hemos establecido que el plano complejo $\mathbb{C}$ posee una riqueza estructural única que se manifiesta en múltiples niveles simultáneamente. La base geométrica emerge del módulo $|z|$, que actúa como longitud invariante bajo rotación, estableciendo la métrica fundamental del plano. La base algebraica surge de $i^2 = -1$, definiendo la estructura de cuerpo que caracteriza $\mathbb{C}$ como extensión de $\mathbb{R}$. Esta estructura algebraica genera, a su vez, una estructura discreta mediante lattices formados por periodicidades rotacionales, conectando lo continuo con lo discreto.
+
+Los espacios de módulos clasifican estructuras equivalentes bajo transformaciones, revelando cómo diferentes representaciones del mismo objeto geométrico se relacionan mediante clases de equivalencia. Los espacios adjuntos (Minkowski, Hilbert, Riemann, Teichmüller) proporcionan re-parametrizaciones coherentes que preservan invariantes clave mientras modifican la interpretación física o matemática. Esta universalidad se completa mediante la herencia simultánea de estructura en cuatro dominios: aritmético, geométrico, analítico y topológico, donde cada operación fundamental de $\mathbb{C}$ admite interpretaciones equivalentes en todos los dominios.
+
+En la siguiente parte, construiremos un operador que hereda esta universalidad mediante cinco propiedades interconectadas que emanan naturalmente de la estructura de $\mathbb{C}$ misma. El operador extiende $\mathbb{C}$ mediante modularización tridimensional acoplada a la razón áurea $\varphi$, unificando los análogos rotacionales $i$ (rotación 90°) y $\varphi$ (escalamiento dorado) como simetrías del mismo tipo mediante el acoplamiento $\varphi$-$i$-$S_3$. Esta extensión conecta los dominios aritmético, espacial y funcional sin perder coherencia, evitando paradojas de auto-referencia mediante estructura distribuida en múltiples dominios, estrategia identificada por Yanofsky\sidenote{\cite{Yanofsky2003}}. La matriz generadora $\hat{\Omega}$ en $\mathbb{C}^3$ es normal pero no hermítica; la hermiticidad del operador integral en $L^2(\mathbb{R})$ emerge del mecanismo de construcción mediante kernel simetrizado, no de propiedades algebraicas de $\hat{\Omega}$. El módulo constante $|\Omega| = 1/2$ actúa como punto fijo funcional que ancla toda la construcción, garantizando que el operador mantenga las propiedades fundamentales de $\mathbb{C}$ mientras revela estructura toroidal subyacente mediante lattice $\Lambda_{\text{PCF}}$ y módulo $M_{\text{PCF}} = \mathbb{C}/\Lambda_{\text{PCF}} \cong T^2$.
+
+\section{El Operador $\omegapcf$}\label{sec:operador-PCF}
+
+\subsection{Construcción Axiomática}\label{subsec:axiomas}
+
+\begin{definition}[Axioma 1: Herencia de axiomas del plano complejo]\label{ax:herencia}
+El operador hereda los axiomas de $\mathbb{C}$ previamente establecidos en §\ref{sec:plano-complejo-modulos}.
+\end{definition}
+
+\begin{definition}[Axioma 2: Extensión mediante operadores \textit{a logos}]\label{ax:extension-logos}
+\sidenote{La locución \textit{a logos} (del griego $\lambda\acute{o}\gamma o\varsigma$, ``razón'', ``principio ordenador'') distingue extensiones que emergen de principios generativos inherentes a la estructura---como $i$ y $\varphi$ que generan secuencias recursivas y cierran estructuralmente sus campos---de extensiones meramente algebraicas formales. Esta distinción conecta con la genealogía del módulo desde los harpedonaptas egipcios hasta Weil (véase §\ref{discussion}): operadores \textit{a logos} no solo extienden formalmente, sino que revelan principios racionales subyacentes que organizan la estructura matemática, análogos al $\lambda\acute{o}\gamma o\varsigma$ de Heráclito como ley universal que ordena el cosmos.}
+
+Existen dos generadores algebraicos que extienden $\mathbb{R}$:
+\[
+i^2 = -1, \quad \varphi^2 = \varphi + 1
+\]
+
+El generador $i$ produce la extensión $\mathbb{R} \to \mathbb{C}$, generando el plano $(x,y)$ con $x,y \in \mathbb{R}$.
+\end{definition}
+\par
+Entre todos los generadores algebraicos de grado 2, únicamente $i$ y $\varphi$ poseen propiedades generativas que cierran estructuralmente sus campos:
+
+\begin{enumerate}
+\item $i$ con polinomio mínimo $x^2 + 1$ genera el grupo cíclico $\langle i \rangle = \{1, i, -1, -i\}$ de orden 4, estableciendo periodicidad rotacional completa en $\mathbb{C} = \mathbb{R}[i]$.
+
+\item $\varphi$ con polinomio mínimo $x^2 - x - 1$ genera la recurrencia lineal $F_{n+1} = F_n + F_{n-1}$ con $F_n = (\varphi^n - {(-\varphi)}^{-n})/\sqrt{5}$, estableciendo escalamiento autosimilar en $\mathbb{Q}(\sqrt{5}) = \mathbb{Q}[\varphi]$.
+\end{enumerate}
+
+\par
+Otros generadores algebraicos de grado 2 (e.g., $\sqrt{2}$ con $x^2 - 2$, $\sqrt{3}$ con $x^2 - 3$) extienden campos pero no generan estructuras recursivas cerradas. Las ecuaciones $i^2 + 1 = 0$ y $\varphi^2 - \varphi - 1 = 0$ son únicas en poseer clausura generativa: ambos generan sucesiones infinitas (rotaciones periódicas y Fibonacci) que preservan invariantes estructurales bajo iteración.
+
+\begin{definition}[Axioma 3: Extensión ortogonal]\label{ax:extension-ortogonal}
+La singularidad entre $\varphi$ e $i$ implica que existe coordenada $z \in \mathbb{R}$ ortogonal a $(x,y) \cong \mathbb{C}$ acoplada mediante:
+\[
+z = \varphi y, \quad \varphi = \frac{1+\sqrt{5}}{2}
+\]
+El espacio resultante es:
+\[
+E^3 = \{(x, y, \varphi y) \in \mathbb{R}^3\}
+\]
+con base $\{1, i, \varphi\}$.
+
+\par
+Los generadores $i$ y $\varphi$ satisfacen ecuaciones cuadráticas:
+\[
+i^2 = -1, \quad \varphi^2 = \varphi + 1
+\]
+
+y generan extensiones algebraicas:
+\[
+\mathbb{R}[i] = \mathbb{C}, \quad \mathbb{Q}[\varphi] = \mathbb{Q}(\sqrt{5})
+\]
+
+\par
+La estructura dimensional exhibe una jerarquía anidada que refleja la relación entre los tres generadores algebraicos. La dimensión real (eje $x$, generada por $1$) se extiende a dimensión imaginaria (eje $y$, generada por $i$) mediante rotación de 90°: $y = ix$ en el plano complejo. A su vez, la dimensión áurea (eje $z$, generada por $\varphi$) se acopla a la dimensión imaginaria mediante escalamiento áureo: $z = \varphi y$. Esta estructura anidada establece la relación jerárquica:
+
+\[
+\text{Real } (x) \xrightarrow{i} \text{Imaginaria } (y) \xrightarrow{\varphi} \text{Áurea } (z)
+\]
+
+donde cada transición preserva la estructura algebraica subyacente: $i$ extiende $\mathbb{R}$ a $\mathbb{C}$, mientras que $\varphi$ acopla $\mathbb{C}$ a su extensión tridimensional mediante el isomorfismo $z = \varphi y$.
+\end{definition}
+
+\begin{remark}[Convención notacional]\label{rem:convencion-z}
+La letra ``$z$'' aparece en dos contextos distintos pero relacionados:
+\begin{itemize}
+\item Como \textit{número complejo}: $z = x + iy \in \mathbb{C}$ (punto en el plano complejo)
+\item Como \textit{coordenada vertical}: $z \in \mathbb{R}$ (altura en espacio 3D, satisfaciendo $z = \varphi y$)
+\end{itemize}
+
+Esta sobrecarga es intencional y refleja el isomorfismo biunívoco $\mathbb{C} \leftrightarrow \{(x,y,\varphi y) \in \mathbb{R}^3\}$ establecido por el acoplamiento $z = \varphi y$ (demostrado en el Teorema~\ref{thm:isomorfismo-bidireccional}), donde ambos usos de ``$z$'' son aspectos complementarios de la misma geometría. En coordenadas cartesianas $(x, y, z)$ para $\mathbb{R}^3$, la coordenada $z$ denota la altura vertical, mientras que en notación compleja $z = x+iy$ denota puntos del plano $\mathbb{C}$. El contexto siempre aclara cuál convención se emplea; véase también la convención específica para visualización 3D en §\ref{subsec:geometria-3d}.
+
+Esta dualidad notacional enfatiza que el operador $\omegapcf$ habita simultáneamente el plano complejo y su extensión tridimensional, unificados por el acoplamiento áureo.
+\end{remark}
+
+\begin{definition}[Axioma 4: Estructura distribuida]\label{ax:estructura-distribuida}
+El operador se factoriza:
+\[
+\Omega(z,\sigma) = P(z,\sigma) \cdot C(z) \cdot F(z)
+\]
+donde $P, C, F$ son fasores complejos.
+\end{definition}
+
+\par
+\textit{Justificación (Lawvere-Yanofsky)}: El teorema de Lawvere establece que auto-referencia directa $f(f)$ implica paradoja. Yanofsky formaliza que paradojas auto-referenciales emergen de ciclos $X \to Y \to X$ (véase §\ref{subsec:simetrias-dualidades}). En oposición, la estructura tripartita implementa referencia distribuida en lugar de autorreferencia. El ciclo prohibido $D_1 \to D_2 \to D_1$ genera paradoja, mientras que la referencia distribuida $P \leftrightarrow C \leftrightarrow F$ establece coherencia. En esta estructura, ningún componente se observa a sí mismo directamente: $P$ observa $(C,F)$, $C$ observa $(P,F)$, y $F$ observa $(P,C)$. La auto-referencia está distribuida entre los tres componentes, no concentrada en un solo punto, evitando así el ciclo prohibido que genera paradojas.
+
+\begin{center}
+\begin{tabular}{ll}
+Ciclo prohibido: & $D_1 \to D_2 \to D_1$ \quad [paradoja] \\
+Referencia distribuida: & $P \leftrightarrow C \leftrightarrow F$ \quad [coherencia]
+\end{tabular}
+\end{center}
+
+\begin{definition}[Axioma 5: Punto fijo funcional]\label{ax:punto-fijo}
+El módulo del operador es constante e igual a $1/2$ para todo $z \in \mathbb{C}$ y $\sigma \in \mathbb{R}$:
+\[
+|\Omega(z,\sigma)| = \frac{1}{2}
+\]
+
+Esta constante emerge del producto de las magnitudes de los tres componentes con estructura tripartita balanceada:
+\[
+|P| \cdot |C| \cdot |F| = \frac{1}{\sqrt{3}} \cdot 1 \cdot \frac{\sqrt{3}}{2} = \frac{1}{2}
+\]
+
+donde $|P| = 1/\sqrt{3}$, $|C| = 1$, y $|F| = \sqrt{3}/2$ son las magnitudes de los componentes $P(z,\sigma)$, $C(z)$, y $F(z)$ respectivamente.
+\end{definition}
+
+\begin{corollary}[Círculo crítico y propiedades del módulo constante]\label{cor:circulo-critico}
+El operador vive en el círculo crítico $C_{1/2} = \{w \in \mathbb{C} : |w| = 1/2\}$, estableciendo una triple conexión estructural.
+
+\par
+\textbf{Conexión geométrica}: El radio $1/2$ balancea las magnitudes $|P|$, $|C|$, $|F|$ mediante el producto $|P| \cdot |C| \cdot |F| = 1/2$, emergiendo directamente de la estructura tripartita.
+
+\par
+\textbf{Conexión algebraica}: El valor $1/2$ es universalmente representable en todas las estructuras numéricas fundamentales: $1/2 \in \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$, siendo simultáneamente racional, real y complejo. Esta universalidad permite que el módulo constante actúe como solución del sistema de ecuaciones que determina el operador.
+
+\par
+\textbf{Conexión analítica}: Coincide exactamente con la línea crítica $\Re(s) = 1/2$ de la función zeta de Riemann\sidenote{Línea crítica donde la Hipótesis de Riemann conjetura que residen todos los ceros no triviales de $\zeta(s)$.}. Esta correspondencia establece $1/2$ como valor único que ancla la construcción del operador y conecta su estructura geométrica con el análisis complejo.
+\end{corollary}
+
+\subsubsection{Coherencia de Axiomas}
+
+\begin{proposition}[Independencia de axiomas]\label{prop:independencia}
+Los cinco axiomas PCF son independientes: ninguno se deriva de los otros cuatro.
+\end{proposition}
+
+\begin{theorem}[Consistencia de axiomas]\label{thm:consistencia}
+Los cinco axiomas son consistentes: existe construcción explícita que los satisface simultáneamente.
+\end{theorem}
+
+\begin{proof}[Por construcción]
+La construcción de §\ref{subsec:construccion-modulo} proporciona realización explícita.
+\end{proof}
+
+\begin{proposition}[Minimalidad de axiomas]\label{prop:minimalidad}
+Los cinco axiomas son minimales: eliminar cualquiera destruye propiedades esenciales.
+
+\begin{enumerate}
+\item Sin Ax1, no hay extensión 3D y el operador vive solo en $\mathbb{C}$.
+\item Sin Ax2, no hay conexión $i \leftrightarrow \varphi$ y se pierde la unificación rotacional.
+\item Sin Ax3, el operador no actúa coherentemente en múltiples dominios.
+\item Sin Ax4, aparece paradoja de auto-referencia tipo Lawvere (ciclo prohibido).
+\item Sin Ax5, el módulo es variable y no hay punto fijo funcional que ancle la construcción.
+\end{enumerate}
+\end{proposition}
+\subsection{Construcción desde el Módulo}\label{subsec:construccion-modulo}
+
+La construcción del operador $\omegapcf$ emerge de una estructura algebraica fundamental: una matriz diagonal en el espacio complejo tridimensional $\mathbb{C}^3$ que presentaremos en la \dref{def:matriz-PCF}. 
+
+\par
+Parámetros que se repetirán regularmente durante el desarrollo:
+
+\begin{center}
+\begin{tabular}{>{\centering\arraybackslash}p{2cm}>{\centering\arraybackslash}p{3cm}>{\centering\arraybackslash}p{4.5cm}>{\centering\arraybackslash}p{3.5cm}}
+\textbf{Notación} & \textbf{Nombre} & \textbf{Fórmula} & \textbf{Valor} \\
+\hline
+\rule{0pt}{2em}
+$\varphi$ & razón áurea & $\displaystyle\frac{1 + \sqrt{5}}{2}$ & $1.618033988749895\ldots$ \\[1.2em]
+$r_0$ & radio base & --- & $3$ \\[1.2em]
+$\varepsilon_0$ & parámetro angular (constante de acoplamiento, parámetro \textit{bootstrap}) & $\displaystyle\frac{\ln \varphi}{6\sqrt{3}}$ & $0.046304629455899\ldots$ \\[1.2em]
+$\omega_0$ & frecuencia angular & $2\varepsilon_0$ & $0.092609258911798$ \\[1.2em]
+$\tau_0$ & período fundamental & $\displaystyle\frac{\pi}{\varepsilon_0} = \frac{6\sqrt{3}\pi}{\ln \varphi}$ & $67.846189258071644\ldots$
+\end{tabular}
+\end{center}
+
+Una referencia completa con explicaciones detalladas y justificaciones geométricas se encuentra en el \textit{Apéndice~\ref{app:parametros-fundamentales}}.
+
+\begin{definition}[Matriz generadora PCF]\label{def:matriz-PCF}
+La estructura tripartita del operador $\omegapcf$ se codifica mediante la matriz diagonal:
+\[
+\hat{\Omega} = \frac{1}{2} \begin{pmatrix} 1 & 0 & 0 \\ 0 & \omega & 0 \\ 0 & 0 & \omega^2 \end{pmatrix} \in \mathbb{C}^{3 \times 3}
+\]
+
+donde $\omega = \exp(2\pi i/3)$ es la raíz cúbica primitiva de la unidad. La notación compacta $\frac{1}{2}\text{diag}(1, \omega, \omega^2)$ denota esta misma matriz diagonal.
+
+Representación explícita en forma matricial:
+\[
+\hat{\Omega} = \begin{pmatrix} 1/2 & 0 & 0 \\ 0 & (1/2)\omega & 0 \\ 0 & 0 & (1/2)\omega^2 \end{pmatrix}
+\]
+
+Valores numéricos aproximados:
+\[
+\hat{\Omega} \approx \begin{pmatrix} 0.5 & 0 & 0 \\ 0 & -0.25 + 0.433i & 0 \\ 0 & 0 & -0.25 - 0.433i \end{pmatrix}
+\]
+\end{definition}
+
+\begin{proposition}[Propiedades algebraicas]\label{prop:propiedades-matriz}
+La matriz $\hat{\Omega}$ satisface las siguientes propiedades:
+
+\begin{enumerate}
+\item No es hermítica: $\hat{\Omega}^\dagger \neq \hat{\Omega}$
+
+\begin{proof}[Por cálculo directo]
+\[
+\hat{\Omega}^\dagger = \frac{1}{2} \text{diag}(1, \overline{\omega}, \overline{\omega^2}) = \frac{1}{2} \text{diag}(1, \omega^2, \omega)
+\]
+Como $\overline{\omega} = \omega^2 \neq \omega$, se tiene $\hat{\Omega}^\dagger \neq \hat{\Omega}$.
+\end{proof}
+
+\item Sí es normal: $\hat{\Omega}^\dagger\hat{\Omega} = \hat{\Omega}\hat{\Omega}^\dagger$
+
+\begin{proof}[Por cálculo directo]
+Calculando ambos productos:
+\[
+\hat{\Omega}^\dagger \hat{\Omega} = \frac{1}{4} \begin{pmatrix} 1 & 0 & 0 \\ 0 & \omega^2\omega & 0 \\ 0 & 0 & \omega\omega^2 \end{pmatrix} = \frac{1}{4}I_3
+\]
+
+pues $|\omega| = 1$ implica $\omega^2\omega = \omega\omega^2 = 1$. De manera similar, $\hat{\Omega}\hat{\Omega}^\dagger = (1/4)I_3$, por tanto la matriz es normal.
+\end{proof}
+
+\item Eigenvalores con módulo constante:
+\begin{align*}
+\lambda_1 &= \frac{1}{2} \quad \text{(real, argumento 0°)} \\
+\lambda_2 &= \frac{1}{2}\omega = \frac{1}{2}e^{i2\pi/3} \quad \text{(complejo, argumento 120°)} \\
+\lambda_3 &= \frac{1}{2}\omega^2 = \frac{1}{2}e^{i4\pi/3} \quad \text{(complejo, argumento 240°)}
+\end{align*}
+
+Todos los eigenvalores satisfacen $|\lambda_k| = 1/2$.
+
+\begin{proof}[Por construcción]
+Los eigenvalores de una matriz diagonal son los elementos de la diagonal. Como $\hat{\Omega} = \frac{1}{2}\text{diag}(1, \omega, \omega^2)$, los eigenvalores son:
+\[
+\lambda_k = \frac{1}{2}\omega^k, \quad k \in \{0, 1, 2\}
+\]
+
+Dado que $|\omega| = |\omega^2| = 1$ (raíces cúbicas primitivas de la unidad tienen módulo unitario), se tiene:
+\[
+|\lambda_k| = \left|\frac{1}{2}\omega^k\right| = \frac{1}{2}|\omega^k| = \frac{1}{2}
+\]
+para $k \in \{0, 1, 2\}$.
+\end{proof}
+\end{enumerate}
+\end{proposition}
+
+\textit{Interpretación geométrica}: Los tres eigenvalores forman un triángulo equilátero en el plano complejo, inscrito en el círculo crítico $|z| = 1/2$:
+
+\begin{itemize}
+\item $\lambda_1 = 1/2$: Componente Patrón (eje real positivo)
+\item $\lambda_2 = (1/2)\omega$: Componente Coherencia (rotación 120°)
+\item $\lambda_3 = (1/2)\omega^2$: Componente Flujo (rotación 240°)
+\end{itemize}
+
+Esta disposición geométrica codifica la simetría tripartita $S_3$ del sistema.
+
+\par
+
+\textit{Conexión con las magnitudes de componentes}: Los módulos de los eigenvalores se relacionarán con las magnitudes $|P|$, $|C|$, $|F|$ que definiremos a continuación. Estas magnitudes satisfacen:
+\[
+|P| \cdot |C| \cdot |F| = \frac{1}{2} = |\lambda_k| \quad \forall k
+\]
+Esta igualdad conecta la estructura algebraica de $\hat{\Omega}$ con la geometría del triángulo equilátero.
+
+
+\begin{observation}[No-hermiticidad como característica estructural]\label{obs:hermiticidad-omega}
+La matriz $\hat{\Omega}$ no es hermítica ($\hat{\Omega}^\dagger \neq \hat{\Omega}$), pero esta propiedad no constituye un defecto sino una característica esencial de la construcción.
+
+\par
+La no-hermiticidad codifica la direccionalidad inherente de la estructura tripartita. La matriz $\hat{\Omega}$ opera en el espacio de componentes $\mathbb{C}^3$, donde cada componente (P, C, F) tiene un rol distinto y una orientación específica en el plano complejo.
+
+\par
+Cuando construyamos el kernel integral $K_{\text{PCF}}(x,y)$ en §\ref{subsubsec:emergencia-hermiticidad}, la hermiticidad emergerá del mecanismo de construcción mediante simetrización con $\delta(x-y) + \varepsilon(x,y)$, no de las propiedades algebraicas de $\hat{\Omega}$ misma.
+
+\par
+Esta distinción es fundamental: la hermiticidad del operador en espacio de Hilbert $L^2(\mathbb{R})$ es una propiedad emergente de la construcción integral, mientras que la no-hermiticidad de $\hat{\Omega}$ refleja la estructura geométrica tripartita del sistema.
+\end{observation}
+
+\subsubsection{Magnitudes de Componentes}
+
+\begin{definition}[Magnitudes tripartitas]\label{def:magnitudes-tripartitas}
+Las magnitudes de los tres componentes $P(z,\sigma)$, $C(z)$ y $F(z)$ son:
+\[
+|P| = \frac{1}{\sqrt{3}}, \quad |C| = 1, \quad |F| = \frac{\sqrt{3}}{2}
+\]
+
+Estas magnitudes determinan la contribución de cada componente al módulo total del operador $\omegapcf$.
+\end{definition}
+
+\begin{proposition}[Origen geométrico]\label{prop:origen-geometrico}
+Las magnitudes $|P|$, $|C|$, $|F|$ se derivan de la geometría de un triángulo equilátero de lado unitario inscrito en el círculo crítico $|z| = 1/2$.
+
+\par
+Cada magnitud corresponde a una medida geométrica específica del triángulo:
+
+\begin{enumerate}
+\item La magnitud $|F| = \sqrt{3}/2$ corresponde a la altura del triángulo desde cualquier vértice hasta el lado opuesto: $h = \sqrt{1 - {(1/2)}^2} = \sqrt{3}/2$.
+
+\item La magnitud $|P| = 1/\sqrt{3}$ corresponde a la inversa normalizada de la altura total desde el centro hasta un vértice: $H = \sqrt{3}$.
+
+\item La magnitud $|C| = 1$ actúa como referencia unitaria que balancea los otros dos componentes.
+\end{enumerate}
+
+\par
+Esta correspondencia geométrica codifica la simetría tripartita $S_3$ del operador mediante la disposición de los tres componentes en los vértices del triángulo, separados por ángulos de $2\pi/3$ radianes.
+\end{proposition}
+
+\begin{lemma}[Verificación del módulo]\label{lem:verificacion-modulo}
+La estructura tripartita requiere que el producto de las tres magnitudes satisfaga $|P| \cdot |C| \cdot |F| = 1/2$ para cumplir el Axioma 5 (módulo constante). Este producto se verifica mediante:
+\[
+|P| \cdot |C| \cdot |F| = \frac{1}{\sqrt{3}} \cdot 1 \cdot \frac{\sqrt{3}}{2} = \frac{\sqrt{3}}{2\sqrt{3}} = \frac{1}{2}
+\]
+\end{lemma}
+
+\begin{fullwidth}
+\centering
+\begin{minipage}{\linewidth}
+\includegraphics[width=\linewidth]{src/images/image8.png}
+\captionsetup{width=\linewidth,justification=centering}
+\captionof{figure}{Propiedades de la matriz $\hat{\Omega}$: estructura diagonal, eigenvalores con simetría $S_3$ en el círculo crítico $|z| = 1/2$, y comparación con $\hat{\Omega}^\dagger$ mostrando no-hermiticidad antisimétrica en fase.}
+\label{fig:verificacion-modulo} % chktex 24
+\end{minipage}
+\end{fullwidth}
+
+\subsubsection{Fases de Componentes}
+
+\begin{definition}[Parámetro de escala]\label{def:parametro-escala}
+El parámetro de escala estructura la torre exponencial mediante escalamiento áureo:
+\[
+\varepsilon(\sigma) := \varepsilon_0 \varphi^\sigma
+\]
+donde $\sigma \in \mathbb{R}$ es el nivel de escala y la constante de acoplamiento áureo es:
+\[
+\varepsilon_0 := \frac{\ln \varphi}{6\sqrt{3}} = 0.04630462945589891\ldots
+\]
+
+\par
+El factor $6\sqrt{3}$ emerge del acoplamiento $\varphi$-$i$-$S_3$ (\dref{ax:extension-ortogonal}, \dref{ax:estructura-distribuida}): el orden del grupo de simetría $S_3$ del triángulo equilátero es $|S_3| = 6$, y la altura del triángulo equilátero de lado unitario es $h = \sqrt{3}/2$, donde $\sqrt{3}$ aparece como factor geométrico fundamental. El logaritmo $\ln(\varphi)$ establece el isomorfismo entre estructura multiplicativa y aditiva\sidenote{La propiedad $\ln(ab) = \ln(a) + \ln(b)$ permite esta transformación, como se manifiesta en el isomorfismo logarítmico entre torres áurea y Mersenne (\tref{thm:isomorfismo-logaritmico}).}, permitiendo correspondencias estructurales entre dominios que operan bajo leyes diferentes.
+\end{definition}
+
+\begin{definition}[Fases de componentes PCF]\label{def:fases-componentes}
+Para $z \in \mathbb{C}, \sigma \in \mathbb{R}$:
+\begin{align*}
+\phi_P(z,\sigma) &:= \arg(z) + \pi\varepsilon(\sigma) \\
+\phi_C(z) &:= \arg(z) + \frac{2\pi}{3} \\
+\phi_F(z) &:= \arg(z) + \frac{4\pi}{3}
+\end{align*}
+\end{definition}
+
+\begin{proposition}[Separación angular de fases]\label{prop:separacion-angular}
+Las fases de C y F (ver \dref{def:fases-componentes}) están separadas por:
+\[
+\phi_F(z) - \phi_C(z) = \frac{4\pi}{3} - \frac{2\pi}{3} = \frac{2\pi}{3}
+\]
+\end{proposition}
+
+\begin{proposition}[Torre exponencial]\label{prop:torre-exponencial}
+La función $\varepsilon(\sigma)$ definida en \dref{def:parametro-escala} satisface las siguientes propiedades para $\sigma \in \mathbb{R}$:
+
+\begin{enumerate}
+\item \textit{Relación de recurrencia}: $\varepsilon(\sigma+1) = \varphi \cdot \varepsilon(\sigma)$
+\item \textit{Crecimiento exponencial}: $\lim_{\sigma\to\infty} \varepsilon(\sigma+1)/\varepsilon(\sigma) = \varphi$
+\end{enumerate}
+\end{proposition}
+
+\subsubsection{Componentes Completas y Fórmula de Fase}
+
+\begin{definition}[Componentes PCF]\label{def:componentes-PCF}
+
+\vspace{0.5em}
+
+\begin{align}
+P(z,\sigma) &:= \frac{1}{\sqrt{3}} \, e^{i[\arg(z) + \pi\varepsilon(\sigma)]} \\[0.5em]
+C(z) &:= 1 \cdot e^{i[\arg(z) + 2\pi/3]} \\[0.5em]
+F(z) &:= \frac{\sqrt{3}}{2} \, e^{i[\arg(z) + 4\pi/3]}
+\end{align}
+
+\vspace{0.5em}
+\end{definition}
+
+Los componentes $P(z,\sigma), C(z), F(z)$ extienden funcionalmente sobre todo $\mathbb{C}$ la estructura tripartita codificada algebraicamente en la matriz $\hat{\Omega}$ (\ref{def:matriz-PCF}). Esta realización funcional completa la coherencia multi-nivel formal establecida entre la codificación algebraica (matriz en $\mathbb{C}^3$), la realización funcional (componentes sobre $\mathbb{C}$), y la verificación geométrica (magnitudes que satisfacen $|P| \cdot |C| \cdot |F| = 1/2$, ver \ref{lem:verificacion-modulo}). Esta coherencia multi-nivel refleja la referencia distribuida (Axioma 4, \ref{ax:estructura-distribuida}): cada nivel provee restricciones independientes que se determinan mutuamente, permitiendo que el operador actúe coherentemente en múltiples dominios sin colapsar en contradicción.
+
+\begin{definition}[Operador $\omegapcf$]\label{def:operador-PCF-completo}
+El operador $\omegapcf$ se factoriza como producto de los tres componentes (Axioma 4, \ref{ax:estructura-distribuida}):
+\[
+\Omega(z,\sigma) := P(z,\sigma) \cdot C(z) \cdot F(z)
+\]
+\end{definition}
+
+\begin{proposition}[Aditividad de fase]\label{prop:formula-fase-explicita}
+La multiplicación compleja del operador $\omegapcf = P \cdot C \cdot F$ se traduce en aditividad de fases, manifestando el principio de transformación multiplicativo-aditiva (\dref{def:parametro-escala}):
+\begin{align*}
+\arg(\Omega(z,\sigma)) &= \arg(P) + \arg(C) + \arg(F) \\
+&= [\arg(z) + \pi\varepsilon(\sigma)] + [\arg(z) + 2\pi/3] + [\arg(z) + 4\pi/3] \\
+&= 3\arg(z) + \pi\varepsilon(\sigma) + 2\pi
+\end{align*}
+donde las fases de los componentes están definidas en \dref{def:componentes-PCF}.
+
+\par
+Usando $e^{2\pi i} = 1$, la fase efectiva módulo $2\pi$ es:
+\[
+\arg(\Omega(z,\sigma)) \equiv 3\arg(z) + \pi\varepsilon(\sigma) \pmod{2\pi}
+\]
+
+\par
+\textbf{Convención de notación}: En ecuaciones posteriores (especialmente \tref{thm:acoplamiento-temporal} y \tref{thm:acoplamiento-optimo}, y secciones de acoplamiento), cuando escribimos $\arg(\Omega)$ sin especificar, nos referimos a la fase efectiva $3\arg(z) + \pi\cdot\varepsilon(\sigma)$, o equivalentemente $[\arg(\Omega) - 2\pi]$. Cuando sea necesaria la fase total completa, lo indicaremos explícitamente.
+\end{proposition}
+
+\begin{corollary}[Módulo constante]\label{cor:modulo-constante}
+Por construcción, $|\Omega(z,\sigma)| = 1/2$ para todo $z \in \mathbb{C}$ y $\sigma \in \mathbb{R}$.
+\end{corollary}
+
+Esta propiedad emerge directamente del producto de magnitudes tripartitas $|P| \cdot |C| \cdot |F| = 1/2$ (ver \ref{lem:verificacion-modulo}) y establece el módulo constante como punto fijo funcional que ancla toda la construcción (Axioma 5, \ref{ax:punto-fijo}). El valor $1/2$ actúa como invariante fundamental que conecta la estructura tripartita con propiedades globales del operador, incluyendo el lattice $\Lambda_{\text{PCF}}$ y las correspondencias estructurales que desarrollaremos en secciones posteriores.
+
+\subsection{Geometría del Círculo en Espacio 3D}\label{subsec:geometria-3d}
+
+\subsubsection{Parametrización de la Curva Espacial}
+
+\begin{proposition}[Curva PCF]\label{prop:curva-PCF}
+Cuando un punto rota en el plano complejo $z(t) = re^{it}$, la coordenada ortogonal $z = \varphi y$ (Axioma 3, \ref{ax:extension-ortogonal}) genera la curva espacial:
+\[
+\vec{r}(t) = r\begin{pmatrix} \cos t \\ \sin t \\ \varphi\sin t \end{pmatrix}
+\]
+\end{proposition}
+
+\begin{corollary}[Naturaleza de la curva]\label{cor:naturaleza-curva}
+Esta curva se encuentra contenida en el plano $z = \varphi y$ (no es un círculo plano en 3D), y sus proyecciones satisfacen:
+\begin{itemize}
+\item Proyección en $(x,y)$: círculo perfecto $x^2 + y^2 = r^2$
+\item Proyección en $(y,z)$: elipse $y^2 + z^2/\varphi^2 = r^2$
+\end{itemize}
+\end{corollary}
+
+\begin{proposition}[Módulo en espacio extendido 3D]\label{prop:modulo-3D}
+El módulo en el espacio extendido satisface:
+\[
+|\vec{r}| = \sqrt{x^2 + y^2(\varphi + 2)}
+\]
+\end{proposition}
+
+\begin{proof}[Por cálculo directo]
+Por definición del módulo y usando el acoplamiento $z = \varphi y$ (Axioma 3, \ref{ax:extension-ortogonal}):
+\[
+|\vec{r}|^2 = x^2 + y^2 + z^2 = x^2 + y^2 + \varphi^2 y^2 = x^2 + y^2(1 + \varphi^2)
+\]
+Usando la identidad $\varphi^2 = \varphi + 1$:
+\[
+|\vec{r}|^2 = x^2 + y^2(\varphi + 2)
+\]
+Tomando la raíz cuadrada se obtiene el resultado.
+\end{proof}
+
+\begin{corollary}[Factor de amplificación áureo en dirección imaginaria]\label{cor:razon-escalamiento}
+En dirección puramente imaginaria ($x=0$), la razón entre módulo 3D y módulo 2D es:
+\[
+\frac{|\vec{r}|_{3D}}{|z|_{2D}} = \sqrt{1 + \varphi^2} = \sqrt{\varphi + 2} \approx 1.902
+\]
+\end{corollary}
+
+\begin{proof}[Por cálculo directo]
+Para $x=0$, la proposición anterior establece $|\vec{r}|_{3D} = |y|\sqrt{\varphi + 2}$ y $|z|_{2D} = |y|$, por tanto la razón es $\sqrt{\varphi + 2} > 1$, estableciendo amplificación del módulo por este factor áureo.
+\end{proof}
+
+\subsubsection{Proyección Isométrica Natural}
+
+\begin{observation}[Ángulo óptimo de observación]\label{obs:angulo-optimo}
+Existe un ángulo desde el cual la curva espacial proyecta los tres fasores $P$, $C$, $F$ con separación angular de $120^\circ$.
+\end{observation}
+
+\begin{proof}[Por preservación de separación angular]
+Las fases de $C$ y $F$ (\dref{def:fases-componentes}) difieren por $2\pi/3$. La rotación acoplada de $z = \varphi y$ preserva esta separación angular al proyectarse sobre cierto plano, revelando la geometría isométrica del triángulo equilátero (\dref{def:magnitudes-tripartitas}).
+\end{proof}
+
+\begin{observation}[Origen de $\sqrt{3}$]\label{obs:origen-sqrt3}
+Las magnitudes $|P| = 1/\sqrt{3}$ y $|F| = \sqrt{3}/2$ emergen de esta geometría triangular proyectada.
+\end{observation}
+
+\subsubsection{Subvariedad en 3D}
+
+\begin{definition}[Subvariedad PCF]\label{def:subvariedad-PCF}
+La restricción $z = \varphi y$ con módulo constante $|\Omega| = 1/2$ \newline (Axioma 5, \ref{ax:punto-fijo}) define:
+\[
+\mathcal{S}_{\text{PCF}}^{3D} = \{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 + z^2 = 1/4, \; z = \varphi y\}
+\]
+\end{definition}
+
+\begin{proposition}[Lattice 3D]\label{prop:lattice-3D}
+La periodicidad en $(x,y)$ más el acoplamiento $z = \varphi y$ genera:
+\[
+\Lambda_{3D} = \{(n_1, n_2, \varphi n_2) : n_1, n_2 \in \mathbb{Z}\} \subset \mathbb{R}^3
+\]
+\end{proposition}
+
+\subsubsection[Visualización del Cilindro Base]{Visualización del Cilindro Base ($\sigma=0$)}
+
+En esta sección usamos coordenadas cartesianas $(x, y, z)$ para $\mathbb{R}^3$, donde $z$ denota la coordenada vertical (altura). Esta convención no debe confundirse con la notación $z = x+iy$ para puntos de $\mathbb{C}$; véase la convención completa en la nota ~\ref{rem:convencion-z}.
+
+La extensión tridimensional del plano complejo mediante el acoplamiento $z = \varphi y$ (Axioma 3, \ref{ax:extension-ortogonal}) introduce grados de libertad rotacionales en la representación geométrica. El sistema admite múltiples orientaciones espaciales equivalentes bajo transformaciones ortogonales (rotaciones y reflexiones) que preservan módulos $\sqrt{x^2 + y^2} = 3$ para todos los vértices, separación angular de $120^\circ$ entre vértices, el acoplamiento áureo $z = \varphi y$ (o su equivalente bajo rotación), y la simetría $S_3$ de estructura tripartita equiláteral.
+
+En esta sección elegimos orientación con cilindro vertical (eje $z$ hacia arriba, círculo en plano $xy$) por conveniencia de notación estándar donde $z$ denota altura. Sin embargo, para visualización isométrica y comprensión topológica del toro, orientaciones alternativas pueden ser más ilustrativas: el cilindro vertical es estándar y fácil de escribir, pero dificulta ver el círculo de frente; el cilindro horizontal muestra el círculo visible frontalmente y revela la topología toroidal con hueco central.
+
+Todas estas orientaciones son transformaciones del mismo objeto geométrico---la elección es puramente pedagógica. Los diagramas que siguen usan orientación vertical para las coordenadas; véase la discusión sobre orientaciones alternativas arriba.
+
+Para visualizar la estructura tripartita del operador $\omegapcf$, consideramos tres vértices de referencia dispuestos sobre un cilindro vertical de radio $R_0 = 3$. Esta construcción geométrica ilustrativa permite entender geométricamente las relaciones entre los tres componentes $P$, $C$, $F$ definidos algebraicamente en \dref{def:componentes-PCF}.
+
+\subsubsection{El Cilindro Vertical}
+
+\begin{definition}[Cilindro base]\label{def:cilindro-base}
+El cilindro base es el conjunto de puntos en $\mathbb{R}^3$ que satisfacen:
+\[
+\mathcal{C}_0 = \{(x, y, z) \in \mathbb{R}^3 : x^2 + y^2 = 9, \; z \in \mathbb{R}\}
+\]
+
+con radio horizontal fijo $R_0 = 3$ y extensión infinita en la dirección vertical $\pm z$ (altura).
+\end{definition}
+
+\subsubsection{Los Tres Vértices de Referencia}\label{subsubsec:tres-vertices-referencia}
+
+Colocamos tres vértices sobre la superficie del cilindro, separados angularmente por 120° ($2\pi/3$ radianes):
+
+\begin{enumerate}
+\item \textbf{Vértice P (Past/Patrón):} Posición angular $\theta_P = 0^\circ$
+\[
+P_{\text{vert}} = (x_P, y_P, z_P) = (3, 0, 0)
+\]
+
+donde la coordenada horizontal es $x_P = 3, y_P = 0$, y la altura vertical es $z_P = 0$.
+
+\item \textbf{Vértice C (Coherence):} Posición angular $\theta_C = 120^\circ$
+\[
+C_{\text{vert}} = (x_C, y_C, z_C) = (-1.5, 2.598, 4.204)
+\]
+
+donde las coordenadas horizontales son $x_C = 3\cos(120^\circ) = -1.5, y_C = 3\sin(120^\circ) \approx 2.598$, y la altura vertical es $z_C = \varphi \cdot y_C \approx 4.204$.
+
+\item \textbf{Vértice F (Future/Flujo):} Posición angular $\theta_F = 240^\circ$
+\[
+F_{\text{vert}} = (x_F, y_F, z_F) = (-1.5, -2.598, -4.204)
+\]
+
+donde las coordenadas horizontales son $x_F = 3\cos(240^\circ) = -1.5, y_F = 3\sin(240^\circ) \approx -2.598$, y la altura vertical es $z_F = \varphi \cdot y_F \approx -4.204$.
+\end{enumerate}
+
+\begin{proposition}[Verificación del cilindro]\label{prop:verificacion-cilindro}
+Los tres vértices satisfacen la ecuación del cilindro en el plano horizontal:
+\[
+\sqrt{x^2 + y^2} = 3 \quad \text{para P, C, F}
+\]
+\end{proposition}
+
+\begin{proof}[Por cálculo directo]
+\begin{align*}
+\sqrt{x_P^2 + y_P^2} &= \sqrt{3^2 + 0^2} = 3 \\
+\sqrt{x_C^2 + y_C^2} &= \sqrt{{(-1.5)}^2 + {(2.598)}^2} = \sqrt{2.25 + 6.75} = 3 \\
+\sqrt{x_F^2 + y_F^2} &= \sqrt{{(-1.5)}^2 + {(-2.598)}^2} = \sqrt{2.25 + 6.75} = 3
+\end{align*}
+\end{proof}
+
+\subsubsection[La Regla de Acoplamiento]{La Regla de Acoplamiento: Altura $z = \varphi y$}
+
+\begin{observation}[Acoplamiento altura-coordenada]\label{obs:acoplamiento-altura}
+Las alturas de los vértices no son producto del azar---obedecen la regla de acoplamiento establecida en el Axioma 3 (\ref{ax:extension-ortogonal}):
+\[
+z = \varphi y
+\]
+
+donde ``$z$'' denota la coordenada vertical (altura), mientras que ``$y$'' denota la coordenada horizontal imaginaria.
+
+Esta regla significa que la altura está acoplada a la dirección $y$ mediante la razón áurea:
+\begin{enumerate}
+\item Si $y > 0$ (dirección $+y$): el vértice sube con pendiente $\varphi \approx 1.618$
+\item Si $y < 0$ (dirección $-y$): el vértice baja con pendiente $\varphi$
+\item Si $y = 0$: el vértice permanece en altura $z = 0$ (plano $xy$)
+\end{enumerate}
+
+La verificación numérica confirma esta regla:
+\begin{align*}
+z_P &= \varphi \cdot y_P = \varphi \cdot 0 = 0 \\
+z_C &= \varphi \cdot y_C = 1.618 \times 2.598 = 4.204 \\
+z_F &= \varphi \cdot y_F = 1.618 \times (-2.598) = -4.204
+\end{align*}
+
+La consecuencia geométrica inmediata es que el triángulo formado por $P$, $C$, $F$ no está plano en el plano $xy$. Solo el vértice $P$ (donde $y=0$) toca el plano horizontal en altura $z=0$. Los vértices $C$ y $F$ están elevados o hundidos según su coordenada $y$, formando una estructura tridimensional genuina.
+\end{observation}
+
+\begin{fullwidth}
+\centering
+\begin{minipage}{\linewidth}
+\includegraphics[width=\linewidth]{src/images/image3.png}
+\captionsetup{width=\linewidth,justification=centering}
+\captionof{figure}{Visualización 3D completa de los vértices $P=(3, 0, 0)$, $C=(-1.5, 2.598, 4.204)$, $F=(-1.5, -2.598, -4.204)$ y sus proyecciones: vista cenital (círculo en $xy$), frontal (elipse en $xz$), lateral (recta en $yz$ mostrando $z = \varphi y$), e isométrica estándar.}
+\label{fig:visualizacion-3d-completa} % chktex 24
+\end{minipage}
+\end{fullwidth}
+
+\begin{proposition}[Separación angular]\label{prop:separacion-angular-vertices}
+En proyección horizontal (vista cenital), los tres vértices están separados por ángulos de 120°:
+\[
+\angle(P \to C) = \angle(C \to F) = \angle(F \to P) = 120^\circ = \frac{2\pi}{3}
+\]
+
+Esta simetría triangular refleja la estructura del grupo $S_3$ (Axioma PCF 2).
+\end{proposition}
+
+\subsubsection[Nota Crítica: Vértices vs. Componentes]{Nota Crítica: Vértices vs. Componentes}\label{subsubsec:vertices-vs-componentes}
+
+Los vértices $P_{\text{vert}}, C_{\text{vert}}, F_{\text{vert}}$ descritos en esta subsección son puntos de referencia geométrica en el espacio $\mathbb{R}^3$ que ilustran la estructura tripartita del operador. No deben confundirse con los componentes del operador $P(z,\sigma), C(z), F(z)$ definidos en \ref{def:componentes-PCF}, que son funciones complejas definidas para todo número complejo $z \in \mathbb{C}$:
+\begin{align*}
+P(z,\sigma) &= \frac{1}{\sqrt{3}}e^{i[\arg(z) + \pi\varepsilon(\sigma)]} \quad \text{(función sobre } \mathbb{C}) \\ % chktex 9
+\text{vs.} \quad P_{\text{vert}} &= {(3, 0, 0)} \quad \text{(punto fijo en } \mathbb{R}^3) % chktex 9
+\end{align*}
+
+Los vértices geométricos tienen radio horizontal $\sqrt{x^2+y^2} = 3$, mientras que los componentes del operador tienen magnitudes $|P| = 1/\sqrt{3}, |C| = 1, |F| = \sqrt{3}/2$ cuyo producto es exactamente $1/2$.
+
+Esta construcción geométrica sirve para visualizar la disposición espacial tripartita, pero el operador $\omegapcf$ opera funcionalmente sobre todo el plano complejo, no está confinado a estos tres puntos específicos.
+
+\subsubsection{Cierre Topológico: Del Cilindro al Toro}\label{subsubsec:cierre-topologico}
+
+Los vértices geométricos establecidos anteriormente viven sobre el cilindro infinito $\mathcal{C}_0$, pero esta estructura no captura completamente la topología natural del sistema. El acoplamiento $z = \varphi y$ induce una estructura modular que requiere cierre topológico para revelar la geometría completa.
+
+\begin{observation}[Separación vertical de vértices]\label{obs:separacion-vertical}
+Los vértices establecidos en §\ref{subsubsec:tres-vertices-referencia} satisfacen:
+\[
+P_{\text{vert}} = (3, 0, 0), \quad C_{\text{vert}} = (-1.5, 2.598, 4.204), \quad F_{\text{vert}} = (-1.5, -2.598, -4.204)
+\]
+con coordenadas verticales:
+\[
+z_P = 0, \quad z_C = \varphi \cdot 2.598 \approx 4.204, \quad z_F = \varphi \cdot (-2.598) \approx -4.204
+\]
+La separación vertical entre vértices refleja el acoplamiento $z = \varphi y$ del Axioma 3 (\ref{ax:extension-ortogonal}), donde cada vértice ocupa una altura determinada por su coordenada imaginaria $y$.
+\end{observation}
+
+El conjunto de puntos del cilindro base $\mathcal{C}_0$ (véase \ref{def:cilindro-base}) que satisfacen el acoplamiento $z = \varphi y$ forma el subconjunto $\mathfrak{C}_0 = \{(x,y,z) \in \mathcal{C}_0 : z = \varphi y\}$.
+
+\begin{proposition}[Ausencia de cierre topológico en el cilindro]\label{prop:ausencia-cierre}
+En el cilindro infinito $\mathfrak{C}_0 \subset \mathbb{R}^3$, los tres vértices:
+\begin{enumerate}
+\item Posan sobre la superficie cilíndrica $x^2 + y^2 = R_0^2$
+\item Forman un triángulo equilátero al proyectarse en el plano XY
+\item No cierran topológicamente en la dirección vertical $z$
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Por contradicción]
+Supongamos que los tres vértices cierran topológicamente en la dirección vertical $z$. Entonces existiría un ciclo cerrado en $\mathbb{R}^3$ que conecta $P$, $C$, $F$ de manera continua.
+
+El cilindro $\mathfrak{C}_0$ tiene topología $\mathfrak{C}_0 \cong S^1$ (círculo) parametrizado por $\theta \in [0, 2\pi)$. Sin embargo, la regla $z = \varphi y$ (Axioma 3, \ref{ax:extension-ortogonal}) introduce dependencia funcional que separa los vértices:
+\[
+|z_C - z_P| = 4.204, \quad |z_F - z_C| = 8.408, \quad |z_P - z_F| = 4.204
+\]
+
+Al completar $\theta = 2\pi$ regresamos a $\theta = 0$, pero los puntos P, C, F permanecen en alturas distintas ($z_P = 0$, $z_C = 4.204$, $z_F = -4.204$), lo cual contradice la existencia de un ciclo cerrado continuo en $\mathbb{R}^3$. Por tanto, los vértices no cierran topológicamente en el cilindro.
+\end{proof}
+
+\begin{observation}[El toro como cierre topológico]\label{obs:necesidad-topologica}
+Para que los tres vértices formen una estructura cerrada en $\mathbb{R}^3$ (no solo en proyección al plano $xy$), se requiere una superficie que:
+\begin{itemize}
+\item Contenga el cilindro $\mathfrak{C}_0$ como subvariedad
+\item Permita cierre de la coordenada vertical $z$ mediante identificación periódica
+\item Tenga topología compatible con las periodicidades del operador
+\end{itemize}
+El toro $\mathcal{T}_{\text{PCF}}$ satisface estas condiciones, proporcionando el cierre topológico natural donde los vértices forman un círculo cerrado en la sección transversal.
+\end{observation}
+
+\begin{definition}[Parametrización del Toro PCF]\label{def:toro-PCF}
+El toro estándar con radio mayor $R$ y radio menor $r$ es:
+\[
+\mathcal{T}(R, r) := \left\{(x,y,z) \in \mathbb{R}^3 : {\left(\sqrt{x^2+y^2} - R\right)}^2 + z^2 = r^2\right\}
+\]
+
+El toro PCF se define con parámetros:
+\[
+\mathcal{T}_{\text{PCF}} := \mathcal{T}(\alpha R_0, R_0) = \mathcal{T}(7.5, 3)
+\]
+donde $\alpha = 2.5$ (factor de escala para visualización). La parametrización toroidal está dada por:
+\[
+\Psi(u, v) = \begin{pmatrix} {(R + r\cos v)}\cos u \\ {(R + r\cos v)}\sin u \\ r\sin v \end{pmatrix}, \quad u, v \in {[0, 2\pi)} % chktex 9
+\]
+
+donde $u$ parametriza el círculo mayor (poloidal) y $v$ parametriza la sección transversal (toroidal).
+\end{definition}
+
+\begin{theorem}[Inmersión del cilindro]\label{thm:inmersion-cilindro}
+Existe inmersión natural:
+\[
+\iota: \mathcal{C}_0 \hookrightarrow \mathcal{T}_{\text{PCF}}
+\]
+definida por:
+\[
+\iota(x_c, y_c, z_c) = \Psi(u_0, v), \quad \text{donde } v := \arctan2(z_c, y_c), \quad u_0 := 0
+\]
+donde $(x_c, y_c, z_c)$ son coordenadas cartesianas en $\mathbb{R}^3$ y $z_c$ denota la coordenada vertical (altura), siguiendo la convención establecida en la Nota~\ref{rem:convencion-z}.
+\end{theorem}
+
+\begin{proof}[Por construcción]
+Para $(x_c, y_c, z_c) \in \mathcal{C}_0$:
+
+\begin{enumerate}
+\item \textit{Determinación unívoca de $v$}: La condición $z_c = \varphi y_c$ determina unívocamente $v = \arctan2(z_c, y_c)$.
+
+\item \textit{Aplicación al toro}: Fijando $u_0 = 0$, la aplicación $\Psi(0, v)$ produce un punto en $\mathcal{T}_{\text{PCF}}$.
+
+\item \textit{Continuidad}: La función $\arctan2$ es continua excepto en el origen, que no afecta a los vértices $P$, $C$, $F$ con $y_c \neq 0$ o $z_c = 0$.
+\end{enumerate}
+
+Por tanto, $\iota$ está bien definida y es continua.
+\end{proof}
+
+\begin{proposition}[Conjunto imagen de la inmersión]\label{prop:imagen-inmersion}
+El conjunto imagen de la inmersión $\iota$ es:
+\[
+\iota(\mathcal{C}_0) = \{\Psi(0, v) : v \in {[0, 2\pi)}\}
+\]
+que corresponde a la sección transversal frontal del toro---un círculo $S^1$ de radio $r_{\text{menor}} = R_0 = 3$ en el tubo toroidal, como se ilustra en la Figura~\ref{fig:inmersion-cilindro-toro}.
+\end{proposition}
+
+\begin{fullwidth}
+\centering
+\begin{minipage}{\linewidth}
+\includegraphics[width=\linewidth]{src/images/image5.png}
+\captionsetup{width=\linewidth,justification=centering}
+\captionof{figure}{Búsqueda de perspectiva equilátera: los vértices $P$, $C$, $F$ forman triángulo equilátero en la proyección $XY$ del cilindro (distancias $d(P,C) = d(C,F) = d(F,P) = 5.196$), pero no en el toro 3D donde el acoplamiento $z = \varphi y$ introduce distorsión métrica. La equilateralidad emerge del círculo $S^1$ en proyección, mientras que el toro preserva la topología circular pero distorsiona distancias euclidianas.}
+\label{fig:inmersion-cilindro-toro} % chktex 24
+\end{minipage}
+\end{fullwidth}
+
+\begin{theorem}[Cierre topológico de los vértices en el toro]\label{thm:cierre-topologico}
+Mediante la aplicación $\iota$, los vértices $P_{\text{vert}}, C_{\text{vert}}, F_{\text{vert}}$ se transforman en puntos:
+\[
+P_t := \iota(P_{\text{vert}}), \quad C_t := \iota(C_{\text{vert}}), \quad F_t := \iota(F_{\text{vert}})
+\]
+
+que satisfacen las siguientes propiedades:
+\begin{enumerate}
+\item \textbf{Misma sección transversal}: Los tres puntos comparten la coordenada $u = 0$ en la parametrización toroidal.
+\item \textbf{Círculo cerrado}: Los tres puntos forman un círculo $S^1$ de radio $r_{\text{menor}} = 3$ centrado en $(R_{\text{mayor}}, 0, 0) = (7.5, 0, 0)$.
+\item \textbf{Conexión topológica}: Los puntos están conectados como subvariedad cerrada en $\mathcal{T}_{\text{PCF}} \cong T^2$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Por cálculo directo]
+\begin{enumerate}
+\item La aplicación $\iota$ se define con $u_0 = 0$ fijo para todos los vértices, por lo que los tres puntos transformados comparten la misma coordenada $u = 0$ en la parametrización toroidal.
+
+\item Las coordenadas toroidales se calculan mediante:
+\begin{align*}
+v_P &= \arctan2(0, 0) = 0 \\
+v_C &= \arctan2(4.204, 2.598) \approx 1.0172 \text{ rad} \\
+v_F &= \arctan2(-4.204, -2.598) \approx -2.1244 \text{ rad}
+\end{align*}
+
+Los puntos resultantes son:
+\begin{align*}
+P_t &= (10.5, 0, 0) \\
+C_t &= ((7.5 + 3\cos v_C)\cos 0, 0, 3\sin v_C) \approx (9.077, 0, 2.552) \\
+F_t &= ((7.5 + 3\cos v_F)\cos 0, 0, 3\sin v_F) \approx (5.923, 0, -2.552)
+\end{align*}
+
+Verificando distancias al centro $(R_{\text{mayor}}, 0, 0) = (7.5, 0, 0)$:
+\begin{align*}
+|P_t - (7.5, 0, 0)| &= |(3, 0, 0)| = 3 \\
+|C_t - (7.5, 0, 0)| &= |(1.577, 0, 2.552)| = \sqrt{1.577^2 + 2.552^2} = 3 \\
+|F_t - (7.5, 0, 0)| &= |(-1.577, 0, -2.552)| = 3
+\end{align*}
+
+Por tanto, los tres puntos están exactamente sobre el círculo de radio $3$.
+
+\item Como $v_P, v_C, v_F \in {(-\pi, \pi]}$, los tres ángulos parametrizan posiciones distintas sobre el mismo círculo $S^1$. El círculo es cerrado por naturaleza, con $v = -\pi$ identificado con $v = \pi$, estableciendo la conexión topológica como subvariedad cerrada en $\mathcal{T}_{\text{PCF}} \cong T^2$.
+\end{enumerate}
+\end{proof}
+
+\begin{corollary}[Separación vertical cilíndrica versus igualdad radial toroidal]\label{cor:contraste-cilindro}
+En el cilindro infinito $\mathfrak{C}_0$:
+\[
+|z_C - z_P| = 4.204 \neq 0
+\]
+
+indicando separación vertical. En el toro:
+\[
+|P_t - \text{centro}| = |C_t - \text{centro}| = |F_t - \text{centro}| = 3
+\]
+
+indicando que los tres vértices comparten la misma subvariedad circular $S^1 \subset T^2$.
+\end{corollary}
+
+\begin{proposition}[Topología natural]\label{prop:topologia-natural}
+El toro $\mathcal{T}_{\text{PCF}}$ tiene topología:
+\[
+\mathcal{T}_{\text{PCF}} \cong T^2 = S^1 \times S^1
+\]
+
+donde el primer $S^1$ es el círculo mayor (coordenada $u$) y el segundo $S^1$ es el círculo menor---sección transversal (coordenada $v$). Los vértices $P_t, C_t, F_t$ habitan el segundo $S^1$ en $u = 0$.
+\end{proposition}
+
+Esta topología emerge como cierre natural del cilindro, proporcionando el contexto estructural donde los vértices forman una subvariedad cerrada y conectando la geometría del cilindro con la topología del toro mediante la inmersión $\iota$.
+
+\begin{theorem}[Proyección al lattice]\label{thm:proyeccion-lattice}
+La inmersión del cilindro en el toro anticipa la estructura algebraica:
+\[
+\mathbb{C}/\Lambda_{\text{PCF}} \cong T^2
+\]
+
+donde $\Lambda_{\text{PCF}} = \mathbb{Z}M_{\text{PCF}} \oplus \mathbb{Z}(M_{\text{PCF}} \cdot i)$ es el lattice del operador (\ref{def:lattice-PCF}).
+\end{theorem}
+
+La topología $T^2$ aparece en dos lugares: geométricamente como superficie del toro en $\mathbb{R}^3$, y algebraicamente como espacio cociente del plano complejo por el lattice. Esta coincidencia no es accidental---el toro geométrico es el espacio natural donde la estructura periódica del operador se visualiza antes de proyectarse al plano complejo.
+
+\begin{proposition}[Torre auto-similar]\label{prop:torre-auto-similar}
+Para cada $\sigma \in \mathbb{N}$, definimos:
+\[
+\mathcal{T}_\sigma := \mathcal{T}(\alpha R_0 \varphi^\sigma, R_0 \varphi^\sigma)
+\]
+
+El escalamiento $S_\sigma(x, y, z) = \varphi^\sigma(x, y, z)$ satisface:
+\[
+S_\sigma(\mathcal{C}_0) = \mathcal{C}_\sigma, \quad S_\sigma(\mathcal{T}_0) = \mathcal{T}_\sigma
+\]
+
+preservando la inmersión:
+\[
+\iota_\sigma: \mathcal{C}_\sigma \hookrightarrow \mathcal{T}_\sigma
+\]
+
+Los vértices escalan coherentemente: $P_{t,\sigma} = \varphi^\sigma P_{t,0}$, y análogamente para C y F.
+\end{proposition}
+
+\begin{theorem}[Síntesis: cilindro, toro y topología]\label{thm:sintesis-cilindro-toro}
+La estructura geométrica del operador $\omegapcf$ satisface:
+\begin{enumerate}
+\item Cilindro: Los vértices $P_{\text{vert}}, C_{\text{vert}}, F_{\text{vert}}$ viven en $\mathfrak{C}_0 = \{(x,y,z) : x^2 + y^2 = 9, z = \varphi y\}$
+\item Proyección XY: Forman triángulo equilátero en el círculo $|z| = 3$ del plano $\mathbb{C}$
+\item Toro: Se cierran topológicamente en $\mathcal{T}_{\text{PCF}}$ formando círculo $S^1$ en la sección transversal
+\item Conexión algebraica: Esta topología $T^2$ proyecta al espacio de módulos $\mathcal{M}_{\text{PCF}} = \mathbb{C}/\Lambda_{\text{PCF}}$
+\end{enumerate}
+\end{theorem}
+
+\begin{observation}[Separación conceptual entre vértices geométricos y componentes funcionales]\label{obs:distincion-esencial}
+Recordando §\ref{subsubsec:vertices-vs-componentes}:
+\begin{itemize}
+\item Los vértices geométricos $P_t, C_t, F_t$ (radio 3 en el toro) son \textbf{representantes visuales}
+\item Los componentes funcionales $P(z,\sigma), C(z), F(z)$ (magnitudes $1/\sqrt{3}, 1, \sqrt{3}/2$) operan sobre todo $\mathbb{C}$
+\end{itemize}
+
+El toro proporciona el espacio donde los representantes geométricos cierran topológicamente, anticipando la estructura del operador completo.
+\end{observation}
+
+\begin{proposition}[Razones estructurales para el toro]\label{prop:por-que-toro}
+El toro $\mathcal{T}_{\text{PCF}}$ no es elección arbitraria sino consecuencia de:
+\begin{itemize}
+\item Periodicidad angular: $\theta \in {[0, 2\pi)}$ en el plano $(x,y)$ % chktex 9
+\item Acoplamiento áureo: $z = \varphi y$ relaciona coordenadas
+\item Cierre vertical: Necesidad de cerrar la dirección $z$ en subvariedad compacta
+\item Topología $T^2$: Única topología compatible con lattice $\Lambda_{\text{PCF}}$ en $\mathbb{C}$
+\end{itemize}
+
+El cilindro muestra dónde están los vértices con la regla $z = \varphi y$. El toro muestra cómo se conectan topológicamente en una subvariedad cerrada $S^1 \subset T^2$.
+\end{proposition}
+
+\subsubsection[Isomorfismo Bidireccional: C leftrightarrow R3]{Isomorfismo Bidireccional: $\mathbb{C} \leftrightarrow \mathbb{R}^3$}
+
+\begin{theorem}[Correspondencia biunívoca mediante acoplamiento áureo]\label{thm:isomorfismo-bidireccional}
+La regla $z = \varphi y$ (Axioma 3) establece una correspondencia biunívoca entre el plano complejo y el espacio de configuración 3D.
+\end{theorem}
+
+\begin{proof}[Por construcción]
+Se definen dos aplicaciones:
+
+\textbf{Extensión} $\psi: \mathbb{C} \to \mathbb{R}^3$:
+\[
+\psi(x + iy) = (x, y, \varphi y)
+\]
+
+\textbf{Proyección} $\pi: \mathbb{R}^3 \to \mathbb{C}$:
+\[
+\pi(x, y, z) = x + iy \quad \text{(válida cuando } z = \varphi y) % chktex 1 9
+\]
+
+Estas aplicaciones satisfacen:
+\[
+\pi \circ \psi = \text{id}_{\mathbb{C}}, \quad \psi \circ \pi|_{\mathcal{S}_{\text{PCF}}} = \text{id}_{\mathcal{S}_{\text{PCF}}}
+\]
+
+donde $\mathcal{S}_{\text{PCF}} = \{(x, y, \varphi y) : x, y \in \mathbb{R}\}$.
+
+\textit{Verificación de $\pi \circ \psi = \text{id}_\mathbb{C}$}: Para todo $x + iy \in \mathbb{C}$, se tiene
+\[
+\pi(\psi(x + iy)) = \pi(x, y, \varphi y) = x + iy,
+\]
+lo cual establece la identidad sobre $\mathbb{C}$.
+
+\textit{Verificación de $\psi \circ \pi|_{\mathcal{S}_{\text{PCF}}} = \text{id}_{\mathcal{S}_{\text{PCF}}}$}: Para $(x, y, z) \in \mathcal{S}_{\text{PCF}}$, se obtiene
+\[
+\psi(\pi(x, y, z)) = \psi(x + iy) = (x, y, \varphi y).
+\]
+Dado que $z = \varphi y$ por definición de $\mathcal{S}_{\text{PCF}}$, se concluye que
+\[
+(x, y, \varphi y) = (x, y, z)
+\]
+estableciendo la identidad sobre $\mathcal{S}_{\text{PCF}}$.
+
+Por tanto, $\psi$ y $\pi$ son mutuamente inversas en sus respectivos dominios.
+\end{proof}
+
+\begin{corollary}[Preservación bidireccional de información]\label{cor:dos-direcciones-sin-perdida}
+Las aplicaciones $\psi$ y $\pi$ preservan información en ambas direcciones:
+\begin{enumerate}
+\item \textbf{Dirección 2D $\to$ 3D}: Dado $z = x + iy \in \mathbb{C}$, la extensión $\psi$ produce $(x, y, \varphi y) \in \mathbb{R}^3$, preservando toda la información del plano complejo en el espacio 3D.
+\item \textbf{Dirección 3D $\to$ 2D}: Dado $(x, y, z) \in \mathcal{S}_{\text{PCF}}$ con $z = \varphi y$, la proyección $\pi$ produce $x + iy \in \mathbb{C}$, recuperando completamente el plano complejo desde $\mathcal{S}_{\text{PCF}}$.
+\end{enumerate}
+
+No hay pérdida de información en ninguna dirección.
+\end{corollary}
+
+\begin{proposition}[Aplicación a los vértices]\label{prop:aplicacion-vertices}
+Aplicando las transformaciones $\psi$ y $\pi$ a los vértices:
+
+\textbf{Extensión 2D $\to$ 3D}:
+\begin{align*}
+z = 3 &\xrightarrow{\psi} (3, 0, 0) = P_{\text{vert}} \\
+z = -\frac{3}{2} + i\frac{3\sqrt{3}}{2} &\xrightarrow{\psi} (-1.5, 2.598, 4.204) = C_{\text{vert}} \\
+z = -\frac{3}{2} - i\frac{3\sqrt{3}}{2} &\xrightarrow{\psi} (-1.5, -2.598, -4.204) = F_{\text{vert}}
+\end{align*}
+
+\textbf{Proyección 3D $\to$ 2D}:
+\begin{align*}
+P_{\text{vert}} = (3, 0, 0) &\xrightarrow{\pi} 3 \\
+C_{\text{vert}} = (-1.5, 2.598, 4.204) &\xrightarrow{\pi} -1.5 + 2.598i \\
+F_{\text{vert}} = (-1.5, -2.598, -4.204) &\xrightarrow{\pi} -1.5 - 2.598i
+\end{align*}
+\end{proposition}
+
+\begin{proof}[Por cálculo directo]
+Se verifica que $z_C = \varphi \cdot 2.598 = 4.204$ y $z_F = \varphi \cdot (-2.598) = -4.204$, confirmando la regla de acoplamiento $z = \varphi y$ del Axioma 3 (\ref{ax:extension-ortogonal}).
+\end{proof}
+
+\begin{theorem}[Dimensión efectiva]\label{thm:dimension-efectiva}
+El espacio $\mathcal{S}_{\text{PCF}}$ tiene:
+\begin{itemize}
+\item Dimensión aparente: 3 (coordenadas $x, y, z$)
+\item Dimensión efectiva: 2 ($z$ determinada por $y$)
+\item Grados de libertad: 2 ($x$ y $y$ independientes)
+\end{itemize}
+
+Por tanto $\mathcal{S}_{\text{PCF}} \cong \mathbb{R}^2 \cong \mathbb{C}$.
+\end{theorem}
+
+\begin{proposition}[Preservación de estructura]\label{prop:preservacion-estructura}
+El isomorfismo preserva:
+\begin{enumerate}
+\item Módulo radial: $|z| = \sqrt{x^2 + y^2}$ en ambas direcciones
+\item Ángulos: $\arg(z) = \arctan2(y, x)$ consistente en ambas direcciones
+\item Triángulo equilátero: Separación 120° en $\mathbb{C}$ $\leftrightarrow$ estructura 3D con $z = \varphi y$ (ver \dref{def:magnitudes-tripartitas})
+\end{enumerate}
+\end{proposition}
+
+\begin{observation}[Coherencia del sistema]\label{obs:coherencia-sistema}
+La bidireccionalidad establecida en \tref{thm:isomorfismo-bidireccional} y \corref{cor:dos-direcciones-sin-perdida} explica:
+\begin{enumerate}
+\item El toro $\mathcal{T}_{\text{PCF}}$ (topológicamente 2D, geométricamente en $\mathbb{R}^3$) se representa completamente en $\mathbb{C}$ mediante el isomorfismo $\mathbb{C} \cong \mathcal{S}_{\text{PCF}} \cong \mathcal{T}_{\text{PCF}}$ (\tref{thm:dimension-efectiva}).
+\item Los componentes $P(z,\sigma), C(z), F(z)$ operan sobre $\mathbb{C}$ con acceso completo a la geometría 3D a través del acoplamiento $z = \varphi y$ (Axioma~\ref{ax:extension-ortogonal}).
+\item El lattice $\Lambda_{\text{PCF}}$ que construiremos en §\ref{subsec:toro-lattice} captura la estructura completa del toro.
+\end{enumerate}
+
+El acoplamiento $z = \varphi y$ establece que el espacio 3D siempre tuvo solo 2 grados de libertad independientes. La geometría del toro en $\mathbb{R}^3$ y la estructura algebraica en $\mathbb{C}$ son dos representaciones isomorfas del mismo objeto matemático.
+\end{observation}
+
+Con el isomorfismo $\mathbb{C} \cong \mathcal{S}_{\text{PCF}} \cong \mathcal{T}_{\text{PCF}}$ establecido (\tref{thm:dimension-efectiva}), procedemos a construir el lattice $\Lambda_{\text{PCF}}$ en el plano complejo, sabiendo que captura toda la información del toro tridimensional. La topología $T^2$ del toro reaparecerá como la topología natural del espacio de módulos $\mathcal{M}_{\text{PCF}} = \mathbb{C}/\Lambda_{\text{PCF}}$, conectando visualización geométrica con estructura algebraica.
+
+\subsection{Proyección al Plano Complejo y Estructura del Lattice}\label{subsec:toro-lattice}
+
+\textbf{Objetivo de esta sección:} Mostrar cómo el operador $\Omega(z,\sigma)$, con estructura tripartita (tipo Eisenstein, 120°), genera un lattice rectangular (tipo Gauss, 90°) en $\mathbb{C}$, y establecer el espacio de módulos $\mathcal{M}_{\text{PCF}} = \mathbb{C}/\Lambda_{\text{PCF}}$.
+
+\subsubsection{Proyección Vertical}
+
+\begin{definition}[Proyección vertical al plano complejo]\label{def:proyeccion-vertical}
+El mapa $\pi: \mathbb{R}^3 \to \mathbb{C}$ dado por:
+\[
+\pi(x, y, z) = x + iy
+\]
+
+proyecta la geometría 3D del toro al plano complejo.
+\end{definition}
+
+\begin{proposition}[Vértices proyectados]\label{prop:vertices-proyectados}
+La proyección de los vértices del cilindro es:
+\[
+\pi(P_{\text{vert}}) = 3, \quad \pi(C_{\text{vert}}) = -\frac{3}{2} + i\frac{3\sqrt{3}}{2}, \quad \pi(F_{\text{vert}}) = -\frac{3}{2} - i\frac{3\sqrt{3}}{2}
+\]
+
+formando un triángulo equilátero en el círculo $|z| = 3$.
+\end{proposition}
+
+\begin{observation}[Proyección angular]\label{obs:proyeccion-angular}
+La proyección colapsa la coordenada $z$, pero preserva la estructura angular 120° en el plano complejo.
+\end{observation}
+
+\subsubsection{Periodicidades y Generación del Lattice}
+
+\begin{theorem}[Períodos del operador]\label{thm:periodos-operador}
+El operador $\omegapcf$ exhibe dos periodicidades independientes:
+\begin{enumerate}
+\item \textbf{Periodicidad de fase}: $\arg(\Omega(z,\sigma)) = 3\arg(z) + \pi\varepsilon(\sigma) + 2\pi$
+\item \textbf{Periodicidad temporal}: $\tau(\sigma)\varphi^\sigma = M_{\text{PCF}}$, donde $M_{\text{PCF}} = \pi/\varepsilon_0$
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}[Lattice PCF]\label{def:lattice-PCF}
+El lattice generado por el operador es:
+\[
+\Lambda_{\text{PCF}} := \mathbb{Z}M_{\text{PCF}} \oplus \mathbb{Z}(M_{\text{PCF}} \cdot i) = \{m M_{\text{PCF}} + n M_{\text{PCF}} \cdot i : m, n \in \mathbb{Z}\}
+\]
+
+donde $M_{\text{PCF}} = \pi/\varepsilon_0 = 6\sqrt{3}\pi/\ln \varphi \approx 67.846189258071644\ldots$ es el módulo topológico que sintetiza la estructura periódica emergente de las rotaciones de fase acumuladas del operador. Geométricamente, $M_{\text{PCF}}$ representa el período fundamental en el plano complejo que estructura el lattice; topológicamente, clasifica el toro $\mathbb{C}/\Lambda_{\text{PCF}} \cong T^2$ (\corref{cor:espacio-cociente}).
+\end{definition}
+
+\begin{theorem}[Emergencia del lattice desde periodicidades del operador]\label{thm:generacion-operador}
+Las periodicidades del operador inducen las identificaciones:
+\[
+z \sim z + M_{\text{PCF}}, \quad z \sim z + M_{\text{PCF}} \cdot i
+\]
+
+que definen $\Lambda_{\text{PCF}}$.
+\end{theorem}
+
+\begin{proof}[Por construcción] Se verifica que:
+\newline
+\begin{enumerate}
+\item \textbf{Período fundamental}: La ecuación de acoplamiento $\tau(\sigma)\varphi^\sigma = \text{constante}$ determina el período temporal fundamental $M_{\text{PCF}} = \pi/\varepsilon_0$.
+
+\item \textbf{Direcciones independientes}: La estructura compleja de $\mathbb{C} = \mathbb{R}^2$ con base $\{1, i\}$ introduce dos direcciones independientes sobre $\mathbb{R}$.
+
+\item \textbf{Identificaciones}: Las funciones periódicas respecto al operador satisfacen:
+\[
+f(z + M_{\text{PCF}}) = f(z), \quad f(z + M_{\text{PCF}} \cdot i) = f(z)
+\]
+
+\item \textbf{Lattice minimal}: $\Lambda_{\text{PCF}}$ es el lattice minimal (subgrupo discreto) que respeta estas identificaciones.
+\end{enumerate}
+\end{proof}
+
+\begin{corollary}[Periodicidades que generan el toro]\label{cor:espacio-cociente}
+El espacio cociente es:
+\[
+\mathbb{C}/\Lambda_{\text{PCF}} \cong T^2
+\]
+
+topológicamente un toro.
+\end{corollary}
+
+\subsubsection{Dualidad Estructural: Eisenstein y Gauss}
+
+\begin{observation}[Dos estructuras lattice en $\mathbb{C}$]\label{obs:dos-estructuras-lattice}
+El plano complejo admite dos estructuras lattice canónicas:
+
+Gauss ($\mathbb{Z}[i]$):
+\begin{itemize}
+\item Base: $\{1, i\}$
+\item Ángulo: $90^\circ$
+\item Geometría: cuadrado
+\end{itemize}
+
+Eisenstein ($\mathbb{Z}[\omega]$):
+\begin{itemize}
+\item Base: $\{1, \omega\}$ donde $\omega = e^{2\pi i/3}$
+\item Ángulo: $120^\circ$
+\item Geometría: hexagonal
+\end{itemize}
+
+\end{observation}
+
+\begin{theorem}[Dualidad entre estructuras Eisenstein y Gauss]\label{thm:dualidad-PCF}
+El operador $\omegapcf$ mantiene coherencia entre ambas estructuras mediante el invariante $|\Omega| = 1/2$:
+
+\mbox{}\par\vspace*{1em}
+
+\begin{center}
+% chktex-file 44
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Aspecto} & \textbf{Tipo Eisenstein} & \textbf{Tipo Gauss} \\
+\hline
+Componentes P, C, F & Separación $2\pi/3$ ($\omega$) & --- \\
+Lattice $\Lambda_{\text{PCF}}$ & --- & Base $\{M, Mi\}$ \\
+Invariante & $|\Omega| = 1/2$ & $|\Omega| = 1/2$ \\
+\hline
+\end{tabular}
+% chktex-file 0
+\end{center}
+
+\textit{Interpretación}: $\Omega$ es generador tripartito (estructura $\omega$, 120°) que induce lattice rectangular (estructura $i$, 90°).
+\end{theorem}
+
+\begin{proposition}[Mecanismo de mediación por $\varphi$]\label{prop:mediacion-phi}
+La razón áurea conecta ambas estructuras mediante el acoplamiento $z = \varphi y$ (Axioma 3, \ref{ax:extension-ortogonal}):
+\begin{itemize}
+\item Entrada: simetría tripartita ($\omega^3 = 1$)
+\item Salida: lattice rectangular ($i^2 = -1$)
+\item Mediador: $\varphi^2 = \varphi + 1$
+\end{itemize}
+\end{proposition}
+
+\begin{observation}[Unificación de estructuras lattice duales]\label{obs:unificacion-lattice}
+El operador $\omegapcf$ unifica exitosamente estructuras tipo Eisenstein (separación angular $2\pi/3$) y tipo Gauss (lattice rectangular) en el mismo espacio $\mathbb{C}$. Esta coexistencia se garantiza mediante el invariante constante $|\Omega| = 1/2$ (Corolario~\ref{cor:modulo-constante}) y el mecanismo de mediación por $\varphi$ (\pref{prop:mediacion-phi}), estableciendo coherencia estructural entre ambas representaciones (\tref{thm:dualidad-PCF}).
+\end{observation}
+
+
+\subsubsection{Espacio de Módulos}
+
+\begin{definition}[Espacio de módulos PCF]\label{def:espacio-modulos-PCF}
+El espacio de módulos es:
+\[
+\mathcal{M}_{\text{PCF}} := \mathbb{C}/\Lambda_{\text{PCF}}
+\]
+\end{definition}
+
+\begin{proposition}[Topología del espacio de módulos]\label{prop:topologia-modulos}
+$\mathcal{M}_{\text{PCF}}$ tiene topología de toro $T^2 = S^1 \times S^1$, consistente con §\ref{subsubsec:cierre-topologico}.
+\end{proposition}
+
+\begin{observation}[Conexión con §\ref{sec:plano-complejo-modulos}]\label{obs:conexion-curvas-elipticas}
+El espacio $\mathcal{M}_{\text{PCF}}$ comparte estructura topológica con el espacio de módulos de curvas elípticas:
+\[
+\mathcal{M}_{\text{curvas}} = \mathbb{H}/\text{PSL}_2(\mathbb{Z})
+\]
+Ambos son espacios cocientes con topología $T^2$.
+\end{observation}
+
+\begin{theorem}[Parámetro modular]\label{thm:parametro-modular}
+El lattice $\Lambda_{\text{PCF}}$ tiene parámetro modular:
+\[
+\tau_{\text{PCF}} := \frac{M_{\text{PCF}} \cdot i}{M_{\text{PCF}}} = i
+\]
+indicando lattice rectangular (no cuadrado, no hexagonal).
+\end{theorem}
+
+\begin{observation}[$\tau = i$: de la clasificación general a la dualidad preservada]\label{obs:clasificacion-parametros}
+El valor $\tau = i$ es especial en la clasificación de lattices. Los parámetros modulares caracterizan diferentes estructuras lattice:
+\begin{itemize}
+\item $\tau = i$: lattice de Gauss (simetría cuadrada $\mathbb{Z}_4$)
+\item $\tau = \omega$: lattice de Eisenstein (simetría hexagonal $\mathbb{Z}_6$)
+\item $\tau_{\text{PCF}} = i$: lattice rectangular con simetría $\mathbb{Z}_4$ en el operador $\omegapcf$
+\end{itemize}
+La elección $\tau_{\text{PCF}} = i$ en el operador $\omegapcf$ privilegia estructura rectangular sobre hexagonal, aunque ambas coexisten virtualmente en el invariante $|\Omega| = 1/2$.
+\end{observation}
+
+\subsubsection{Síntesis: Proyección, Lattice y Coherencia Dual}
+
+\begin{theorem}[Teorema Principal: Proyección y estructura lattice]\label{thm:sintesis-proyeccion-lattice}
+El operador $\omegapcf$ satisface:
+\begin{enumerate}
+\item \textbf{Proyección}: $\pi: \mathcal{T}_{\text{PCF}} \to \mathbb{C}$ colapsa geometría 3D preservando estructura angular
+\item \textbf{Lattice}: $\Lambda_{\text{PCF}} = \mathbb{Z}M \oplus \mathbb{Z}Mi$ (suma directa) generando $T^2 = S^1 \times S^1$ (producto cartesiano) mediante periodicidades del operador
+\item \textbf{Dualidad}: Componentes tripartitos ($\omega$) coexisten con lattice rectangular ($i$)
+\item \textbf{Invariante}: $|\Omega(z,\sigma)| = 1/2$ constante bajo ambas estructuras
+\item \textbf{Espacio de módulos}: $\mathcal{M}_{\text{PCF}} = \mathbb{C}/\Lambda_{\text{PCF}} \cong T^2$
+\end{enumerate}
+
+El operador no elige entre Eisenstein o Gauss---mantiene coherencia entre ambos vía el invariante $|\Omega| = 1/2$ y la mediación de $\varphi$.
+\end{theorem}
+
+\subsection[Dimension sigma: Torre de Escalas]{Dimensión $\sigma$: Torre de Escalas}
+
+La construcción del operador hasta ahora ha usado un parámetro $\sigma$ sin explicar su naturaleza geométrica. En esta sección formalizamos $\sigma$ como coordenada de escala que parametriza una familia infinita de funciones.
+\vspace{1em}
+\begin{observation}[Naturaleza del parámetro $\sigma$]\label{obs:naturaleza-sigma}
+El parámetro $\sigma \in \mathbb{R}$ no representa una dimensión espacial adicional (no existe un ``eje $\sigma$'' separado de $x, y, z$). En cambio, $\sigma$ es una coordenada de escala que parametriza una familia infinita de funciones:
+\[
+\{\Omega(z, \sigma) : \mathbb{C} \to \mathbb{C}\}_{\sigma \in \mathbb{R}} % chktex 3
+\]
+
+Cada valor fijo de $\sigma$ especifica una función diferente sobre el mismo dominio $\mathbb{C}$. Esta familia admite dos interpretaciones equivalentes:
+\end{observation}
+\begin{enumerate}
+\item Geométrica: Cada $\sigma$ define un círculo en $\mathbb{C}$ con radio efectivo $R_\sigma = R_0\varphi^\sigma$
+\item Analítica: Cada $\sigma$ define un espacio de funciones $F_\sigma$ con dispersión y frecuencia características
+\end{enumerate}
+
+El parámetro $\sigma$ actúa como lente de observación o nivel de magnificación que permite explorar la estructura PCF a diferentes escalas, manteniendo la propiedad fundamental $|\Omega(z,\sigma)| = 1/2$ constante para todo $\sigma$.
+
+Contraste con extensiones dimensionales previas: en §\ref{subsec:geometria-3d} (Axioma PCF 3), introdujimos $z = \varphi y$ como coordenada espacial adicional en $\mathbb{R}^3$; aquí, $\sigma$ no añade dimensión espacial, sino estructura escalar sobre el mismo espacio.
+
+Esta distinción es crucial: el operador habita una familia de funciones $\mathbb{C} \to \mathbb{C}$ (plano complejo $\times$ escala), no $\mathbb{C} \times \mathbb{R} \times \mathbb{R}$ (tres dimensiones espaciales).
+
+\subsubsection{Familia de Círculos sin Ejes Adicionales}
+
+\begin{observation}[Círculo base con parámetro]\label{obs:circulo-base-parametro}
+El círculo de §\ref{subsec:geometria-3d} tiene radio fijo $r$. El operador habita una familia infinita parametrizada por escala.
+\end{observation}
+
+\begin{definition}[Familia paramétrica]\label{def:familia-parametrica}
+La familia de curvas espaciales es:
+\[
+\mathcal{C}_\sigma = \left\{\vec{r}_\sigma(t) = r_0\varphi^\sigma\begin{pmatrix} \cos t \\ \sin t \\ \varphi\sin t \end{pmatrix} : \sigma \in \mathbb{R}\right\}
+\]
+\end{definition}
+
+\begin{proposition}[$\sigma$ como coordenada escalar pura]\label{prop:sigma-escalar-puro}
+La coordenada $\sigma$ parametriza escalas sin requerir ejes espaciales $(x_\sigma, y_\sigma)$ adicionales. Cada valor de $\sigma$ especifica el radio de la curva espacial en el mismo espacio $(x,y,z)$.
+\end{proposition}
+
+\begin{fullwidth}
+\centering
+\begin{minipage}{\linewidth}
+\includegraphics[width=\linewidth]{src/images/image2.png}
+\captionsetup{width=\linewidth,justification=centering}
+\captionof{figure}{Relación geométrica P-C-F para los primeros 4 niveles $\sigma$: puntos P (rojos), C (verdes) y F (azules) forman triángulos que escalan radialmente con $\sigma$ (radios $R_\sigma = 3.00, 4.8, 7.8, 12.71$), contenidos en cilindros concéntricos translúcidos. Las líneas cian conectan puntos dentro de cada nivel; las líneas punteadas muestran la progresión de cada tipo de punto entre niveles, revelando la estructura autosimilar del operador.}
+\label{fig:scale_cone} % chktex 24
+\end{minipage}
+\end{fullwidth}
+
+Esta estructura autosimilar genera un cono análogo a los conos de luz del principio de Fermat en óptica geométrica, donde trayectorias de luz minimizan tiempo de propagación generando superficies cónicas continuas. Sin embargo, aquí la geometría difiere en dos aspectos fundamentales: el cono emerge de un ángulo distinto (determinado por el escalamiento áureo $\varphi$ en lugar de propagación luminosa) y está dividido entre escalas discretas en lugar de formar una superficie continua. Formalmente, la parametrización discreta es:
+\[
+\sigma \mapsto r_0\varphi^\sigma, \quad \sigma \in \mathbb{Z}
+\]
+donde cada nivel $\sigma$ corresponde a un círculo de radio $r_0\varphi^\sigma$, estableciendo una partición del cono en niveles escalares discretos en lugar de una generatriz continua.
+
+\subsubsection{Lattice Vertical Multiplicativo}
+
+\begin{proposition}[Estructura discreta del lattice vertical]\label{prop:estructura-discreta}
+Para $\sigma \in \mathbb{Z}$, los radios forman:
+\[
+\Lambda_{\text{vertical}} = \{r_0\varphi^n : n \in \mathbb{Z}\}
+\]
+
+En espacio logarítmico:
+\[
+\ln(\Lambda_{\text{vertical}}) = \ln(r_0) + \ln(\varphi)\mathbb{Z}
+\]
+\end{proposition}
+
+\begin{observation}[Comparación con lattices clásicos]\label{obs:comparacion-lattices}
+
+\mbox{}\par\vspace*{1em}
+
+% chktex-file 44
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\textbf{Lattice} & \textbf{Dimensión} & \textbf{Operación} & \textbf{Generador} & \textbf{Espacio} \\
+\midrule
+$\mathbb{Z}[i]$ & 2D & Suma & $\{1, i\}$ & $\mathbb{C}$ \\
+$\Lambda_{3D}$ & 3D & Suma & $\{(1,0,0), (0,1,\varphi)\}$ & $\mathbb{R}^3$ \\
+$\Lambda_{\text{vertical}}$ & 1D & Multiplicación & $\{\varphi\}$ & $\mathbb{R}_+$ \\
+\bottomrule
+\end{tabular}
+% chktex-file 0
+\end{observation}
+
+\begin{corollary}[Lattice vertical sin dimensión adicional]\label{cor:lattice-vertical-sin-dimension}
+El lattice vertical $\Lambda_{\text{vertical}} = \{r_0\varphi^n : n \in \mathbb{Z}\}$ (Proposición~\ref{prop:estructura-discreta}) opera sobre escalas en $\mathbb{R}_+$, no sobre coordenadas espaciales. Por tanto, no añade dimensión al espacio $\mathbb{R}^3$ o $\mathbb{C}$, sino que parametriza una familia discreta de escalas mediante la multiplicación por potencias de $\varphi$.
+\end{corollary}
+
+\subsubsection{Invariancia de la Razón de Módulos}
+
+\begin{proposition}[Razón de módulos 3D/2D]\label{prop:razon-modulos-3d-2d}
+La razón entre módulo 3D y módulo 2D es:
+\[
+\frac{|\vec{r}|_{3D}}{|z|_{2D}} = \sqrt{1 + \frac{\varphi^2y^2}{x^2+y^2}}
+\]
+independiente de $\sigma$.
+\end{proposition}
+
+\begin{corollary}[Razón constante en el eje imaginario]\label{cor:razon-eje-imaginario}
+Para $x=0$: esta razón es exactamente $\sqrt{1+\varphi^2} = \sqrt{\varphi+2} \approx 1.902$ en todos los niveles de escala.
+\end{corollary}
+
+\subsubsection{Espacio Adjunto}
+
+\begin{definition}[Base extendida del espacio adjunto]\label{def:base-extendida-espacio-adjunto}
+El espacio adjunto se parametriza por la base extendida $\{1, i, \varphi\}$ donde:
+\begin{itemize}
+\item $1$: unidad real (eje $x$)
+\item $i$: unidad imaginaria (eje $y$, rotación 90°)
+\item $\varphi$: unidad escalar (escalamiento geométrico)
+\end{itemize}
+
+La estructura completa del espacio adjunto es:
+\[
+\mathcal{E}_{\text{adjunto}} = \mathbb{C} \times \mathbb{R}_+ \times S^1
+\]
+con coordenadas $(z, \sigma, \theta) \in \mathbb{C} \times \mathbb{R} \times S^1$.
+\end{definition}
+
+\begin{proposition}[Métrica del espacio adjunto]\label{prop:metrica-espacio-adjunto}
+La métrica del espacio adjunto es:
+\[
+ds^2 = |dz|^2 + \ln^2(\varphi)d\sigma^2 + d\theta^2
+\]
+
+Esta métrica unifica:
+\begin{itemize}
+\item Distancia euclidiana en $\mathbb{C}$: $|dz|^2$
+\item Distancia logarítmica en escalas: $\ln^2(\varphi)d\sigma^2$
+\item Distancia angular en fase: $d\theta^2$
+\end{itemize}
+\end{proposition}
+
+\subsubsection{Ecuación de Acoplamiento Temporal}
+
+Las ecuaciones de acoplamiento conectan la dinámica temporal (evolución en $\sigma$) con la geometría espacial (argumento $z$ en el plano complejo).
+
+\begin{theorem}[Ecuación de Acoplamiento Temporal]\label{thm:acoplamiento-temporal}
+El operador satisface la ecuación de escalamiento temporal:
+\[
+\Omega(z,\sigma+1) = \Omega(z,\sigma) \cdot e^{i\Delta\phi(\sigma)}
+\]
+
+donde la fase de acoplamiento es:
+\[
+\Delta\phi(\sigma) = \pi\varepsilon(\sigma) \cdot (\varphi - 1) = \pi\varepsilon(\sigma) / \varphi
+\]
+\end{theorem}
+
+\textit{Interpretación}: Avanzar un nivel $\sigma \to \sigma+1$ (lo cual corresponde a ``multiplicar por $\varphi$'' en el espacio de parámetros) equivale a multiplicar el operador por un factor de fase que depende del nivel actual.
+
+\begin{proof}[Por cálculo directo]
+Por la Proposición~\ref{prop:formula-fase-explicita} y la definición del operador (\dref{def:operador-PCF-completo}):
+\begin{align*}
+\Omega(z,\sigma) &= \frac{1}{2}e^{i[3\arg(z) + \pi\varepsilon(\sigma)]} \\
+\Omega(z,\sigma+1) &= \frac{1}{2}e^{i[3\arg(z) + \pi\varepsilon(\sigma+1)]}
+\end{align*}
+
+Tomando el cociente:
+\begin{align*}
+\frac{\Omega(z,\sigma+1)}{\Omega(z,\sigma)} &= \frac{e^{i[3\arg(z) + \pi\varepsilon(\sigma+1)]}}{e^{i[3\arg(z) + \pi\varepsilon(\sigma)]}} \\
+&= e^{i\pi[\varepsilon(\sigma+1) - \varepsilon(\sigma)]} \\
+&= e^{i\pi[\varepsilon(\sigma)(\varphi - 1)]}
+\end{align*}
+
+Se concluye que:
+\[
+\Omega(z,\sigma+1) = \Omega(z,\sigma) \cdot e^{i\pi\varepsilon(\sigma)(\varphi - 1)},
+\]
+lo cual establece la ecuación de acoplamiento temporal.
+
+\par
+En notación alternativa, escribiendo $\Omega(\varphi \cdot z)$ para denotar el avance temporal $\sigma \to \sigma+1$, la ecuación se expresa simbólicamente como:
+\[
+\boxed{\Omega(\varphi \cdot z, \sigma) \equiv \Omega(z, \sigma+1) = \Omega(z, \sigma) \cdot e^{i\varepsilon(\sigma)}}
+\]
+
+\par
+En esta expresión, el factor $\pi(\varphi-1)$ se absorbe en la definición de $\varepsilon$ efectivo, simplificando la notación sin pérdida de generalidad.
+\end{proof}
+
+\subsubsection{Ecuación de Acoplamiento Óptimo}\label{subsubsec:acoplamiento-optimo}
+
+\begin{theorem}[Ecuación de acoplamiento óptimo]\label{thm:acoplamiento-optimo}
+Para cada nivel $\sigma \in \mathbb{N}$, existe un ángulo crítico $\arg(z)_{\text{crit}}{(\sigma)} \in \mathbb{R}$ tal que: % chktex 3
+\[
+\boxed{\frac{\lbrack\arg(\Omega(z_{\text{crit}}, \sigma)) - 2\pi\rbrack}{\log(\varphi)} + \frac{\log(\varepsilon(\sigma))}{\log(\varphi)} = 1}
+\]
+donde $z_{\text{crit}}$ satisface $\arg(z_{\text{crit}}) = \arg(z)_{\text{crit}}{(\sigma)}$. % chktex 3
+\end{theorem}
+
+\begin{proof}[Por sustitución]
+Sustituyendo $\arg(\Omega) = 3\arg(z) + \pi\varepsilon(\sigma) + 2\pi$ y $\log(\varepsilon(\sigma)) = \log(\varepsilon_0) + \sigma\log(\varphi)$ en la ecuación y simplificando se obtiene:
+\[
+\frac{3\arg(z)}{\log(\varphi)} + \frac{\pi\varepsilon(\sigma)}{\log(\varphi)} + \frac{\log(\varepsilon_0)}{\log(\varphi)} + \sigma = 1
+\]
+Despejando $\arg(z)$ y usando $\log(\varepsilon_0) = \log(\varepsilon(\sigma)) - \sigma\log(\varphi)$:
+\[
+\arg(z)_{\text{crit}}{(\sigma)} = \frac{\log(\varphi) - \pi\varepsilon(\sigma) - \log(\varepsilon(\sigma))}{3} % chktex 3
+\]
+\end{proof}
+
+\textit{Nota sobre fase efectiva}: La expresión $[\arg(\Omega) - 2\pi]$ en el teorema corresponde a la fase efectiva, dado que $\arg(\Omega) = 3\arg(z) + \pi \cdot \varepsilon(\sigma) + 2\pi$ por \pref{prop:formula-fase-explicita} y $e^{2\pi i} = 1$. Alternativamente, la ecuación puede escribirse como $\arg(\Omega)/\log(\varphi) + \log(\varepsilon)/\log(\varphi) = 1$ (mod $2\pi$).
+
+\subsubsection{Tabla de Ángulos Críticos}
+
+\begin{proposition}[Ángulos críticos]\label{prop:angulos-criticos}
+Los primeros ángulos críticos son:
+
+\mbox{}
+\begin{center}
+% chktex-file 44
+\begin{tabular}{|c|c|c|c|}
+\hline
+$\sigma$ & $\arg(z)_{\text{crit}}{(\sigma)}$ {[rad]} & En grados & En términos de $\pi$ \\ % chktex 3
+\hline
+1 & 0.9457 & 54.19° & 0.301$\pi$ \\
+2 & 0.7368 & 42.22° & 0.235$\pi$ \\
+3 & 0.4980 & 28.53° & 0.159$\pi$ \\
+5 & -0.1552 & -8.89° & -0.049$\pi$ \\
+7 & -1.3461 & -77.13° & -0.428$\pi$ \\
+10 & -6.3834 & -365.74° & -2.032$\pi$ \\
+15 & -67.362 & -3859.56° & -21.442$\pi$ \\
+20 & -735.533 & -42142.95° & -234.127$\pi$ \\
+\hline
+\end{tabular}
+% chktex-file 0
+\end{center}
+\end{proposition}
+
+\begin{observation}[Espiral de ángulos críticos]\label{obs:espiral-angulos-criticos}
+Los ángulos críticos forman una espiral logarítmica que diverge para $\sigma \to \infty$. Para valores pequeños de $\sigma$, los ángulos están en el primer y segundo cuadrante, luego cruzan al tercer cuadrante y continúan en espiral descendente.
+\end{observation}
+
+\subsubsection{Significado Geométrico de Ángulos Críticos}
+
+\begin{observation}[Resonancia geométrica]\label{obs:resonancia-geometrica}
+En los ángulos críticos $\arg(z) = \arg(z)_{\text{crit}}{(\sigma)}$, el operador $\Omega(z,\sigma)$ satisface una condición de resonancia donde: % chktex 3
+\begin{enumerate}
+\item \textbf{Acoplamiento geométrico-aritmético óptimo}: La componente geométrica $3\arg(z)$ y la componente logarítmica $\log(\varepsilon)$ se balancean para satisfacer la ecuación de acoplamiento.
+\item \textbf{Direcciones privilegiadas}: Estas direcciones en el plano complejo corresponden a vectores $z$ donde el operador exhibe propiedades especiales de coherencia.
+\item \textbf{Espiral áurea}: El conjunto $\{z_{\text{crit}}(\sigma) : \sigma \in \mathbb{N}\}$ forma una espiral logarítmica en $\mathbb{C}$ con factor de crecimiento relacionado con $\varphi$.
+\end{enumerate}
+
+\textit{Interpretación física}: Si interpretamos $\arg(z)$ como una dirección en el plano complejo, los ángulos críticos definen modos normales o direcciones de resonancia del sistema PCF, análogos a frecuencias resonantes en sistemas mecánicos.
+\end{observation}
+
+\subsubsection{Verificación Numérica de Ecuaciones de Acoplamiento}
+
+\begin{observation}[Verificación numérica de ecuaciones de acoplamiento]\label{obs:verificacion-numerica}
+Ambas ecuaciones de acoplamiento se verifican computacionalmente con precisión de máquina (véase \dref{def:precision-computacional}):
+
+\begin{enumerate}
+\item \textit{Ecuación Temporal}: Para $\sigma \in {[1,20]}$ y cualquier $z \in \mathbb{C}$:
+\[
+\left|\arg(\Omega(z,\sigma+1)) - \arg(\Omega(z,\sigma)) - \pi\varepsilon(\sigma)(\varphi - 1)\right| < 10^{-13}
+\]
+
+\item \textit{Ecuación de Acoplamiento Óptimo}: Para $\sigma \in {[1,20]}$ y $\arg(z) = \arg(z)_{\text{crit}}{(\sigma)}$: % chktex 3
+\[
+\left|\frac{\arg(\Omega(z_{\text{crit}}, \sigma))}{\log(\varphi)} + \frac{\log(\varepsilon(\sigma))}{\log(\varphi)} - 1\right| < 10^{-14}
+\]
+\end{enumerate}
+
+Las verificaciones computacionales se detallan en Apéndice~\ref{app:ttt}.
+\end{observation}
+
+\subsection{Traducción a Espacio-tiempo: Torre de Funciones}\label{subsec:spacetime-torre}
+
+\subsubsection{Conexión con Minkowski}
+
+\begin{proposition}[Rotación de Wick]\label{prop:rotacion-wick}
+El espacio adjunto (\cref{const:rotacion-wick}) conecta con espacio-tiempo mediante $t \to it$:
+\[
+ds^2_{\mathbb{C}} = dx^2 + dy^2 \quad \xrightarrow{\Phi_M} \quad ds^2_{\mathcal{M}} = -c^2dt^2 + dx^2
+\]
+\end{proposition}
+
+\subsubsection[Autosimilitud Geometrica en C]{Autosimilitud Geométrica en $\mathbb{C}$}
+
+La estructura escalar del acoplamiento temporal induce autosimilitud geométrica en el plano complejo.
+
+\begin{proposition}[Escalamiento simultáneo del parámetro de escala y del módulo complejo]\label{prop:escalamiento-modulo-sigma}
+La estructura autosimilar del sistema, manifestada a través del acoplamiento temporal (\tref{thm:acoplamiento-temporal}), establece que al avanzar de un nivel de escala al siguiente ($\sigma \to \sigma+1$), tanto el parámetro de escala $\varepsilon$ como el módulo $|z|$ del punto complejo escalan simultáneamente por el factor áureo $\varphi$. Específicamente:
+\begin{enumerate}
+\item El parámetro de escala (\dref{def:parametro-escala}) satisface $\varepsilon(\sigma+1) = \varphi \cdot \varepsilon(\sigma)$.
+\item El módulo complejo satisface $|z|_{\sigma+1} = \varphi |z|_\sigma$.
+\end{enumerate}
+
+Esta simultaneidad emerge de la necesidad de preservar la estructura geométrica del operador bajo transformaciones de escala, manteniendo la coherencia entre la dinámica temporal y la geometría espacial.
+\end{proposition}
+
+\begin{proof}[Por cálculo directo]
+El acoplamiento temporal (\tref{thm:acoplamiento-temporal}) establece:
+\[
+\Omega(z,\sigma+1) = \Omega(z,\sigma) \cdot e^{i\Delta\phi(\sigma)}
+\]
+con $\Delta\phi(\sigma) = \pi\varepsilon(\sigma)(\varphi-1)$.
+
+\par
+Por la Proposición~\ref{prop:formula-fase-explicita} y la definición del operador (\dref{def:operador-PCF-completo}):
+\[
+\Omega(z,\sigma) = \frac{1}{2}e^{i[3\arg(z) + \pi\varepsilon(\sigma)]}
+\]
+el escalamiento de la fase requiere que $\varepsilon(\sigma+1) = \varphi \cdot \varepsilon(\sigma)$.
+
+\par
+La coherencia geométrica demanda que el módulo escale proporcionalmente: $|z|_{\sigma+1} = \varphi |z|_\sigma$, completando la demostración.
+\end{proof}
+
+\begin{definition}[Módulo topológico]\label{def:modulo-topologico}
+Las rotaciones acumuladas de las fases del operador (\dref{def:fases-componentes}) generan el módulo topológico:
+\[
+M_{\text{PCF}} := \frac{\pi}{\varepsilon_0} = \frac{6\sqrt{3}\pi}{\ln \varphi} \approx 67.846189258071644\ldots
+\]
+
+\textit{Interpretación}: El módulo $M_{\text{PCF}}$ sintetiza la estructura periódica emergente de las rotaciones de fase acumuladas. Geométricamente, representa el período fundamental en el plano complejo que estructura el lattice PCF (\dref{def:lattice-PCF}). Topológicamente, clasifica el toro $\mathbb{C}/\Lambda_{\text{PCF}} \cong T^2$ (\corref{cor:espacio-cociente}).
+\end{definition}
+
+\begin{proposition}[Lattice PCF desde periodicidad escalar]\label{prop:lattice-PCF-sigma}
+La periodicidad temporal $\tau(\sigma)\varphi^\sigma = M_{\text{PCF}}$ (donde $\tau(\sigma) = \pi/\varepsilon(\sigma)$) produce el lattice:
+\[
+\Lambda_{\text{PCF}} = \mathbb{Z}M_{\text{PCF}} \oplus \mathbb{Z}(M_{\text{PCF}} \cdot i)
+\]
+
+El lattice estructura la torre de funciones por nivel de escala mediante la periodicidad escalar\sidenote{Esta estructura coincide con la definición del lattice PCF (\dref{def:lattice-PCF}) y establece las identificaciones periódicas $z \sim z + M_{\text{PCF}}$ y $z \sim z + M_{\text{PCF}} \cdot i$ que generan el espacio cociente $T^2$ (\tref{thm:generacion-operador}).}, como se detalla en la siguiente subsección.
+\end{proposition}
+
+\subsubsection{Espacios de Funciones por Nivel}
+
+\begin{definition}[Espacio $F_\sigma$]\label{def:espacio-F-sigma}
+Cada nivel $\sigma$ define un espacio de funciones $F_\sigma$ caracterizado por:
+\begin{itemize}
+\item Dispersión espacial: $\sigma_s(\sigma) = \sigma_0\varphi^{3\sigma/2}$
+\item Frecuencia angular: $\omega(\sigma) = \omega_0\varphi^\sigma$
+\item Período temporal: $\tau(\sigma) = \pi/\varepsilon(\sigma) = \pi/(\varepsilon_0\varphi^\sigma) = \tau_0\varphi^{-\sigma}$
+\end{itemize}
+
+Las funciones características de $F_\sigma$ son:
+\[
+\Psi_\sigma(\vec{r}, t) = A(\sigma) \exp\left(-\frac{r^2}{4\sigma_s^2(\sigma)}\right) \exp(-i\omega(\sigma)t)
+\]
+donde $A(\sigma) = {(\pi\sigma_s^2(\sigma))}^{-3/4}$ es la constante de normalización.
+\end{definition}
+
+\begin{theorem}[Identidad modular de reciprocidad áurea]\label{thm:incertidumbre-geometrica}
+\[
+\varepsilon(\sigma) \cdot \tau(\sigma) = \varepsilon_0\varphi^\sigma \cdot \frac{\pi}{\varepsilon_0\varphi^\sigma} = \pi
+\]
+
+Esta identidad algebraica exacta refleja determinismo geométrico: el producto constante emerge de la estructura autosimilar del sistema, donde el escalamiento por $\varphi$ en $\varepsilon$ se compensa exactamente con el escalamiento inverso en $\tau$, manteniendo el invariante modular $M_{\text{PCF}} = \pi/\varepsilon_0$ constante\sidenote{Contraste con principio de incertidumbre de Heisenberg $\Delta E \cdot \Delta t \geq \hbar/2$: aquí igualdad exacta en lugar de desigualdad. Véase \tref{thm:principio-certidumbre-geometrica} para formulación equivalente.}. La identidad se verifica por sustitución directa de $\varepsilon(\sigma) = \varepsilon_0\varphi^\sigma$ (\dref{def:parametro-escala}) y $\tau(\sigma) = \pi/\varepsilon(\sigma)$.
+\end{theorem}
+
+\subsubsection{Tabla de Niveles}
+
+% chktex-file 44
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$\sigma$ & $\sigma_s$ & $\omega$ & $\tau$ & Régimen \\
+\hline
+-2 & $\sigma_0/\varphi^3$ & $\omega_0\varphi^2$ & $\tau_0/\varphi^2$ & Concentrado, rápido \\
+-1 & $\sigma_0/\varphi^{3/2}$ & $\omega_0\varphi$ & $\tau_0/\varphi$ & Concentrado \\
+0 & $\sigma_0$ & $\omega_0$ & $\tau_0$ & Base, balanceado \\
++1 & $\sigma_0\varphi^{3/2}$ & $\omega_0/\varphi$ & $\tau_0\varphi$ & Disperso \\
++2 & $\sigma_0\varphi^3$ & $\omega_0/\varphi^2$ & $\tau_0\varphi^2$ & Disperso, lento \\
+\hline
+\end{tabular}
+% chktex-file 0
+
+\subsubsection{Navegación entre Espacios de Funciones por Escalamiento Áureo}
+
+\begin{theorem}[Operador de navegación]\label{thm:operador-navegacion}
+El operador $\hat{\Omega}_{\text{PCF}}$ define una aplicación entre espacios de funciones (\dref{def:espacio-F-sigma}):
+\[
+\hat{\Omega}_{\text{PCF}}: \mathcal{F}_\sigma \to \mathcal{F}_{\sigma+1}
+\]
+que transforma funciones mediante escalamiento áureo:
+\[
+\hat{\Omega}_{\text{PCF}}\Psi_\sigma(x, t) = \Psi_{\sigma+1}(\varphi x, \varphi t)
+\]
+
+Los parámetros escalan como:
+\begin{itemize}
+\item $\sigma_{s,\sigma+1} = \varphi^{3/2} \sigma_{s,\sigma}$
+\item $\omega_{\sigma+1} = \varphi\omega_\sigma$
+\item $\tau_{\sigma+1} = \varphi^{-1}\tau_\sigma$
+\end{itemize}
+\end{theorem}
+
+\begin{corollary}[Invariancia del módulo]\label{cor:invariancia-modulo-navegacion}
+En todos los niveles:
+\[
+|\hat{\Omega}_{\text{PCF}}(z,\sigma)| = \frac{1}{2}
+\]
+Esta invariancia es consecuencia directa del módulo constante establecido en \corref{cor:modulo-constante} y se preserva bajo la navegación entre espacios de funciones.
+\end{corollary}
+
+\subsection{Espacio-tiempo Pentadimensional}\label{subsec:spacetime-pentadimensional}
+
+\begin{construction}[Espacio-tiempo pentadimensional]\label{const:spacetime-pentadimensional}
+El espacio-tiempo completo es:
+\[
+\mathcal{S}^5 = \mathbb{R}^3 \times \mathbb{R} \times \mathbb{R}_+
+\]
+
+con coordenadas $(x,y,z,t,s)$ donde $s = \varepsilon(\sigma)$. La métrica correspondiente es:
+\[
+ds^2 = dx^2 + dy^2 + dz^2 - c^2dt^2 + \lambda^2 d{(\ln s)}^2
+\]
+\end{construction}
+
+\begin{proposition}[Coherencia logarítmica]\label{prop:coherencia-logaritmica}
+El término $d{(\ln s)}^2$ en la métrica del espacio-tiempo mantiene coherencia logarítmica: para pasos unitarios en $\sigma$ ($\Delta\sigma = 1$), el incremento logarítmico es independiente del nivel $\sigma$:
+\[
+\Delta(\ln s) = \ln(s_2/s_1) = \ln(\varphi)
+\]
+
+Esta coherencia refleja la estructura autosimilar del sistema. El escalamiento por el factor áureo $\varphi$ en el espacio de parámetros (\pref{prop:escalamiento-modulo-sigma}) se traduce en incrementos logarítmicos constantes, estableciendo una correspondencia isomorfa entre la estructura multiplicativa de escalas (\pref{prop:estructura-discreta}) y la estructura aditiva del espacio logarítmico.
+\end{proposition}
+
+\begin{proof}[Por cálculo directo]
+Cuando $\sigma \to \sigma+1$, tenemos $\varepsilon(\sigma+1) = \varphi \cdot \varepsilon(\sigma)$ por definición (\dref{def:parametro-escala}), por lo que:
+\[
+\Delta(\ln s) = \ln(\varepsilon(\sigma+1)) - \ln(\varepsilon(\sigma)) = \ln(\varphi)
+\]
+independientemente del nivel $\sigma$.
+
+\par
+La discretización $\sigma \in \mathbb{N}$ garantiza que cada paso corresponde exactamente a un escalamiento por $\varphi$, preservando la estructura modular del lattice $\Lambda_{\text{PCF}}$ y el invariante $M_{\text{PCF}} = \pi/\varepsilon_0$ bajo la acción del operador de navegación (\tref{thm:operador-navegacion}).
+\end{proof}
+
+\begin{figure}[h]
+\centering
+% chktex-file 44
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Espacio} & \textbf{Coordenadas} & \textbf{Genera} & \textbf{Interpretación} \\
+\hline
+Base $\mathbb{C}$ & $(x,y)$ & Plano complejo & Geometría base \\
+Extensión 3D & $(x,y,z), z=\varphi y$ & Estructura áurea & Acoplamiento espacial \\
+Escalas $\sigma$ & $\sigma \in \mathbb{R}$ & Lattice + Funciones & Modularización dual \\
+Temporal $t$ & $t \in \mathbb{R}$ & Evolución & Dinámica \\
+\hline
+\end{tabular}
+% chktex-file 0
+\caption{Jerarquía de espacios del operador $\omegapcf$: desde el plano complejo base hasta la estructura pentadimensional, mostrando cómo cada nivel añade estructura sin perder coherencia.}
+\label{fig:jerarquia-espacios}
+\end{figure}
+
+\subsection{Funcionalización: Espacio de Hilbert}\label{subsec:funcionalizacion}
+
+\subsubsection{Incrustación Funcional}
+
+\begin{proposition}[Realización funcional del operador mediante incrustación]\label{prop:mapa-funcionalizacion}
+La funcionalización definida en \ref{const:funcionalizacion} permite definir el operador en $L^2(\mathbb{C})$. El espacio $\mathcal{H} = L^2(\mathbb{R}^n) \otimes \mathbb{C}^m$ tiene producto interno:
+\[
+\langle f, g \rangle = \int_{\mathbb{R}^n} \overline{f(x)} g(x) \, dx
+\]
+\end{proposition}
+
+\subsubsection{Kernel PCF}
+
+El kernel PCF es el objeto matemático que conecta la función compleja $\Omega_{\text{PCF}}(s)$ con el operador hermítico en espacio de Hilbert, utilizando el espacio adjunto genérico definido en \ref{const:funcionalizacion}. Esta construcción resuelve una aparente contradicción: ¿cómo puede la matriz generadora $\hat{\Omega}$ (que es no hermítica, \ref{prop:propiedades-matriz}) producir un kernel y operador hermíticos?
+
+\vspace{0.5em}
+
+El acoplamiento $z = \varphi y$ reduce el sistema de tres coordenadas aparentes $(x, y, z) \in \mathbb{R}^3$ a dos grados de libertad efectivos $(x,y) \in \mathbb{R}^2 \cong \mathbb{C}$. Esta reducción dimensional permite que el kernel $K_{\text{PCF}}(x,y)$ satisfaga naturalmente la condición de hermiticidad $K(x,y) = \bar{K}(y,x)$, conectando la estructura tripartita no-hermítica en $\mathbb{C}^3$ con el operador hermítico en $L^2(\mathbb{C})$.
+
+\begin{definition}[Kernel de emergencia hermítica]\label{def:kernel-integral-PCF}
+El kernel PCF es:
+\[
+K_{\text{PCF}}(x,y) = \underbrace{\Omega_{\text{PCF}}(1/2 + ix)}_{\text{término diagonal}} \cdot \underbrace{\delta(x-y)}_{\text{simétrico}} + \underbrace{\varepsilon(x,y)}_{\text{acoplamiento}}
+\]
+
+donde:
+\begin{itemize}
+\item $x, y \in \mathbb{R}$ son coordenadas en el espacio de configuración
+\item $\delta(x-y)$ es la delta de Dirac
+\item $\Omega_{\text{PCF}}(1/2+ix)$ es la función compleja evaluada en la línea crítica
+\item $\varepsilon(x,y)$ es un término de acoplamiento que introduce correlaciones débiles
+\end{itemize}
+\end{definition}
+
+\vspace{1em}
+
+\subsubsection{Emergencia de Hermiticidad}\label{subsubsec:emergencia-hermiticidad}
+
+En \ref{prop:propiedades-matriz} establecimos que la matriz generadora $\hat{\Omega}$ no es hermítica ($\hat{\Omega}^\dagger \neq \hat{\Omega}$). Sin embargo, el kernel $K_{\text{PCF}}(x,y)$ definido arriba sí es hermítico. Esta aparente contradicción se resuelve entendiendo que la hermiticidad emerge del mecanismo de construcción del kernel, no de las propiedades de $\hat{\Omega}$.
+
+El kernel se construye mediante dos términos con roles complementarios:
+
+\begin{enumerate}
+\item \textbf{Término diagonal $\Omega_{\text{PCF}}(1/2+ix) \cdot \delta(x-y)$}:
+\begin{itemize}
+\item La función $\Omega_{\text{PCF}}(s)$ es la proyección escalar de la matriz $\hat{\Omega}$ sobre el plano complejo
+\item La delta de Dirac satisface $\delta(x-y) = \delta(y-x)$ (simétrica por definición)
+\item Este término conecta la estructura tripartita de $\hat{\Omega}$ con el espacio continuo $L^2(\mathbb{R})$
+\item Aunque $\hat{\Omega}$ no es hermítica, el producto con $\delta$ simétrica introduce simetrización parcial
+\end{itemize}
+
+\item \textbf{Término de acoplamiento $\varepsilon(x,y)$}:
+\begin{itemize}
+\item Introduce correlaciones entre puntos $x \neq y$
+\item Construido explícitamente para garantizar $K(x,y) = \bar{K}(y,x)$
+\item Forma típica:
+\[
+\varepsilon(x,y) = \varepsilon_0 \cdot \exp\left(-\frac{\pi{(x-y)}^2}{2\varphi^2}\right) \cdot \left[\Omega_{\text{PCF}}{(1/2+ix)} \cdot \overline{\Omega_{\text{PCF}}{(1/2+iy)}}\right]^{1/2} % chktex 3
+\]
+\item El producto $\Omega \cdot \bar{\Omega}$ en el término de acoplamiento es real en módulo, balanceando las fases
+\end{itemize}
+\end{enumerate}
+
+\begin{theorem}[Hermiticidad del kernel]\label{thm:hermiticidad-kernel}
+El kernel $K_{\text{PCF}}$ satisface:
+\[
+K_{\text{PCF}}(x,y) = \overline{K_{\text{PCF}}(y,x)} \quad \forall x,y \in \mathbb{R}
+\]
+\end{theorem}
+
+\begin{proof}[Por cálculo directo]
+Se verifica la hermiticidad de cada término por separado.
+
+\begin{enumerate}
+\item \textit{Término diagonal}: El término diagonal se define como:
+\[
+K_{\text{diag}}(x,y) = \Omega_{\text{PCF}}(1/2+ix) \cdot \delta(x-y)
+\]
+
+Tomando la conjugada y permutando, se obtiene:
+\[
+\overline{K_{\text{diag}}(y,x)} = \overline{\Omega_{\text{PCF}}(1/2+iy)} \cdot \delta(y-x)
+\]
+
+Como $\delta(y-x) = \delta(x-y)$, se tiene:
+\[
+\overline{K_{\text{diag}}(y,x)} = \overline{\Omega_{\text{PCF}}(1/2+iy)} \cdot \delta(x-y)
+\]
+
+Para que este término contribuya a la hermiticidad, se requiere que la fase de $\Omega_{\text{PCF}}$ satisfaga una condición de simetría. Específicamente, escribiendo:
+\[
+\Omega_{\text{PCF}}(1/2+ix) = \frac{1}{2}e^{i\theta(x)}
+\]
+
+donde $\theta(x) = 3 \arctan(2x) + \pi \cdot \varepsilon(\sigma) + 2\pi$, la hermiticidad del término diagonal requiere:
+\[
+e^{i\theta(x)} \cdot \delta(x-y) = e^{-i\theta(y)} \cdot \delta(x-y)
+\]
+
+Esta condición se satisface porque $\delta(x-y)$ solo contribuye cuando $x=y$, punto en el cual $\theta(x) = \theta(y)$.
+
+\item \textit{Término de acoplamiento}: Por construcción explícita, el término de acoplamiento se define como:
+\[
+\varepsilon(x,y) = \varepsilon_0 \cdot \exp\left(-\frac{\pi{(x-y)}^2}{2\varphi^2}\right) \cdot \left[\Omega \cdot \overline{\Omega}\right]^{1/2} % chktex 3
+\]
+
+Este término satisface $\varepsilon(x,y) = \bar{\varepsilon}(y,x)$ porque:
+\begin{itemize}
+\item El exponencial depende de ${(x-y)}^2 = {(y-x)}^2$: simétrico
+\item El producto $\Omega \cdot \bar{\Omega}$ tiene módulo $|\Omega|^2 = 1/4$: real
+\item La raíz cuadrada preserva realidad
+\end{itemize}
+\end{enumerate}
+
+Combinando ambos términos:
+\[
+K_{\text{PCF}}(x,y) = K_{\text{diag}}(x,y) + \varepsilon(x,y)
+\]
+\[
+\overline{K_{\text{PCF}}(y,x)} = \overline{K_{\text{diag}}(y,x)} + \overline{\varepsilon(y,x)}
+\]
+
+Como ambos términos satisfacen simetría hermítica individualmente, el kernel completo es hermítico.
+\end{proof}
+
+\par
+La independencia de propiedades según espacio de acción se manifiesta porque $\hat{\Omega}$ y $K_{\text{PCF}}$ son objetos matemáticos en espacios diferentes, con propiedades independientes:
+
+\mbox{}
+
+\begin{center}
+\begin{tabular}{p{2.2cm}p{1.5cm}p{2.8cm}p{2cm}p{3.5cm}}
+\toprule
+\textbf{Objeto} & \textbf{Espacio} & \textbf{Operación} & \textbf{Hermiticidad} & \textbf{Razón} \\
+\midrule
+Matriz $\hat{\Omega}$ & $\mathbb{C}^3$ & Acción lineal sobre vectores & $\times$ No & Eigenvalores complejos con fases 0°, 120°, 240° \\[0.3em]
+Función $\Omega_{\text{PCF}}$ & $\mathbb{C} \to \mathbb{C}$ & Evaluación puntual & N/A & No es operador, solo función \\[0.3em]
+Kernel $K_{\text{PCF}}$ & $\mathbb{R}^2 \to \mathbb{C}$ & Núcleo integral & Sí & Construcción simétrica $\delta + \varepsilon$ \\[0.3em]
+Operador $H_{\text{PCF}}$ & $L^2(\mathbb{R}) \to L^2(\mathbb{R})$ & Transformación de funciones & Sí & Heredada del kernel \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\par
+Esta independencia se manifiesta en tres aspectos estructurales:
+
+\begin{enumerate}
+\item \textit{Espacios diferentes}: $\hat{\Omega}$ actúa en el espacio de componentes $\mathbb{C}^3$ (algebraico), mientras que $K_{\text{PCF}}$ actúa en el espacio de pares de puntos $\mathbb{R}^2$ (analítico). Son objetos en contextos matemáticos completamente distintos.
+
+\item \textit{Rol diferente}: $\hat{\Omega}$ es el generador que codifica la geometría tripartita, mientras que $K_{\text{PCF}}$ es el kernel construido usando $\hat{\Omega}$ como ingrediente. La relación es de construcción, no de identidad.
+
+\item \textit{Construcción adicional}: $K_{\text{PCF}} \neq \hat{\Omega}$; el kernel se expresa como $K_{\text{PCF}} = f(\Omega_{\text{PCF}}) \cdot \delta + g(\Omega_{\text{PCF}}, \overline{\Omega_{\text{PCF}}}) \cdot \text{acoplamiento}$, donde la estructura adicional ($\delta + \varepsilon$) introduce la simetría necesaria para la hermiticidad.
+\end{enumerate}
+
+\par
+Esta independencia entre generador y operador construido encuentra paralelo en mecánica cuántica: los generadores de rotaciones (momento angular $J_z$) son anti-hermíticos ($J_z^\dagger = -J_z$), mientras que los operadores de momento angular cuadrado ($J^2$) construidos desde ellos son hermíticos (${(J^2)}^\dagger = J^2$). De forma análoga, $\hat{\Omega}$ actúa como generador no-hermítico que codifica la geometría tripartita, mientras que el operador integral $\hat{K}$ construido desde $\hat{\Omega}$ mediante el kernel es hermítico. La construcción del kernel introduce la estructura adicional (términos $\delta + \varepsilon$) que recupera hermiticidad, necesaria para que el operador tenga eigenvalores reales y represente un observable físico o geométrico bien definido.
+
+\par
+La no-hermiticidad de $\hat{\Omega}$ no es defecto sino característica esencial que codifica la direccionalidad de la estructura tripartita. Los eigenvalores $\{1/2, (1/2)\omega, (1/2)\omega^2\}$ forman un triángulo en el círculo crítico $|z| = 1/2$, configuración que rompe simetría de reflexión (no es simétrica bajo conjugación compleja). Esta direccionalidad codifica el flujo $P \to C \to F$ del sistema. Cuando construimos el kernel, esta direccionalidad se traduce en fase $\theta(x) = 3 \arctan(2x) + \ldots$ que evoluciona con $x$, acoplamiento $\varepsilon(x,y)$ que correlaciona puntos cercanos, y estructura hermítica global que emerge de la simetrización. La hermiticidad del kernel no borra la direccionalidad de $\hat{\Omega}$, sino que la incorpora de forma simétrica en el espacio de funciones.
+
+\par
+El operador integral asociado al kernel se define mediante:
+\[
+(\hat{K}\psi)(x) = \int_{\mathbb{R}^n} K_{\text{PCF}}(x,y) \psi(y) \, dy
+\]
+para funciones $\psi \in L^2(\mathbb{R})$. La hermiticidad del kernel establecida en \tref{thm:hermiticidad-kernel} se transfiere directamente al operador integral:
+
+\begin{theorem}[Hermiticidad del operador integral]\label{thm:hermiticidad-op-integral}
+El operador $\hat{K}$ es hermítico:
+\[
+\langle \psi, \hat{K}\phi \rangle = \langle \hat{K}\psi, \phi \rangle
+\]
+\end{theorem}
+
+\begin{proof}[Por cálculo directo]
+Por (\ref{thm:hermiticidad-kernel}), $K_{\text{PCF}}(x,y) = \overline{K_{\text{PCF}}(y,x)}$. Para $\psi, \phi \in L^2(\mathbb{R})$:
+\begin{align*}
+\langle \psi, \hat{K}\phi \rangle &= \int_{\mathbb{R}} \int_{\mathbb{R}} \overline{\psi(x)} K_{\text{PCF}}(x,y) \phi(y) \, dy \, dx \\
+&= \int_{\mathbb{R}} \int_{\mathbb{R}} \overline{\psi(x)} \overline{K_{\text{PCF}}(y,x)} \phi(y) \, dy \, dx \\
+&= \int_{\mathbb{R}} \phi(y) \overline{\left(\int_{\mathbb{R}} K_{\text{PCF}}(y,x) \psi(x) \, dx\right)} dy = \langle \hat{K}\psi, \phi \rangle
+\end{align*}
+\end{proof}
+
+\subsubsection{Conexión con Torre de Funciones}
+
+\begin{proposition}[Funciones de escala en Hilbert]\label{prop:funciones-escala-hilbert}
+Las funciones $\Psi_\sigma$ de \ref{def:espacio-F-sigma} son elementos de $\mathcal{H}$:
+\[
+\Psi_\sigma \in L^2(\mathbb{R}^3)
+\]
+
+con norma finita:
+\[
+|\Psi_\sigma|^2 = \int_{\mathbb{R}^3} |\Psi_\sigma(\vec{r}, t)|^2 \, d^3r < \infty
+\]
+\end{proposition}
+
+\begin{theorem}[Descomposición espectral por torre de escalas]\label{thm:descomposicion-espectral}
+El espacio $\mathcal{H}$ admite:
+\[
+\mathcal{H} = \bigoplus_{\sigma \in \mathbb{Z}} \mathcal{F}_\sigma
+\]
+
+donde cada $\mathcal{F}_\sigma$ es el subespacio generado por funciones de escala $\sigma$. Esta descomposición es compatible con la estructura de functores (\tref{thm:conmutatividad-functores}): la funcionalización $F: \mathbb{C} \to L^2(\mathbb{C})$ y la rotación de Wick $\Phi_M: \mathbb{C} \to \mathcal{S}^{1+1}$ (\cref{const:rotacion-wick}) preservan la estructura de torre de escalas $\sigma$, garantizando que la descomposición espectral se transfiere coherentemente entre espacios adjuntos.
+\end{theorem}
+
+\subsubsection{Propiedades Espectrales}
+
+\begin{theorem}[Espectro discreto de la simetría tripartita]\label{thm:autovalores-omega}
+El operador $\hat{\Omega}_{\text{PCF}}$ tiene espectro:
+\[
+\sigma(\hat{\Omega}_{\text{PCF}}) = \left\{\lambda_k = \frac{1}{2}\omega^k : k \in \{0,1,2\}\right\}
+\]
+
+donde $\omega = e^{2\pi i/3}$ es raíz cúbica primitiva de la unidad.
+
+\begin{proof}[Por construcción]
+La estructura tripartita con separación angular $2\pi/3$ (Axioma 4, \ref{ax:estructura-distribuida}) induce la matriz diagonal $\hat{\Omega} = \frac{1}{2}\text{diag}(1, \omega, \omega^2)$ (\dref{def:matriz-PCF}), donde $\omega = e^{2\pi i/3}$ es la raíz cúbica primitiva de la unidad. Los autovalores de una matriz diagonal son los elementos de la diagonal, por tanto:
+\[
+\lambda_k = \frac{1}{2}\omega^k, \quad k \in \{0,1,2\}
+\]
+Esta discretización espectral proviene directamente de la geometría $S_3$ del triángulo equilátero codificada en la estructura tripartita (\ref{ax:estructura-distribuida}).
+\end{proof}
+\end{theorem}
+
+\begin{corollary}\label{cor:modulo-autovalores}
+Todos los autovalores satisfacen $|\lambda_k| = 1/2$ (consistente con Axioma 5, \ref{ax:punto-fijo}).
+\end{corollary}
+
+\begin{proposition}[Base espectral completa]\label{prop:completitud-autofunciones}
+El conjunto de autofunciones $\{\psi_{\sigma,k}\}$ forma base ortogonal completa de $\mathcal{H}$:
+\[
+\langle \psi_{\sigma,k}, \psi_{\sigma',k'} \rangle = \delta_{\sigma\sigma'}\delta_{kk'}
+\]
+\[
+\sum_{\sigma,k} |\langle f, \psi_{\sigma,k} \rangle|^2 = |f|^2
+\]
+\end{proposition}
+
+\begin{fullwidth}
+\centering
+\begin{minipage}{\linewidth}
+\includegraphics[width=\linewidth]{src/images/image7.png}
+\captionsetup{width=\linewidth,justification=centering}
+\captionof{figure}{Evolución temporal PCF: $\omega(\sigma) = 2\varepsilon_0\varphi^\sigma$ para tres niveles de escala ($\sigma = 0, 2, 5$). Cada fila muestra evolución geométrica (círculos de radio $r(\sigma) = r_0 \varphi^\sigma$ con $r_0 = 3.00$ en el plano $X_1$-$X_2$) y evolución temporal (ondas sinusoidales $\text{Re}[\Omega(t)] = (1/2)\cos(\omega t)$ con frecuencia angular creciente). El producto $\varepsilon \cdot \tau = \pi$ se mantiene constante para todos los niveles, estableciendo la relación fundamental $\varepsilon = \omega/2$ que conecta el parámetro de escala con la frecuencia temporal mediante el escalamiento áureo.}
+\label{fig:evolucion-temporal-PCF} % chktex 24
+\end{minipage}
+\end{fullwidth}
+
+\subsubsection{Síntesis Multi-Dominio}
+
+\begin{theorem}[Coherencia categórica desde \tref{thm:conmutatividad-functores}]\label{thm:coherencia-categorica}
+Los functores conmutan:
+\[
+\begin{array}{ccc}
+\mathbb{C} & \xrightarrow{F} & L^2(\mathbb{C}) \\
+\Phi \downarrow & & \downarrow \Phi_* \\
+\mathcal{S}^5 & \xrightarrow{F'} & L^2(\mathcal{S}^5)
+\end{array}
+\]
+
+donde $F \circ \Phi = \Phi_* \circ F$.
+\end{theorem}
+
+\begin{corollary}[Herencia cuádruple]\label{cor:herencia-cuadruple}
+Como consecuencia de \tref{thm:coherencia-categorica}, el operador $\omegapcf$ hereda coherentemente la estructura multi-dominio establecida en \dref{ax:extension-ortogonal}:
+\begin{itemize}
+\item \textbf{Geometría}: Módulos en $\mathbb{C}$, $\mathbb{R}^3$ (mediante acoplamiento $z = \varphi y$) y $S^5$ (espacio adjunto de rotación de Wick)
+\item \textbf{Álgebra}: Lattice $\Lambda_{\text{PCF}}$ (\dref{def:lattice-PCF}) y escalamiento $\varphi^\sigma$ mediante torre exponencial
+\item \textbf{Análisis}: Espacios $\mathcal{F}_\sigma \subset \mathcal{H}$ generados por funciones de escala (\dref{def:espacio-F-sigma}), preservando estructura de torre mediante \tref{thm:descomposicion-espectral}
+\item \textbf{Topología}: Toro $T_\tau$ (módulo topológico \dref{def:modulo-topologico}) y círculo crítico $C_{1/2}$ (módulo constante $|\Omega| = 1/2$)
+\end{itemize}
+Esta herencia cuádruple garantiza que las propiedades del operador se manifiestan simultáneamente en los cuatro dominios estructurales, preservando coherencia categórica mediante la conmutatividad de functores.
+\end{corollary}
+
+% chktex 17

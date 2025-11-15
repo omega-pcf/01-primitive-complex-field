@@ -1,0 +1,18 @@
+# Configuración de ChkTeX para suprimir warnings falsos positivos
+# sobre la sintaxis @{} en tablas LaTeX
+
+# @{} es sintaxis estándar y válida del kernel de LaTeX
+# Los warnings sobre esto son falsos positivos y deben suprimirse
+# Ver: investigation_prompt.md para detalles técnicos
+
+# Suprimir warnings sobre @{} en definiciones de columnas
+# Estos son típicamente warnings de User Regex (números 2-8)
+# Si aparecen warnings específicos, agregar sus números aquí
+
+# Ejemplo de configuración típica:
+# QuietCounter = { 2, 3, 4, 5, 6, 7, 8 }
+
+# Nota: Si necesitas identificar el número exacto del warning,
+# ejecuta: chktex -v1 src/chapters/results.tex
+# y busca el número del warning relacionado con @{}
+
