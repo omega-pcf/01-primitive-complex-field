@@ -1,4 +1,15 @@
-build/
 .DS_Store
-/paper.md
-/MAPPING.md
+
+# LaTeX auxiliary files (but keep PDF for Zenodo)
+build/*.aux
+build/*.bbl
+build/*.bcf
+build/*.blg
+build/*.fdb_latexmk
+build/*.fls
+build/*.log
+build/*.out
+build/*.run.xml
+build/*.suppinfo
+build/*.synctex.gz
+!build/*.pdf

@@ -654,11 +654,4 @@ Lista breve de diferencias estructurales y de contenido, incluyendo:
 
 ---
 
-## PRÓXIMOS PASOS
-
-1. Aplicar este guide a **Sección I (Introducción)** completamente
-2. Validar que queda como template
-3. Replicar en Sección II y III
-4. Ajustar guide según aprendamos
-
 **Goal final**: Paper que sea **riguroso, claro, serio, sin artificialidad** y que sea genuinamente legible para su audiencia científica experta, con formación en teoría de números, análisis complejo, operadores hermíticos, física cuántica, geometría y verificación computacional, entre otros.
