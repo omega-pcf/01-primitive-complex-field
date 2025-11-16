@@ -1,4 +1,5 @@
 [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.17619486.svg)](https://doi.org/10.5281/zenodo.17619486)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1KExRnNtx91TjVyYD0FlcB_TLQwZB4GKq?usp=sharing)
 
 # GENERAL INFORMATION
 
