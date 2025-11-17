@@ -1,0 +1,37 @@
+{
+  "name": "omega-pcf-operator",
+  "version": "1.0.3",
+  "description": "The Ω_PCF Operator and the Primitive Structure of the Complex Plane",
+  "type": "module",
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "build": "pnpm exec tsx scripts/build.ts",
+    "release": "pnpm run build && pnpm exec tsx scripts/release-orchestrator.ts ${version} && release-it",
+    "release:dry-run": "pnpm run build && release-it --dry-run"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "devDependencies": {
+    "@release-it/bumper": "^6.0.0",
+    "@types/node": "^20.0.0",
+    "release-it": "^17.0.0",
+    "release-it-pnpm": "^4.6.6",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "yaml": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omega-pcf/01-primitive-complex-field.git"
+  },
+  "keywords": [
+    "Riemann hypothesis",
+    "Hilbert-Pólya conjecture",
+    "L-functions",
+    "Self-adjoint operators",
+    "Random matrix theory",
+    "Zeta function zeros",
+    "Mersenne primes",
+    "Modular spaces"
+  ],
+  "license": "MIT"
+}

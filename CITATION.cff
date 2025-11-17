@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using these metadata.
+title: "The Ω_PCF Operator and the Primitive Structure of the Complex Plane:
+  From Mersenne to Riemann via Geometric Coupling φ-i-S₃"
+version: 1.0.3
+date-released: 2025-11-17
+authors:
+  - family-names: González García
+    given-names: Jorge Armando
+    affiliation: TTAMAYO PUNTO COM, S.A.P.I. de C.V.
+  - family-names: González García
+    given-names: Víctor Manuel
+    orcid: https://orcid.org/0009-0009-0935-2954
+    affiliation: TTAMAYO PUNTO COM, S.A.P.I. de C.V.
+  - family-names: Dressler Pérez
+    given-names: Itzel Marion
+    affiliation: Independent Researcher
+  - family-names: García Ordóñez
+    given-names: Luz María
+    affiliation: TTAMAYO PUNTO COM, S.A.P.I. de C.V.
+  - family-names: Tenorio
+    given-names: Pablo
+    affiliation: Independent Researcher
+  - family-names: Moreno
+    given-names: Mario
+    affiliation: Independent Researcher
+repository-code: https://github.com/omega-pcf/01-primitive-complex-field
+license: CC-BY-4.0
+keywords:
+  - Riemann hypothesis
+  - Hilbert-Pólya conjecture
+  - L-functions
+  - Self-adjoint operators
+  - Random matrix theory
+  - Zeta function zeros
+  - Mersenne primes
+  - Modular spaces
+languages:
+  - es
+abstract: Through multi-domain coherence bootstrap principles, we transcend
+  self-reference problems of the Lawvere-Yanofsky type that have limited several
+  previous attempts to construct the Hilbert-Pólya operator, as well as other
+  approaches to the Riemann Hypothesis. We develop an operator as an analytical
+  tool of the complex plane through three-dimensional modularization coupled to
+  the golden ratio—a reorganization that preserves all constituents of ℂ while
+  revealing underlying toroidal structure.

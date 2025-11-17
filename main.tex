@@ -21,6 +21,12 @@
 % Use the "secnum" option to have include numbers.
 % Note: secnumdepth is now set to 3 in lapreprint.cls when secnum option is used
 
+% Primitives para reproducibilidad determinística
+\pdfinfoomitdate=1        % Omite dates del PDF info dictionary
+\pdftrailerid{}           % Trailer ID vacío (omite por completo)
+\pdfsuppressptexinfo=15   % Suprime metadata PTEX.* (bitmask: 1+2+4+8)
+\pdfminorversion=5        % Versión PDF explícita (1.5)
+
 % Set tocdepth to include subsubsections in table of contents
 \setcounter{tocdepth}{3}
 

@@ -1,0 +1,50 @@
+{
+  "git": {
+    "commitMessage": "chore: release v${version}",
+    "tagName": "v${version}",
+    "requireCleanWorkingDir": false,
+    "requireBranch": "main",
+    "requireUpstream": true,
+    "push": true,
+    "commit": true,
+    "tag": true
+  },
+  "github": {
+    "release": true,
+    "releaseName": "v${version}",
+    "autoGenerate": false,
+    "assets": [
+      "build/document-v*.pdf",
+      "checksums.txt"
+    ]
+  },
+  "npm": {
+    "publish": false
+  },
+  "pnpm": {
+    "publish": false
+  },
+  "hooks": {
+    "before:bump": "pnpm run build",
+    "after:bump": "pnpm exec tsx scripts/release-orchestrator.ts ${version}"
+  },
+  "plugins": {
+    "release-it-pnpm": {},
+    "@release-it/bumper": {
+      "in": "package.json",
+      "out": [
+        {
+          "file": "CITATION.cff",
+          "path": "version",
+          "type": "text/yaml"
+        },
+        {
+          "file": ".zenodo.json",
+          "path": "version",
+          "type": "application/json"
+        }
+      ]
+    }
+  }
+}
+
