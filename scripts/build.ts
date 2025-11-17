@@ -1,5 +1,6 @@
 #!/usr/bin/env tsx
 import { updateCitationDate } from './tasks/citation.js';
+import { cleanupOldVersions } from './tasks/cleanup.js';
 import { compilePDF } from './tasks/compile.js';
 import { generateChecksums } from './tasks/checksums.js';
 import type { ReleaseConfig } from './types.js';
@@ -30,6 +31,7 @@ async function main(): Promise<void> {
   try {
     console.log(`\n🔨 Building release artifacts for v${version}...\n`);
     
+    cleanupOldVersions(config.buildDir);
     updateCitationDate();
     compilePDF(config);
     generateChecksums(config);
