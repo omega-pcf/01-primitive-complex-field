@@ -17,6 +17,8 @@ export default {
     releaseName: 'v${version}',
     autoGenerate: false,
     assets: ['build/document-v*.pdf', 'checksums.txt'],
+    releaseNotes:
+      'cat CHANGELOG.md && printf "\\n\\n## Files\\n\\n- **PDF**: `build/document-v${version}.pdf` - Compiled preprint document\\n\\n## DOI\\n\\nDOI: 10.5281/zenodo.17619486"',
   },
   npm: {
     publish: false,
