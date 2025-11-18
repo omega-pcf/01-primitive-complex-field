@@ -3,7 +3,7 @@ message: If you use this software, please cite it using these metadata.
 title: >-
   The Ω_PCF Operator and the Primitive Structure of the Complex Plane: From
   Mersenne to Riemann via Geometric Coupling φ-i-S₃
-version: 1.1.0
+version: 1.1.1
 date-released: 2025-11-18T00:00:00.000Z
 authors:
   - family-names: González García
