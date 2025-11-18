@@ -1,6 +1,6 @@
 {
   "name": "omega-pcf-operator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "The Ω_PCF Operator and the Primitive Structure of the Complex Plane",
   "type": "module",
   "scripts": {
@@ -10,11 +10,11 @@
     "release:dry-run": "pnpm run build && release-it --dry-run"
   },
   "packageManager": "pnpm@9.0.0",
+  "private": true,
   "devDependencies": {
     "@release-it/bumper": "^6.0.0",
     "@types/node": "^20.0.0",
     "release-it": "^17.0.0",
-    "release-it-pnpm": "^4.6.6",
     "tsx": "^4.0.0",
     "typescript": "^5.0.0",
     "yaml": "^2.0.0"
