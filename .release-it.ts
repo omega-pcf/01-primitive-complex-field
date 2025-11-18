@@ -10,7 +10,7 @@ export default {
     push: true,
     commit: true,
     tag: true,
-    addUntrackedFiles: false,
+    addUntrackedFiles: true,
   },
   github: {
     release: true,
