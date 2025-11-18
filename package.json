@@ -1,6 +1,6 @@
 {
   "name": "omega-pcf-operator",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "The Ω_PCF Operator and the Primitive Structure of the Complex Plane",
   "type": "module",
   "scripts": {

@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.2](///compare/v1.1.1...v1.1.2) (2025-11-18)
+
+### Bug Fixes
+
+* **release:** move build to after:bump hook with version template f6263e1
+
 ## [1.1.1](///compare/v1.1.0...v1.1.1) (2025-11-18)
 
 ### Bug Fixes
