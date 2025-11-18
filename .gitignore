@@ -1,3 +1,4 @@
+.env
 .DS_Store
 
 # LaTeX auxiliary files (but keep PDF for Zenodo)
