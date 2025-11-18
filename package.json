@@ -6,7 +6,7 @@
   "scripts": {
     "type-check": "tsc --noEmit",
     "build": "pnpm exec tsx scripts/build.ts",
-    "release": "pnpm run build && pnpm exec tsx scripts/release-orchestrator.ts ${version} && release-it",
+    "release": "release-it",
     "release:dry-run": "pnpm run build && release-it --dry-run"
   },
   "packageManager": "pnpm@9.0.0",
