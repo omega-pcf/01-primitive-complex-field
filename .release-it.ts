@@ -22,9 +22,9 @@ export default {
     publish: false,
   },
   hooks: {
-    'before:bump': 'pnpm run build',
+    'after:bump': 'pnpm exec tsx scripts/build.ts ${version}',
+    // Build after version bump so PDF uses correct version number
     // release-it automatically does `git add . --update` before commit
-    // No need for manual staging in after:bump hook
   },
   plugins: {
     '@release-it/bumper': {

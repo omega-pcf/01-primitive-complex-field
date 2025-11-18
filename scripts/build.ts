@@ -16,13 +16,17 @@ function createReleaseConfig(version: string): ReleaseConfig {
 }
 
 async function main(): Promise<void> {
-  // Get version from package.json
-  const packageJsonPath = new URL('../package.json', import.meta.url);
-  const packageJson = JSON.parse(await import('fs').then(m => m.promises.readFile(packageJsonPath, 'utf8')));
-  const version = packageJson.version;
+  // Get version from command line argument (provided by release-it) or package.json
+  let version = process.argv[2];
   
   if (!version) {
-    console.error('Error: Version not found in package.json');
+    const packageJsonPath = new URL('../package.json', import.meta.url);
+    const packageJson = JSON.parse(await import('fs').then(m => m.promises.readFile(packageJsonPath, 'utf8')));
+    version = packageJson.version;
+  }
+  
+  if (!version) {
+    console.error('Error: Version not provided and not found in package.json');
     process.exit(1);
   }
   
