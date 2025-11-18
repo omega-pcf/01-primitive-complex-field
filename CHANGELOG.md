@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.3](///compare/v1.1.2...v1.1.3) (2025-11-18)
+
+### Bug Fixes
+
+* **release:** remove redundant GitHub Action and use shell string for release notes 5fd2f0f
+
 ## [1.1.2](///compare/v1.1.1...v1.1.2) (2025-11-18)
 
 ### Bug Fixes
