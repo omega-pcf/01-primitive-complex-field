@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.2](///compare/v1.2.1...v1.2.2) (2025-11-18)
+
+### Bug Fixes
+
+* **release:** use automatic changelog from plugin instead of reading full file 6a48680
+
 ## [1.2.1](///compare/v1.2.0...v1.2.1) (2025-11-18)
 
 ## [1.2.0](///compare/v1.1.3...v1.2.0) (2025-11-18)
