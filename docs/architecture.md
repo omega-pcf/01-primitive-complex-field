@@ -12,19 +12,17 @@
 
 ```
 pnpm run release
-  → before:bump: pnpm run build
+  → @release-it/bumper: actualiza versiones en package.json, CITATION.cff, .zenodo.json
+  
+  → after:bump: pnpm run build
     → cleanup: elimina document-v*.pdf anteriores
     → citation: actualiza date-released
     → compile: Docker con SOURCE_DATE_EPOCH (git commit timestamp)
     → checksums: SHA256 del PDF
   
-  → @release-it/bumper: actualiza versiones
+  → Git: commit + tag v${version} + push (release-it stagea automáticamente con addUntrackedFiles)
   
-  → after:bump: stagea archivos (PDF, checksums, metadata)
-  
-  → Git: commit + tag v${version} + push
-  
-  → GitHub: Release con assets
+  → GitHub: Release con assets (PDF, checksums)
   
   → Zenodo: webhook automático → nueva versión + DOI
 ```
@@ -43,10 +41,15 @@ Mismo commit = mismo PDF hash (garantizado)
 
 ```
 scripts/
-├── build.ts              # Build independiente
-├── release-orchestrator.ts  # Hook after:bump (staging)
+├── build.ts              # Build independiente (hook after:bump)
 ├── tasks/                # Tareas atómicas
-└── utils/                # Utilidades compartidas
+│   ├── checksums.ts
+│   ├── citation.ts
+│   ├── cleanup.ts
+│   └── compile.ts
+├── types.ts              # Tipos TypeScript
+└── utils/
+    └── git.ts            # Utilidades Git (getCommitEpoch)
 ```
 
 ## Metadata
@@ -56,6 +59,6 @@ scripts/
 **Sincronización automática:**
 - `CITATION.cff` version (vía @release-it/bumper)
 - `.zenodo.json` version (vía @release-it/bumper)
-- `CITATION.cff` date-released (vía hook before:bump)
+- `CITATION.cff` date-released (vía hook after:bump → build.ts)
 
 **Zenodo:** Lee `.zenodo.json` del tag, crea versión bajo mismo Concept DOI
