@@ -12,9 +12,10 @@
   "packageManager": "pnpm@9.0.0",
   "private": true,
   "devDependencies": {
-    "@release-it/bumper": "^6.0.0",
+    "@release-it/bumper": "^7.0.0",
+    "@release-it/conventional-changelog": "^10.0.2",
     "@types/node": "^20.0.0",
-    "release-it": "^17.0.0",
+    "release-it": "^19.0.0",
     "tsx": "^4.0.0",
     "typescript": "^5.0.0",
     "yaml": "^2.0.0"

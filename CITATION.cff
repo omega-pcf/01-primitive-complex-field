@@ -1,10 +1,9 @@
 cff-version: 1.2.0
 message: If you use this software, please cite it using these metadata.
-title: >-
-  The Ω_PCF Operator and the Primitive Structure of the Complex Plane: From
-  Mersenne to Riemann via Geometric Coupling φ-i-S₃
+title: "The Ω_PCF Operator and the Primitive Structure of the Complex Plane:
+  From Mersenne to Riemann via Geometric Coupling φ-i-S₃"
 version: 1.0.5
-date-released: 2025-11-18T00:00:00.000Z
+date-released: 2025-11-18
 authors:
   - family-names: González García
     given-names: Jorge Armando
@@ -38,8 +37,7 @@ keywords:
   - Modular spaces
 languages:
   - es
-abstract: >-
-  Through multi-domain coherence bootstrap principles, we transcend
+abstract: Through multi-domain coherence bootstrap principles, we transcend
   self-reference problems of the Lawvere-Yanofsky type that have limited several
   previous attempts to construct the Hilbert-Pólya operator, as well as other
   approaches to the Riemann Hypothesis. We develop an operator as an analytical
