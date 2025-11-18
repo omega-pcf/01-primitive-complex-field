@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.0](///compare/v1.1.3...v1.2.0) (2025-11-18)
+
+### Features
+
+* **release:** add dotenv-cli to load GITHUB_TOKEN from .env f52be09
+
 ## [1.1.3](///compare/v1.1.2...v1.1.3) (2025-11-18)
 
 ### Bug Fixes
