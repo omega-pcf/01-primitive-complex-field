@@ -23,3 +23,25 @@ pnpm-lock.yaml
 # TypeScript
 dist/
 *.tsbuildinfo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Python virtual environments (uv)
+.venv/
+venv/
+ENV/
+env/
