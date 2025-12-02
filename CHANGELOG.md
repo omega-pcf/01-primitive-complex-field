@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](///compare/v1.2.2...v1.3.0) (2025-12-02)
+
+### Features
+
+* Agregar sección 'El Dilema Fundamental' y corregir notación acoplamiento 3cd0e6b
+* Sistema completo de generación de figuras y todas las imágenes d5ae551
+
 ## [1.2.2](///compare/v1.2.1...v1.2.2) (2025-11-18)
 
 ### Bug Fixes
