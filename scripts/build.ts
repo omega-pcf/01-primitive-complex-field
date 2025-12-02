@@ -1,5 +1,5 @@
 #!/usr/bin/env tsx
-import { updateCitationDate } from './tasks/citation.js';
+import { updateCitationDate, generateZenodoJson } from './tasks/citation.js';
 import { cleanupOldVersions } from './tasks/cleanup.js';
 import { compilePDF } from './tasks/compile.js';
 import { generateChecksums } from './tasks/checksums.js';
@@ -37,6 +37,7 @@ async function main(): Promise<void> {
     
     cleanupOldVersions(config.buildDir);
     updateCitationDate();
+    generateZenodoJson();
     compilePDF(config);
     generateChecksums(config);
     
@@ -45,7 +46,7 @@ async function main(): Promise<void> {
     console.log(`  - ${config.outputPdf}`);
     console.log(`  - ${config.checksumsFile}`);
     console.log(`  - CITATION.cff (updated)`);
-    console.log(`  - .zenodo.json (updated by @release-it/bumper)\n`);
+    console.log(`  - .zenodo.json (generated from CITATION.cff)\n`);
   } catch (error) {
     console.error(`\n❌ Build failed:`, error);
     process.exit(1);

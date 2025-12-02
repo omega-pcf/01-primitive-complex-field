@@ -26,9 +26,11 @@ export default {
   hooks: {
     'after:bump': [
       'pnpm run generate:figures',
+      'pnpm run generate:zenodo',
       'pnpm exec tsx scripts/build.ts ${version}',
     ],
-    // Generate figures first, then build PDF with correct version number
+    // Generate figures first, then generate .zenodo.json from CITATION.cff,
+    // then build PDF with correct version number
     // release-it automatically does `git add . --update` before commit
   },
   plugins: {
@@ -40,11 +42,8 @@ export default {
           path: 'version',
           type: 'text/yaml',
         },
-        {
-          file: '.zenodo.json',
-          path: 'version',
-          type: 'application/json',
-        },
+        // .zenodo.json is now generated from CITATION.cff via cffconvert
+        // in scripts/tasks/citation.ts, so we don't update it here
       ],
     },
     '@release-it/conventional-changelog': {
