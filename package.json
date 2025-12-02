@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "type-check": "tsc --noEmit",
+    "generate:figures": "cd scripts/figures && uv run python main.py",
+    "generate:figures:list": "cd scripts/figures && uv run python main.py --list",
     "build": "pnpm exec tsx scripts/build.ts",
+    "build:full": "pnpm run generate:figures && pnpm run build",
     "release": "dotenv -e .env -- release-it",
-    "release:dry-run": "pnpm run build && dotenv -e .env -- release-it --dry-run"
+    "release:dry-run": "pnpm run build:full && dotenv -e .env -- release-it --dry-run"
   },
   "packageManager": "pnpm@9.0.0",
   "private": true,

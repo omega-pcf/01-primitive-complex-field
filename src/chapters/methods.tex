@@ -726,9 +726,9 @@ La estructura tripartita requiere que el producto de las tres magnitudes satisfa
 \begin{fullwidth}
 \centering
 \begin{minipage}{\linewidth}
-\includegraphics[width=\linewidth]{src/images/image8.png}
+\includegraphics[width=\linewidth]{src/images/eigenvalues_triangle.png}
 \captionsetup{width=\linewidth,justification=centering}
-\captionof{figure}{Propiedades de la matriz $\hat{\Omega}$: estructura diagonal, eigenvalores con simetría $S_3$ en el círculo crítico $|z| = 1/2$, y comparación con $\hat{\Omega}^\dagger$ mostrando no-hermiticidad antisimétrica en fase.}
+\captionof{figure}{Eigenvalues of $\hat{\Omega}$ and diagonal structure: (left) the three eigenvalues $\lambda_k = \frac{1}{2}\omega^k$ for $k \in \{0,1,2\}$ form an equilateral triangle inscribed in the critical circle $|z| = 1/2$, with phases separated by $120°$ ($2\pi/3$ radians), encoding the $S_3$ symmetry of the fundamental triangle (\pref{prop:origen-geometrico}); (right) representation of the diagonal matrix $\hat{\Omega} = \frac{1}{2}\,\mathrm{diag}(1, \omega, \omega^2)$ where $\omega = e^{2\pi i/3}$ is the primitive cube root of unity. The constant magnitude $|\lambda_k| = 1/2$ for all $k$ (phases: $0°$, $120°$, $240°$) verifies the product modulus $|P| \cdot |C| \cdot |F| = 1/2$ required by Axiom 5 (\ref{ax:punto-fijo}), as verified in \lref{lem:verificacion-modulo}.}
 \label{fig:verificacion-modulo} % chktex 24
 \end{minipage}
 \end{fullwidth}
@@ -997,9 +997,9 @@ La consecuencia geométrica inmediata es que el triángulo formado por $P$, $C$,
 \begin{fullwidth}
 \centering
 \begin{minipage}{\linewidth}
-\includegraphics[width=\linewidth]{src/images/image3.png}
+\includegraphics[width=\linewidth]{src/images/orthogonal_views.png}
 \captionsetup{width=\linewidth,justification=centering}
-\captionof{figure}{Visualización 3D completa de los vértices $P=(3, 0, 0)$, $C=(-1.5, 2.598, 4.204)$, $F=(-1.5, -2.598, -4.204)$ y sus proyecciones: vista cenital (círculo en $xy$), frontal (elipse en $xz$), lateral (recta en $yz$ mostrando $z = \varphi y$), e isométrica estándar.}
+\captionof{figure}{Three orthogonal views of the PCF operator (see §\ref{subsec:geometria-3d}): (left) complete 3D view showing vertices $P=(3, 0, 0)$, $C=(-1.5, 2.598, 4.204)$, $F=(-1.5, -2.598, -4.204)$ on the cylinder $x^2 + y^2 = 9$ with helical curve $z = \varphi y$ connecting the vertices; (center) top view (xy plane) with projection $\pi(x,y,z) = x + iy$ showing perfect circle of radius $R_0 = 3$ containing equilateral triangle P-C-F with vertices separated by $120°$ ($2\pi/3$ radians) and square lattice $\Lambda_{\text{PCF}} = \mathbb{Z} \cdot M_{\text{PCF}} \oplus \mathbb{Z} \cdot M_{\text{PCF}} \cdot i$ (Gauss type) appearing as rhombi; (right) lateral view (yz plane) with projection $(y, z)$ showing golden coupling $z = \varphi y$ as a line where P lies at origin $(y=0, z=0)$, C is elevated $(y>0 \to z>0)$, and F is depressed $(y<0 \to z<0)$. The lattice forms a square that appears as a rhombus in isometric perspective, while the operator's internal structure exhibits Eisenstein-type triangular symmetry with $120°$ separation, demonstrating the Gauss-Eisenstein duality unified by the golden ratio $\varphi$ through the coupling $z = \varphi y$ (\ref{ax:extension-ortogonal}).}
 \label{fig:visualizacion-3d-completa} % chktex 24
 \end{minipage}
 \end{fullwidth}
@@ -1128,9 +1128,9 @@ que corresponde a la sección transversal frontal del toro---un círculo $S^1$ d
 \begin{fullwidth}
 \centering
 \begin{minipage}{\linewidth}
-\includegraphics[width=\linewidth]{src/images/image5.png}
+\includegraphics[width=\linewidth]{src/images/equilateral_perspective.png}
 \captionsetup{width=\linewidth,justification=centering}
-\captionof{figure}{Búsqueda de perspectiva equilátera: los vértices $P$, $C$, $F$ forman triángulo equilátero en la proyección $XY$ del cilindro (distancias $d(P,C) = d(C,F) = d(F,P) = 5.196$), pero no en el toro 3D donde el acoplamiento $z = \varphi y$ introduce distorsión métrica. La equilateralidad emerge del círculo $S^1$ en proyección, mientras que el toro preserva la topología circular pero distorsiona distancias euclidianas.}
+\captionof{figure}{Three perspectives of the PCF torus $\mathcal{T}_{\text{PCF}}$ showing vertices $P_t, C_t, F_t$ obtained via immersion $\iota: \mathfrak{C}_0 \hookrightarrow \mathcal{T}_{\text{PCF}}$ (\tref{thm:inmersion-cilindro}): (left) front view where vertices appear colinear vertically; (center) top view showing the circular section $S^1$ of radius $R_0 = 3$ (\pref{prop:imagen-inmersion}); (right) isometric view with curved paths along the torus surface. The vertices form an equilateral triangle in the XY projection (distances $d(P,C) = d(C,F) = d(F,P) = 5.196$), but not in the 3D torus where the golden coupling $z = \varphi y$ introduces metric distortion. Equilaterality emerges from the circle $S^1$ in projection, while the torus preserves topology $T^2 \cong S^1 \times S^1$ but distorts Euclidean distances, connecting to the lattice structure $\mathbb{C}/\Lambda_{\text{PCF}} \cong T^2$ (\tref{thm:proyeccion-lattice}).}
 \label{fig:inmersion-cilindro-toro} % chktex 24
 \end{minipage}
 \end{fullwidth}
@@ -1424,6 +1424,17 @@ El lattice generado por el operador es:
 donde $M_{\text{PCF}} = \pi/\varepsilon_0 = 6\sqrt{3}\pi/\ln \varphi \approx 67.846189258071644\ldots$ es el módulo topológico que sintetiza la estructura periódica emergente de las rotaciones de fase acumuladas del operador. Geométricamente, $M_{\text{PCF}}$ representa el período fundamental en el plano complejo que estructura el lattice; topológicamente, clasifica el toro $\mathbb{C}/\Lambda_{\text{PCF}} \cong T^2$ (\corref{cor:espacio-cociente}).
 \end{definition}
 
+
+\begin{fullwidth}
+\centering
+\begin{minipage}{\linewidth}
+\includegraphics[width=\linewidth]{src/images/cylinder_lattice_connection.png}
+\captionsetup{width=\linewidth,justification=centering}
+\captionof{figure}{Connection between cylinder (operator, Eisenstein structure) and lattice (space, Gauss structure) through the golden coupling $\varphi$. \textbf{Row 1 (3D structures)}: (left) cylinder $\mathfrak{C}_0$ with vertices $P, C, F$ forming an equilateral triangle on the circle $x^2+y^2 = R_0^2 = 9$ with coupling $z = \varphi y$ (\dref{def:cilindro-base}); (center) 3D lattice $\Lambda_{\text{PCF}}$ with fundamental cell (parallelogram) defined by base vectors $v_1 = M_{\text{PCF}}$ and $v_2 = (0, M_{\text{PCF}}, \varphi M_{\text{PCF}})$ with coupling $w = \varphi v$ (\pref{prop:lattice-3D}, \dref{def:lattice-PCF}); (right) superposition showing the triangle (operator) embedded within the lattice (space). \textbf{Row 2 (top views)}: (left) top view of cylinder showing circle of radius $R_0 = 3$ with inscribed equilateral triangle (Eisenstein structure, $120°$ separation); (center) top view of lattice showing square fundamental cell $M_{\text{PCF}} \times M_{\text{PCF}}$ with base $\{M_{\text{PCF}}, M_{\text{PCF}} \cdot i\}$ (Gauss structure, $90°$ separation); (right) superposition showing circle+triangle (operator) within square (lattice). \textbf{Row 3 (lateral and isometric views)}: (left) lateral view of cylinder (yz plane) showing vertices aligned on the line $z = \varphi y$; (center) lateral view of lattice (vw plane) showing points aligned on the line $w = \varphi v$ (same coupling, same view); (right) isometric view ($45°$, $0°$) where the fundamental cell appears as a rhombus (projected parallelogram). The golden coupling $\varphi$ unifies both structures: the cylinder (Eisenstein, $120°$) and the lattice (Gauss, $90°$) share the same coupling rule $z = \varphi y$ and $w = \varphi v$, connecting the operator geometry with the space discretization (\tref{thm:inmersion-cilindro}, \tref{thm:proyeccion-lattice}, \tref{thm:generacion-operador}). The invariant $|\Omega| = 1/2$ mediates between both structures, establishing coherence between the triangular operator and the square lattice.}
+\label{fig:cilindro-lattice-conexion} % chktex 24
+\end{minipage}
+\end{fullwidth}
+
 \begin{theorem}[Emergencia del lattice desde periodicidades del operador]\label{thm:generacion-operador}
 Las periodicidades del operador inducen las identificaciones:
 \[
@@ -1592,6 +1603,16 @@ Contraste con extensiones dimensionales previas: en §\ref{subsec:geometria-3d} 
 
 Esta distinción es crucial: el operador habita una familia de funciones $\mathbb{C} \to \mathbb{C}$ (plano complejo $\times$ escala), no $\mathbb{C} \times \mathbb{R} \times \mathbb{R}$ (tres dimensiones espaciales).
 
+\begin{fullwidth}
+    \centering
+    \begin{minipage}{\linewidth}
+    \includegraphics[width=\linewidth]{src/images/image2.png}
+    \captionsetup{width=\linewidth,justification=centering}
+    \captionof{figure}{Relación geométrica P-C-F para los primeros 4 niveles $\sigma$: puntos P (rojos), C (verdes) y F (azules) forman triángulos que escalan radialmente con $\sigma$ (radios $R_\sigma = 3.00, 4.8, 7.8, 12.71$), contenidos en cilindros concéntricos translúcidos. Las líneas cian conectan puntos dentro de cada nivel; las líneas punteadas muestran la progresión de cada tipo de punto entre niveles, revelando la estructura autosimilar del operador.}
+    \label{fig:scale_cone} % chktex 24
+    \end{minipage}
+    \end{fullwidth}
+
 \subsubsection{Familia de Círculos sin Ejes Adicionales}
 
 \begin{observation}[Círculo base con parámetro]\label{obs:circulo-base-parametro}
@@ -1609,22 +1630,6 @@ La familia de curvas espaciales es:
 La coordenada $\sigma$ parametriza escalas sin requerir ejes espaciales $(x_\sigma, y_\sigma)$ adicionales. Cada valor de $\sigma$ especifica el radio de la curva espacial en el mismo espacio $(x,y,z)$.
 \end{proposition}
 
-\begin{fullwidth}
-\centering
-\begin{minipage}{\linewidth}
-\includegraphics[width=\linewidth]{src/images/image2.png}
-\captionsetup{width=\linewidth,justification=centering}
-\captionof{figure}{Relación geométrica P-C-F para los primeros 4 niveles $\sigma$: puntos P (rojos), C (verdes) y F (azules) forman triángulos que escalan radialmente con $\sigma$ (radios $R_\sigma = 3.00, 4.8, 7.8, 12.71$), contenidos en cilindros concéntricos translúcidos. Las líneas cian conectan puntos dentro de cada nivel; las líneas punteadas muestran la progresión de cada tipo de punto entre niveles, revelando la estructura autosimilar del operador.}
-\label{fig:scale_cone} % chktex 24
-\end{minipage}
-\end{fullwidth}
-
-Esta estructura autosimilar genera un cono análogo a los conos de luz del principio de Fermat en óptica geométrica, donde trayectorias de luz minimizan tiempo de propagación generando superficies cónicas continuas. Sin embargo, aquí la geometría difiere en dos aspectos fundamentales: el cono emerge de un ángulo distinto (determinado por el escalamiento áureo $\varphi$ en lugar de propagación luminosa) y está dividido entre escalas discretas en lugar de formar una superficie continua. Formalmente, la parametrización discreta es:
-\[
-\sigma \mapsto r_0\varphi^\sigma, \quad \sigma \in \mathbb{Z}
-\]
-donde cada nivel $\sigma$ corresponde a un círculo de radio $r_0\varphi^\sigma$, estableciendo una partición del cono en niveles escalares discretos en lugar de una generatriz continua.
-
 \subsubsection{Lattice Vertical Multiplicativo}
 
 \begin{proposition}[Estructura discreta del lattice vertical]\label{prop:estructura-discreta}
@@ -1638,6 +1643,16 @@ En espacio logarítmico:
 \ln(\Lambda_{\text{vertical}}) = \ln(r_0) + \ln(\varphi)\mathbb{Z}
 \]
 \end{proposition}
+
+\begin{fullwidth}
+\centering
+\begin{minipage}{\linewidth}
+\includegraphics[width=\linewidth]{src/images/lattice_hypercube_analysis.png}
+\captionsetup{width=\linewidth,justification=centering}
+\captionof{figure}{Scaling of the PCF lattice $\Lambda_{\text{PCF}}$ across scale levels $\sigma \in \{0,1,2,3\}$ with module $M_\sigma = \varphi^\sigma \cdot M_{\text{PCF}}$ (\dref{def:modulo-topologico}, \pref{prop:lattice-PCF-sigma}). \textbf{(Left)} 3D view $(u, v, \sigma)$ with $\sigma$ as vertical axis showing fundamental cells of side $M_\sigma$ at each level. \textbf{(Center)} 2D projection: lattice expands with $\sigma$ (cells grow as $\varphi^{2\sigma} \cdot M_{\text{PCF}}^2$), lower $\sigma$ yields denser lattices. \textbf{(Right)} Fixed volume $[-150, 150]^2$: density decreases with $\sigma$ (more points at lower levels). The hypercube structure has coordinates $(u, v, w, \sigma)$ where $w = \varphi \cdot v$ and $\sigma$ parametrizes the scale tower, connecting to $\Lambda_{\text{vertical}} = \{r_0\varphi^n : n \in \mathbb{Z}\}$ (\pref{prop:estructura-discreta}) and operator navigation (\tref{thm:operador-navegacion}).}
+\label{fig:lattice-hipercubo-analisis} % chktex 24
+\end{minipage}
+\end{fullwidth}
 
 \begin{observation}[Comparación con lattices clásicos]\label{obs:comparacion-lattices}
 
@@ -1659,6 +1674,37 @@ $\Lambda_{\text{vertical}}$ & 1D & Multiplicación & $\{\varphi\}$ & $\mathbb{R}
 \begin{corollary}[Lattice vertical sin dimensión adicional]\label{cor:lattice-vertical-sin-dimension}
 El lattice vertical $\Lambda_{\text{vertical}} = \{r_0\varphi^n : n \in \mathbb{Z}\}$ (Proposición~\ref{prop:estructura-discreta}) opera sobre escalas en $\mathbb{R}_+$, no sobre coordenadas espaciales. Por tanto, no añade dimensión al espacio $\mathbb{R}^3$ o $\mathbb{C}$, sino que parametriza una familia discreta de escalas mediante la multiplicación por potencias de $\varphi$.
 \end{corollary}
+
+\begin{fullwidth}
+\centering
+\begin{minipage}{\linewidth}
+\includegraphics[width=\linewidth]{src/images/lattice_square_combined.png}
+\captionsetup{width=\linewidth,justification=centering}
+\captionof{figure}{Golden ratio $\varphi$ acting on the PCF lattice structure. \textbf{(Left)} PCF lattice with cells $M_\sigma = M \cdot \varphi^\sigma$ growing from the origin, showing how $\varphi$ acts as an expansion factor connecting different scales of the lattice structure (\dref{def:lattice-PCF}, \pref{prop:lattice-PCF-sigma}). Each cell grows by factor $\varphi$ from the previous level, with arrows indicating the $\times\varphi$ transformation. \textbf{(Right)} Square to rectangle projection via golden coupling: a square in $(u, w)$ coordinates projects to a rectangle in $(u, z+\varphi w)$ coordinates, demonstrating how the golden coupling $w = \varphi \cdot v$ transforms the fundamental cell structure. The projection scales the vertical dimension by $\varphi$, connecting the 2D lattice structure to the 3D embedding with golden coupling (\pref{prop:lattice-3D}, \tref{thm:proyeccion-lattice}).}
+\label{fig:lattice-square-phi} % chktex 24
+\end{minipage}
+\end{fullwidth}
+
+\begin{fullwidth}
+\centering
+\begin{minipage}{\linewidth}
+\includegraphics[width=\linewidth]{src/images/hypercube_views.png}
+\captionsetup{width=\linewidth,justification=centering}
+\captionof{figure}{PCF hypercube from 8 different perspectives showing nested cubes growing as $M_\sigma = \varphi^\sigma \cdot M_{\text{PCF}}$ at each level $\sigma \in \{0,1,2,3\}$. The hypercube structure demonstrates the 4D nature of the PCF system with coordinates $(u, v, w, \sigma)$ where $w = \varphi \cdot v$ and $\sigma$ parametrizes the scale tower. Each perspective reveals different aspects of the nested structure, showing how the fundamental cells expand by factor $\varphi$ at each level, connecting to the lattice scaling $\Lambda_\sigma = \varphi^\sigma \cdot \Lambda_{\text{PCF}}$ (\dref{def:lattice-PCF}, \pref{prop:lattice-PCF-sigma}, \tref{thm:operador-navegacion}).}
+\label{fig:hypercube-vistas} % chktex 24
+\end{minipage}
+\end{fullwidth}
+
+\begin{fullwidth}
+\centering
+\begin{minipage}{\linewidth}
+\includegraphics[width=\linewidth]{src/images/hypercube_complete.png}
+\captionsetup{width=\linewidth,justification=centering}
+\captionof{figure}{PCF hypercube with nested cubes growing from the origin. Each cube at level $\sigma$ has side $M_\sigma = \varphi^\sigma \cdot M_{\text{PCF}}$ where $M_{\text{PCF}} = \pi/\varepsilon_0 \approx 67.846$ is the topological module (\dref{def:modulo-topologico}). The nested structure demonstrates the self-similar scaling property: $\Lambda_\sigma / \varphi^\sigma = \Lambda_0$ for all $\sigma$, showing the same pattern at all scales. The cubes grow in the 3D space $(u, v, w)$ where $u = \text{Re}(z)$, $v = \text{Im}(z)$, and $w = \varphi \cdot v$ via the golden coupling, with $\sigma$ parametrizing the scale dimension (\pref{prop:lattice-PCF-sigma}, \tref{thm:operador-navegacion}).}
+\label{fig:hypercube-nested} % chktex 24
+\end{minipage}
+\end{fullwidth}
+
 
 \subsubsection{Invariancia de la Razón de Módulos}
 
@@ -2177,6 +2223,16 @@ Esta independencia se manifiesta en tres aspectos estructurales:
 
 \par
 Esta independencia entre generador y operador construido encuentra paralelo en mecánica cuántica: los generadores de rotaciones (momento angular $J_z$) son anti-hermíticos ($J_z^\dagger = -J_z$), mientras que los operadores de momento angular cuadrado ($J^2$) construidos desde ellos son hermíticos (${(J^2)}^\dagger = J^2$). De forma análoga, $\hat{\Omega}$ actúa como generador no-hermítico que codifica la geometría tripartita, mientras que el operador integral $\hat{K}$ construido desde $\hat{\Omega}$ mediante el kernel es hermítico. La construcción del kernel introduce la estructura adicional (términos $\delta + \varepsilon$) que recupera hermiticidad, necesaria para que el operador tenga eigenvalores reales y represente un observable físico o geométrico bien definido.
+
+\begin{fullwidth}
+\centering
+\begin{minipage}{\linewidth}
+\includegraphics[width=\linewidth]{src/images/image2.jpg}
+\captionsetup{width=\linewidth,justification=centering}
+\captionof{figure}{Dimensional reduction of $\hat{\Omega}$ eigenvalues: (left) eigenvalues $\lambda_1, \lambda_2, \lambda_3$ in $\mathbb{C}^3$ space with constant magnitude $|\lambda_i| = 1/2$ for all $i$, forming a circle of radius $1/2$ in the complex plane projection; (center) projection to $\mathbb{C}$ (effective 2D) showing the three eigenvalues $\lambda_k = \frac{1}{2}\omega^k$ for $k \in \{0,1,2\}$ on the critical circle $|z| = 1/2$ with golden coupling $z = \varphi y$, where $\omega = e^{2\pi i/3}$ is the primitive cube root of unity; (right) collapse to $\mathbb{R}$ (1D) demonstrating idempotence $P^2 = P$ where $P = 2 \cdot \Omega$ with eigenvalue $\lambda = 1$, showing the factor 2 relationship between $\Omega$ (magnitude $|\Omega| = 1/2$) and the idempotent projection $P$ (magnitude $|P| = 1$). This dimensional reduction illustrates how the non-Hermitian generator $\hat{\Omega}$ encodes the tripartite geometry in 3D, projects to the complex plane in 2D, and collapses to a real idempotent operator in 1D, maintaining the constant magnitude property throughout the reduction (\pref{prop:origen-geometrico}, \tref{thm:hermiticidad-op-integral}).}
+\label{fig:omega-dimensional-reduction} % chktex 24
+\end{minipage}
+\end{fullwidth}
 
 \par
 La no-hermiticidad de $\hat{\Omega}$ no es defecto sino característica esencial que codifica la direccionalidad de la estructura tripartita. Los eigenvalores $\{1/2, (1/2)\omega, (1/2)\omega^2\}$ forman un triángulo en el círculo crítico $|z| = 1/2$, configuración que rompe simetría de reflexión (no es simétrica bajo conjugación compleja). Esta direccionalidad codifica el flujo $P \to C \to F$ del sistema. Cuando construimos el kernel, esta direccionalidad se traduce en fase $\theta(x) = 3 \arctan(2x) + \ldots$ que evoluciona con $x$, acoplamiento $\varepsilon(x,y)$ que correlaciona puntos cercanos, y estructura hermítica global que emerge de la simetrización. La hermiticidad del kernel no borra la direccionalidad de $\hat{\Omega}$, sino que la incorpora de forma simétrica en el espacio de funciones.

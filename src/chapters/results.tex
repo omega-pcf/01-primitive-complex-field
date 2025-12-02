@@ -133,33 +133,113 @@ El sistema PCF exhibe autosimilaridad geométrica bajo escalamiento por $\varphi
 
 Esta autosimilaridad fractal es de naturaleza geométrica, no estadística: las relaciones de escalamiento se mantienen de forma determinista y exacta en cada nivel $\sigma$, a diferencia de procesos estocásticos donde la autosimilaridad emerge únicamente en sentido probabilístico o asintótico.
 
-\subsection{Dimensión Fractal}
+\begin{fullwidth}
+\centering
+\begin{minipage}{\linewidth}
+\includegraphics[width=\linewidth]{src/images/dual_towers.png}
+\captionsetup{width=\linewidth,justification=centering}
+\captionof{figure}{Dual towers demonstrating expansion and contraction scaling: (left) expansion tower where radius $R_\sigma = R_0 \cdot \varphi^\sigma$ grows exponentially with scale level $\sigma$, maintaining three points (P, C, F) per level as the triangle expands; (right) contraction tower (Sierpiński fractal) where the outer size remains fixed while internal complexity grows as $3^\sigma$ through recursive subdivision, with $\sigma$ levels showing $1, 3, 9, 27, 81$ triangles respectively. Both towers illustrate the self-similar scaling properties of the PCF system: expansion via golden ratio $\varphi$ and contraction via Sierpiński subdivision, connecting to the Hausdorff dimension $\dim_H = \log 3 / \log 2$ (\pref{prop:dimension-fractal-sistema}, \pref{prop:autosimilaridad-aurea}).}
+\label{fig:dual-towers} % chktex 24
+\end{minipage}
+\end{fullwidth}
 
-\begin{proposition}[Dimensión fractal del sistema]\label{prop:dimension-fractal-sistema}
-La dimensión de Hausdorff del conjunto de autosimilitud en el espacio fasorial es:
+\subsection{Realización Geométrica: Sistema de Funciones Iteradas}
+
+La estructura algebraica del operador $\hat{\Omega}$ admite una realización geométrica como conjunto fractal autosimilar mediante un sistema de funciones iteradas. Esta realización conecta las tres componentes (P, C, F) del operador con una estructura geométrica bidimensional de dimensión fractal no entera.
+
+\begin{definition}[Sistema de funciones iteradas PCF]\label{def:ifs-pcf}
+Sea $\Delta_0$ el triángulo con vértices en los eigenvalores de $\hat{\Omega}$ (\pref{prop:origen-geometrico}):
 \[
-\dim_H = \frac{\log 3}{\log 2} = 1.584962500721156\ldots
+v_k = \frac{1}{2}\omega^k, \quad k \in \{0, 1, 2\}, \quad \omega = e^{2\pi i/3}
 \]
+El sistema de funciones iteradas (IFS) $\{T_0, T_1, T_2\}$ se define mediante las contracciones:
+\[
+T_k(z) = \frac{1}{2}(z - v_k) + v_k = \frac{1}{2}z + \frac{1}{2}v_k
+\]
+Cada transformación $T_k$ contrae el plano complejo por un factor $1/2$ hacia el vértice $v_k$, generando tres copias auto-similares del triángulo original.
+\end{definition}
+
+\begin{proposition}[Propiedades del IFS]\label{prop:propiedades-ifs}
+El sistema de funciones iteradas satisface:
+\begin{enumerate}
+\item \textit{Factor de contracción uniforme}: $|T_k'(z)| = 1/2$ para todo $z \in \mathbb{C}$ y todo $k \in \{0,1,2\}$, igual a la magnitud $|\hat{\Omega}| = 1/2$ del operador.
+\item \textit{Puntos fijos}: Cada transformación $T_k$ tiene punto fijo $v_k$, es decir, $T_k(v_k) = v_k$.
+\item \textit{Cardinalidad}: El sistema consta de $N = 3$ contracciones, correspondiente a las tres componentes (P, C, F) del operador $\hat{\Omega}$.
+\end{enumerate}
 \end{proposition}
 
 \begin{proof}[Por cálculo directo]
-El operador tiene tres componentes (P, C, F) que se auto-escalan bajo torre $\varphi^\sigma$. En cada nivel $\sigma$, el sistema genera $N = 3$ copias auto-similares con factor de escalamiento $s = 1/2$ (la magnitud del operador). Aplicando la relación estándar de dimensión fractal $N = s^{-\dim_H}$ para autosimilitud exacta:
+Para (1): La función $T_k(z) = \frac{1}{2}z + \frac{1}{2}v_k$ es afín con derivada constante $T_k'(z) = \frac{1}{2}$ independiente de $z$. Esta constante coincide con $|\hat{\Omega}| = 1/2$ establecido en \pref{prop:origen-geometrico}.
+
+Para (2): Sustituyendo $z = v_k$ en la definición de $T_k$:
+\[
+T_k(v_k) = \frac{1}{2}v_k + \frac{1}{2}v_k = v_k
+\]
+confirmando que $v_k$ es punto fijo de $T_k$.
+
+Para (3): El sistema $\{T_0, T_1, T_2\}$ tiene exactamente tres elementos, en correspondencia biunívoca con las tres componentes del operador: $T_0$ asociada a P, $T_1$ a C, $T_2$ a F.
+\end{proof}
+
+\begin{theorem}[Atractor PCF]\label{thm:atractor-pcf}
+El atractor $\mathcal{S} = \lim_{n \to \infty} S_n$ donde $S_{n+1} = \bigcup_{k=0}^{2} T_k(S_n)$ y $S_0 = \Delta_0$ es un triángulo de Sierpiński\sidenote{~\cite{Sierpinski1916}} con dimensión de Hausdorff:
+\[
+\dim_H(\mathcal{S}) = \frac{\log 3}{\log 2} = 1.584962\ldots
+\]
+\end{theorem}
+
+\begin{proof}[Por el teorema de Hutchinson]
+El sistema de funciones iteradas $\{T_0, T_1, T_2\}$ consta de $N = 3$ similitudes con factor de contracción uniforme $s = 1/2$ (\pref{prop:propiedades-ifs}). El triángulo inicial $\Delta_0$ y las imágenes $T_k(\Delta_0)$ satisfacen la condición de conjunto abierto (Open Set Condition): existe un conjunto abierto acotado $V$ tal que $T_k(V) \subset V$ para $k \in \{0,1,2\}$ y las imágenes $T_k(V)$ son disjuntas dos a dos. Por el teorema de Hutchinson\sidenote{~\cite{Hutchinson1981}}, la dimensión de Hausdorff del atractor $\mathcal{S}$ coincide con la dimensión de similitud, que para $N = 3$ y $s = 1/2$ es $\dim_H(\mathcal{S}) = \log N / \log(1/s) = \log 3 / \log 2$.
+\end{proof}
+
+\subsection{Dimensión Fractal del Sistema}
+
+La dimensión $\dim_H(\mathcal{S}) > 1$ pero $< 2$ indica que el sistema PCF habita un espacio de complejidad intermedia entre línea (1D) y plano (2D), característica de estructuras fractales. Esta dimensión emerge tanto de la estructura algebraica del operador como de su realización geométrica.
+
+\begin{proposition}[Dimensión fractal del sistema]\label{prop:dimension-fractal-sistema}
+La dimensión de Hausdorff del conjunto de autosimilitud del operador $\hat{\Omega}$ en el espacio fasorial es:
+\[
+\dim_H = \frac{\log 3}{\log 2} = 1.584962500721156\ldots
+\]
+Esta dimensión coincide con la del atractor geométrico $\mathcal{S}$ (\pref{thm:atractor-pcf}).
+\end{proposition}
+
+\begin{proof}[Por correspondencia algebraico-geométrica]
+El operador $\hat{\Omega}$ tiene tres componentes (P, C, F) que se auto-escalan bajo la torre exponencial $\varphi^\sigma$ (\pref{prop:autosimilaridad-aurea}). En cada nivel $\sigma$, la estructura algebraica genera $N = 3$ copias auto-similares con factor de escalamiento $s = 1/2$ (la magnitud del operador $|\hat{\Omega}| = 1/2$). La relación de autosimilitud exacta $N = s^{-\dim_H}$ implica:
 \[
 3 = 2^{\dim_H} \Rightarrow \dim_H = \frac{\log 3}{\log 2}
 \]
-Esta es la dimensión del triángulo de Sierpiński, coherente con la estructura triangular subyacente del sistema PCF.
+Esta dimensión coincide con la del atractor geométrico $\mathcal{S}$ (\pref{thm:atractor-pcf}), estableciendo la correspondencia entre la estructura algebraica del operador y su realización fractal en el plano complejo.
 \end{proof}
 
-\subsection{Interpretación Geométrica}
+\begin{fullwidth}
+\centering
+\begin{minipage}{\linewidth}
+\includegraphics[width=\linewidth]{src/images/towers_comparison.png}
+\captionsetup{width=\linewidth,justification=centering}
+\captionof{figure}{Comparison of expansion and contraction towers: (left) expansion tower where radius $R_\sigma = R_0 \cdot \varphi^\sigma$ grows exponentially with scale level $\sigma$, showing translucent cylinders and triangles P-C-F at each level; (right) contraction tower (Sierpiński) where radius $R_\sigma = R_0 \cdot (1/2)^\sigma$ shrinks exponentially, demonstrating the dual scaling behavior. Both towers maintain the three-point structure (P, C, F) at each level, with the expansion tower growing outward and the contraction tower converging inward, illustrating the complementary scaling mechanisms of the PCF system (\pref{prop:autosimilaridad-aurea}).}
+\label{fig:towers-comparison} % chktex 24
+\end{minipage}
+\end{fullwidth}
 
-La dimensión $\dim_H > 1$ pero $< 2$ indica que el sistema PCF habita un espacio de complejidad intermedia entre línea (1D) y plano (2D), característica de estructuras fractales.
+% \begin{fullwidth}
+% \centering
+% \begin{minipage}{\linewidth}
+% \includegraphics[width=\linewidth]{src/images/tower_expansion.png}
+% \captionsetup{width=\linewidth,justification=centering}
+% \captionof{figure}{Expansion tower showing the PCF operator structure across scale levels $\sigma \in \{0,1,2,3,4\}$: each level displays a translucent cylinder of radius $R_\sigma = R_0 \cdot \varphi^\sigma$ containing the equilateral triangle P-C-F with vertices colored red (P), green (C), and blue (F). The tower demonstrates how the operator geometry expands exponentially with the golden ratio $\varphi$, maintaining the three-component structure at all scales while the radius grows as $\varphi^\sigma$ (\pref{prop:autosimilaridad-aurea}).}
+% \label{fig:tower-expansion} % chktex 24
+% \end{minipage}
+% \end{fullwidth}
 
-Esta dimensión fractal emerge naturalmente de:
-\begin{itemize}
-\item 3 componentes (P, C, F)
-\item Magnitud universal 1/2
-\item Autosimilitud áurea vía torre $\varphi^\sigma$
-\end{itemize}
+\begin{fullwidth}
+\centering
+\begin{minipage}{\linewidth}
+\includegraphics[width=\linewidth]{src/images/top_view_expansion.png}
+\captionsetup{width=\linewidth,justification=centering}
+\captionof{figure}{Top view of the expansion tower showing concentric circles in the XY plane, each representing a different scale level $\sigma$ with radius $R_\sigma = R_0 \cdot \varphi^\sigma$. Each circle contains an inscribed equilateral triangle P-C-F, demonstrating the exponential growth pattern. The concentric structure illustrates how the PCF operator expands radially while maintaining its triangular geometry, with the golden ratio $\varphi$ governing the scaling between consecutive levels (\pref{prop:autosimilaridad-aurea}).}
+\label{fig:top-view-expansion} % chktex 24
+\end{minipage}
+\end{fullwidth}
 
 \section{Triple Convergencia y Coherencia Estructural}\label{triple}
 

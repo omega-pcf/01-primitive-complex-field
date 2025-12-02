@@ -24,8 +24,11 @@ export default {
     publish: false,
   },
   hooks: {
-    'after:bump': 'pnpm exec tsx scripts/build.ts ${version}',
-    // Build after version bump so PDF uses correct version number
+    'after:bump': [
+      'pnpm run generate:figures',
+      'pnpm exec tsx scripts/build.ts ${version}',
+    ],
+    // Generate figures first, then build PDF with correct version number
     // release-it automatically does `git add . --update` before commit
   },
   plugins: {
