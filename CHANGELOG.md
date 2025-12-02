@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.0](///compare/v1.3.2...v1.4.0) (2025-12-02)
+
+### Features
+
+* generate .zenodo.json from CITATION.cff using cffconvert 040c176
+
 ## [1.3.2](///compare/v1.3.0...v1.3.2) (2025-12-02)
 
 ### Bug Fixes
