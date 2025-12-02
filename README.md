@@ -63,7 +63,7 @@ No. This is original mathematical research.
 
 ## Recommended Citation
 
-González García, J. A., González García, V. M., Dressler Pérez, I. M., García Ordóñez, L. M., Tenorio, P., & Moreno, M. (Year). *The Ω_PCF Operator and the Primitive Structure of the Complex Plane: From Mersenne to Riemann via Geometric Coupling φ-i-S₃*. [Preprint]. GitHub. https://github.com/omega-pcf/01-primitive-complex-field
+González García, J. A., González García, V. M., Dressler Pérez, I. M., García Ordóñez, L. M., & Moreno, M. (Year). *The Ω_PCF Operator and the Primitive Structure of the Complex Plane: From Mersenne to Riemann via Geometric Coupling φ-i-S₃*. [Preprint]. GitHub. https://github.com/omega-pcf/01-primitive-complex-field
 
 ---
 
