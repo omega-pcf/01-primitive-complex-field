@@ -29,7 +29,6 @@ This repository contains the LaTeX source files, computational verification code
 
 - **Itzel Marion Dressler Pérez** (Independent Researcher)
 - **Luz María García Ordóñez** (TTAMAYO PUNTO COM, S.A.P.I. de C.V., Mexico)
-- **Pablo Tenorio** (Independent Researcher)
 - **Mario Moreno** (Independent Researcher)
 
 **Date of data collection:** Ongoing research project  
